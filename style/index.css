@@ -1,19 +1,20 @@
 /* COLOCANDO COR DE FUNDO NO MEU CABEÇALHO*/
 .topo{
-    background-color:rgb(0, 0, 0); /* COR DE FUNDO DO CABEÇALHO*/
+    background-color:rgb(12, 6, 6); /* COR DE FUNDO DO CABEÇALHO*/
     font-family: barlow, sans-serif; /*FONTE DE LETRA DO CABEÇALHO*/
     color:white; /* COR DA LETRA DO CABEÇALHO*/
 }
 nav {
   
     text-align: center; /* ALINHAMENTO DO TEXTO DO MENU DE NAVEGAÇÃO*/
-    border-color: white; /* COR DA BORDA DO MENU DE NAVEGAÇÃO*/
+    border-color: rgb(179, 41, 41); /* COR DA BORDA DO MENU DE NAVEGAÇÃO*/
+    background-color: rgb(12, 6, 6); /* COR DE FUNDO DO MENU DE NAVEGAÇÃO*/
     border-width: 1px; /* LARGURA DA BORDA DO MENU DE NAVEGAÇÃO*/
     border-style: solid; /* ESTILO DA BORDA DO MENU DE NAVEGAÇÃO*/
     padding: 10px; /* ESPAÇAMENTO INTERNO DO MENU DE NAVEGAÇÃO*/
 }
 nav a{
-    color:rgb(0, 0, 0); /* COR DA LETRA DO MENU DE NAVEGAÇÃO*/
+    color:rgb(255, 255, 255); /* COR DA LETRA DO MENU DE NAVEGAÇÃO*/
     text-decoration:none; /* TIRA O SUBLINHADO DO MENU DE NAVEGAÇÃO*/
     margin: 0 30px; /* ESPAÇAMENTO ENTRE OS ITENS DO MENU DE NAVEGAÇÃO*/
     text-align: center; /* ALINHAMENTO DO TEXTO DO MENU DE NAVEGAÇÃO*/
@@ -21,7 +22,7 @@ nav a{
 }
 
 .logo img{
-    width: 150px; /* LARGURA DA IMAGEM DO LOGO*/
+    width: 100px; /* LARGURA DA IMAGEM DO LOGO*/
     height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DA IMAGEM DO LOGO*/
 }
 /* CONFIGURANDO O CAIXA DE PESQUISA */
@@ -65,20 +66,28 @@ nav a{
 .icones a img{
     height: 30px; /* ALTURA DOS ÍCONES DE USUÁRIO E CARRINHO*/
     width: 30px; /* LARGURA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    margin-left: 20px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
+    margin-left: px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-row: 1 / 3; /* FAZ COM QUE OS ÍCONES DE USUÁRIO E CARRINHO OCUPEM DUAS LINHAS NA GRADE*/
 
 }
-?* CONFIGURANDO OS ÍCONES DE USUÁRIO E CARRINHO */
+/* CONFIGURANDO OS ÍCONES DE USUÁRIO E CARRINHO */
 .icones a small{
     font-size: 12px; /* TAMANHO DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
     display: block; /* EXIBE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO EM UMA NOVA LINHA*/
     color:rgb(255, 255, 255); /* COR DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-column: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA COLUNA DA GRADE*/
+    grid-row: 1; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A PRIMEIRA LINHA DA GRADE*/
+    margin: 0; /* REMOVE A MARGEM DOS ÍCONES DE USUÁRIO E CARRINHO*/
    
 }
 .icones a p{
     font-size: 12px; /* TAMANHO DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
     display: block; /* EXIBE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO EM UMA NOVA LINHA*/
     color:rgb(255, 255, 255); /* COR DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-column: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA COLUNA DA GRADE*/
+    grid-row: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA LINHA DA GRADE*/
+    margin: 0; /* REMOVE A MARGEM DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    
     
 }
 .icones a p{
@@ -86,9 +95,24 @@ nav a{
 }
 .icones a{
     text-decoration: none; /* REMOVE O SUBLINHADO DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    display: grid; /* EXIBE OS ÍCONES DE USUÁRIO E CARRINHO EM UMA GRADE*/
+    grid-template-columns: 40px auto; /* DEFINE UMA COLUNA PARA OS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-template-rows: auto auto; /* DEFINE DUAS LINHAS PARA OS ÍCONES DE USUÁRIO E CARRINHO*/
+    margin-right: 20px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO E A BORDA DIREITA DO CABEÇALHO*/
 }
+/* CONFIGURANDO A DIV ICONES*/
 .icones{
     display: flex; /* EXIBE OS ÍCONES DE USUÁRIO E CARRINHO EM UMA LINHA*/
     align-items: center; /* ALINHAMENTO VERTICAL DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    gap: 20px; /* ESPAÇAMENTO ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
+    gap: 30px; /* ESPAÇAMENTO ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
+}
+/*configurando a área do banner*/
+.imagens-banner img{
+    max-width: 100%; /* LARGURA MÁXIMA DO BANNER PARA SE AJUSTAR AO TAMANHO DA TELA*/
+}
+.banner{
+    display: flex; /* EXIBE AS IMAGENS DO BANNER EM UMA LINHA*/
+    justify-content: space-between; /* ALINHAMENTO HORIZONTAL DAS IMAGENS DO BANNER*/
+    align-items: center; /* ALINHAMENTO VERTICAL DAS IMAGENS DO BANNER*/
+   
 }
