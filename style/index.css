@@ -116,3 +116,119 @@ nav a{
     align-items: center; /* ALINHAMENTO VERTICAL DAS IMAGENS DO BANNER*/
    
 }
+
+.imagens-banner{
+    position: relative; /* POSIÇÃO RELATIVA PARA PERMITIR O POSICIONAMENTO ABSOLUTO DOS BOTÕES DE NAVEGAÇÃO DO BANNER*/
+    width: 100%; /* LARGURA DO BANNER PARA SE AJUSTAR AO TAMANHO DA TELA*/
+    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DO BANNER*/
+}
+.btn-comprar{
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    background-color: #A21D54;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-family: poppins, sans-serif;       
+    font-size: 18px;
+    padding: 5px 20px;
+    border: none;
+}
+.btn-anterior{
+    position:absolute;
+    top: 50%;
+    left: 2%;
+    background-color: transparent;
+    color: #A21D54;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+}
+.btn-proximo{
+    position:absolute;
+    top: 50%;
+    left: 93%;
+    background-color: transparent;
+    color: #A21D54;
+    border-radius: 50%;
+    border: none;
+    padding: 10px;
+   
+}
+.btn-comprar:hover{
+    background-color: #f1f1f1;
+    color: #A21D54;
+}
+.btn-anterior:hover, .btn-proximo:hover{
+    background-color: #A21D54;
+    color: #FFFFFF;
+}
+/* CONFIGURANDO A ÁREA DE OFERTAS */
+.ofertas{
+    padding: 20px; /*DISTANCIA ENTRE O CONTEÚDO DA DIV DE OFERTAS E AS BORDAS DA DIV*/
+}
+/* CONFIGURANDO O TÍTULO DA ÁREA DE OFERTAS */
+.titulo-ofertas{
+    font-family: barlow, sans-serif; /* FONTE DE LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
+    display: grid; /* EXIBE OS ITENS DA ÁREA DE OFERTAS EM UMA GRADE*/
+    grid-template-columns: 2 80% 20%; /*DEFINE O TAMANHO DAS COLUNAS DA GRADE*/
+    grid-template-rows: 2 50% 50%; /*DEFINE O TAMANHO DAS LINHAS DA GRADE*/
+}
+.titulo-ofertas h2{
+    color:rgb(0, 0, 0); /* COR DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
+    font-size: 24px; /* TAMANHO DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
+    grid-column: 1; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A PRIMEIRA COLUNA DA GRADE*/
+    grid-row: 1; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A PRIMEIRA LINHA DA GRADE*/
+    margin: 0; /* REMOVE A MARGEM DO TÍTULO DA ÁREA DE OFERTAS*/
+}
+.titulo-ofertas p{
+    color:rgb(66, 55, 4); /* COR DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
+    font-size: 14px; /* TAMANHO DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
+    grid-column: 1; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A PRIMEIRA COLUNA DA GRADE*/
+    grid-row: 2; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A SEGUNDA LINHA DA GRADE*/
+    margin: 0; /* REMOVE A MARGEM DO TÍTULO DA ÁREA DE OFERTAS*/
+}
+.titulo-ofertas a{
+    text-decoration: none; /* REMOVE O SUBLINHADO DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
+    color:rgb(68, 12, 197); /* COR DA LETRA DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
+    font-size: 14px; /* TAMANHO DA LETRA DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
+    grid-column: 2; /* FAZ COM QUE O LINK DO TÍTULO DA ÁREA DE OFERTAS OCUPE A SEGUNDA COLUNA DA GRADE*/
+    grid-row: 1 / 3; /* FAZ COM QUE O LINK DO TÍTULO DA ÁREA DE OFERTAS OCUPE AS DUAS LINHAS DA GRADE*/
+    align-self: center; /* ALINHAMENTO VERTICAL DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
+    padding-left: 80%; /* ESPAÇAMENTO INTERNO DO LINK DO TÍTULO DA ÁREA DE OFERTAS PARA A ESQUERDA*/
+}
+.lista-produto{
+    display: flex; /* EXIBE OS PRODUTOS EM UMA LINHA*/
+    justify-content: space-between; /* ALINHAMENTO HORIZONTAL DOS PRODUTOS*/
+    font-family: barlow, sans-serif; /* FONTE DE LETRA DOS PRODUTOS*/
+    margin-top: 20px; /* MARGEM SUPERIOR DOS PRODUTOS*/
+    
+}
+.card-produtos{
+    width: 23%; /* LARGURA DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DA TELA*/
+    height: 50%; /* ALTURA DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DA TELA*/
+    background-color: rgb(255, 255, 255); /* COR DE FUNDO DOS CARDS DE PRODUTOS*/
+    border: 1px solid rgb(179, 41, 41); /* BORDA DOS CARDS DE PRODUTOS*/
+    border-radius: 10px; /* ARREDONDAMENTO DAS BORDAS DOS CARDS DE PRODUTOS*/
+    padding: 10px; /* ESPAÇAMENTO INTERNO DOS CARDS DE PRODUTOS*/
+    text-align: center; /* ALINHAMENTO DO TEXTO DOS CARDS DE PRODUTOS*/
+}
+.card-produtos img{
+    width: 50%; /* LARGURA DAS IMAGENS DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DO CARD*/
+    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DAS IMAGENS DOS CARDS DE PRODUTOS*/
+    margin-bottom: 10px; /* MARGEM INFERIOR DAS IMAGENS DOS CARDS DE PRODUTOS*/
+    border-radius: 10px; /* ARREDONDAMENTO DAS BORDAS DAS IMAGENS DOS CARDS DE PRODUTOS*/
+    
+}
+.imagem-botao{
+    position: relative; /* POSIÇÃO RELATIVA PARA PERMITIR O POSICIONAMENTO ABSOLUTO DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
+}
+.favorito{
+    position: absolute; /* POSIÇÃO ABSOLUTA PARA POSICIONAR O BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/    
+    border: none; /* REMOVE A BORDA DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
+    border-radius: 50%; /* ARREDONDAMENTO DAS BORDAS DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
+    background-color: transparent; /* COR DE FUNDO TRANSPARENTE PARA O BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
+    top: 10px; /* DISTÂNCIA DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS DA BORDA SUPERIOR DA IMAGEM DO CARD DE PRODUTO*/
+    right: 10px; /* DISTÂNCIA DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS DA BORDA DIREITA DA IMAGEM DO CARD DE PRODUTO*/
+    padding: 10px; /* ESPAÇAMENTO INTERNO DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
+}
