@@ -292,3 +292,41 @@ nav a{
 .btn-card h5{
     font-size: 14px; /*tamanho do texto*/
 }
+/*Configurações de Rodapé*/
+footer{ /* flooter não pode ter ponto*/
+    background-color: black; /*cor de fundo*/
+    color: white; /*todos os textos na cor branca*/
+    font-family: barlow, sans-serif; /*tipo de fonte*/
+    padding: 40px;
+}
+.superior{
+    display: flex; /*permitir flexibilidade entre as colunas*/
+    gap:10px; /*espaçamento entre as divs*/
+    justify-content: space-between; /*define um tamanho igual entre as divs*/
+    flex-wrap: wrap; /*joga os textos para outra linha caso não possa caber na div*/
+}
+.inferior{
+    display: flex; /*permitir flexibilidade entre as colunas*/
+    gap:20px; /*espaçamento entre as divs*/
+    justify-content: space-between; /*definir um tamanho igual entre os paragrafos*/
+    flex-wrap: wrap; /*joga os textos para outra linha caso não possa caber na div*/
+    align-items: center; /*alinha os paragrafos no centro*/
+}
+.coluna1,.coluna2,.coluna3,.coluna4{
+    flex: 1; /*que cada coluna ocupa 1 espaço na página*/
+}
+.superior h2,.h4{
+    font-size: 18px; /*tamanho dos titulos*/
+    font-weight: bold; /*apliquei negrito aos titulos*/
+}
+.superior p{
+    font-size: 12px; /*tamanho dos parágrafos*/
+}
+.superior a{
+    color: white; /*cor dos links*/
+    font-size: 10px; /*tamanho dos paragrafos*/
+    text-decoration: none; /*rmeove o sublinado*/
+}
+.superior img{
+    width: 24px; /*definir tamanho dos icones*/
+}
