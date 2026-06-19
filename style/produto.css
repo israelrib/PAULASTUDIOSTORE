@@ -1,0 +1,118 @@
+/*preenchendo toda tela*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden; /*remove a barra de rolagem horizontal*/
+    width: 100%; /*preencher sempre 100% da tela*/
+}
+/* COLOCANDO COR DE FUNDO NO MEU CABEÇALHO*/
+header{
+    background-color:rgb(12, 6, 6); /* COR DE FUNDO DO CABEÇALHO*/
+    font-family: barlow, sans-serif; /*FONTE DE LETRA DO CABEÇALHO*/
+    color:white; /* COR DA LETRA DO CABEÇALHO*/
+}
+nav {
+  
+    text-align: center; /* ALINHAMENTO DO TEXTO DO MENU DE NAVEGAÇÃO*/
+    border-color: rgb(179, 41, 41); /* COR DA BORDA DO MENU DE NAVEGAÇÃO*/
+    background-color: rgb(12, 6, 6); /* COR DE FUNDO DO MENU DE NAVEGAÇÃO*/
+    border-width: 1px; /* LARGURA DA BORDA DO MENU DE NAVEGAÇÃO*/
+    border-style: solid; /* ESTILO DA BORDA DO MENU DE NAVEGAÇÃO*/
+    padding: 10px; /* ESPAÇAMENTO INTERNO DO MENU DE NAVEGAÇÃO*/
+}
+nav a{
+    color:rgb(255, 255, 255); /* COR DA LETRA DO MENU DE NAVEGAÇÃO*/
+    text-decoration:none; /* TIRA O SUBLINHADO DO MENU DE NAVEGAÇÃO*/
+    margin: 0 30px; /* ESPAÇAMENTO ENTRE OS ITENS DO MENU DE NAVEGAÇÃO*/
+    text-align: center; /* ALINHAMENTO DO TEXTO DO MENU DE NAVEGAÇÃO*/
+    font-family: barlow, sans-serif; /* FONTE DE LETRA DO MENU DE NAVEGAÇÃO*/
+}
+
+.logo img{
+    width: 100px; /* LARGURA DA IMAGEM DO LOGO*/
+    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DA IMAGEM DO LOGO*/
+}
+/* CONFIGURANDO O CAIXA DE PESQUISA */
+.caixa-pesquisa input{
+    padding: 15px; /* ESPAÇAMENTO INTERNO DO CAMPO DE PESQUISA*/
+    border: none; /* REMOVE A BORDA DO CAMPO DE PESQUISA*/
+    border-radius: 25px; /* ARREDONDAMENTO DAS BORDAS DO CAMPO DE PESQUISA*/
+    font-family: barlow, sans-serif; /* FONTE DE LETRA DO CAMPO DE PESQUISA*/
+    height: auto; /* ALTURA DO CAMPO DE PESQUISA*/
+    width: 300px; /* LARGURA DO CAMPO DE PESQUISA*/
+    color: rgb(163, 163, 163); /* COR DA LETRA DO CAMPO DE PESQUISA*/
+    padding-right: 40px; /* ESPAÇAMENTO INTERNO DO CAMPO DE PESQUISA PARA O ÍCONE DE PESQUISA*/
+}
+/* CONFIGURANDO A DIV DA PESQUISA */
+.caixa-pesquisa{
+    display: flex; /* EXIBE OS ELEMENTOS EM UMA LINHA */
+    justify-content: center; /* ALINHAMENTO HORIZONTAL DOS ELEMENTOS*/
+    margin-top: 10px; /* MARGEM SUPERIOR DA DIV DA PESQUISA*/
+    margin-bottom: 10px; /* MARGEM INFERIOR DA DIV DA PESQUISA*/
+    position: relative; /* POSIÇÃO RELATIVA PARA PERMITIR O POSICIONAMENTO ABSOLUTO DO ÍCONE DE PESQUISA*/
+}
+/* ALINHAR AS DIVS DO CABEÇALHO */
+.topo{
+    display: flex; /* EXIBE OS ELEMENTOS EM UMA LINHA */
+    align-items: center; /* ALINHAMENTO VERTICAL DOS ELEMENTOS*/
+    justify-content: space-between; /* DISTRIBUIÇÃO DOS ELEMENTOS COM ESPAÇO ENTRE ELES*/
+    
+}
+/*CONFIGURANDO OS ICONES*/
+.caixa-pesquisa img{
+    height: 30px; /* ALTURA DO ÍCONE DE PESQUISA*/
+    width: 30px; /* LARGURA AUTOMÁTICA PARA MANTER A PROPOR*/
+    position: absolute; /* POSIÇÃO ABSOLUTA PARA POSICIONAR O ÍCONE DE PESQUISA DENTRO DA DIV DA PESQUISA*/
+    right: 10px; /* DISTÂNCIA DO ÍCONE DE PESQUISA DA BORDA ESQUERDA DO CAMPO DE PESQUISA*/
+    top: 50%; /* ALINHAMENTO VERTICAL DO ÍCONE DE PESQUISA*/
+    transform: translateY(-50%); /* AJUSTA O ALINHAMENTO VERTICAL DO ÍCONE DE PESQUISA*/
+}
+.caixa-pesquisa input::placeholder{
+    padding-left: 10px; /* ESPAÇAMENTO INTERNO DO TEXTO DE PLACEHOLDER DO CAMPO DE PESQUISA*/
+}
+.icones a img{
+    height: 30px; /* ALTURA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    width: 30px; /* LARGURA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    margin-left: px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-row: 1 / 3; /* FAZ COM QUE OS ÍCONES DE USUÁRIO E CARRINHO OCUPEM DUAS LINHAS NA GRADE*/
+
+}
+/* CONFIGURANDO OS ÍCONES DE USUÁRIO E CARRINHO */
+.icones a small{
+    font-size: 12px; /* TAMANHO DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    display: block; /* EXIBE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO EM UMA NOVA LINHA*/
+    color:rgb(255, 255, 255); /* COR DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-column: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA COLUNA DA GRADE*/
+    grid-row: 1; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A PRIMEIRA LINHA DA GRADE*/
+    margin: 0; /* REMOVE A MARGEM DOS ÍCONES DE USUÁRIO E CARRINHO*/
+   
+}
+.icones a p{
+    font-size: 12px; /* TAMANHO DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    display: block; /* EXIBE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO EM UMA NOVA LINHA*/
+    color:rgb(255, 255, 255); /* COR DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-column: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA COLUNA DA GRADE*/
+    grid-row: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA LINHA DA GRADE*/
+    margin: 0; /* REMOVE A MARGEM DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    
+    
+}
+.icones a p{
+    text-decoration: none; /* REMOVE O SUBLINHADO DOS ÍCONES DE USUÁRIO E CARRINHO*/
+}
+.icones a{
+    text-decoration: none; /* REMOVE O SUBLINHADO DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    display: grid; /* EXIBE OS ÍCONES DE USUÁRIO E CARRINHO EM UMA GRADE*/
+    grid-template-columns: 40px auto; /* DEFINE UMA COLUNA PARA OS ÍCONES DE USUÁRIO E CARRINHO*/
+    grid-template-rows: auto auto; /* DEFINE DUAS LINHAS PARA OS ÍCONES DE USUÁRIO E CARRINHO*/
+    margin-right: 20px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO E A BORDA DIREITA DO CABEÇALHO*/
+}
+/* CONFIGURANDO A DIV ICONES*/
+.icones{
+    display: flex; /* EXIBE OS ÍCONES DE USUÁRIO E CARRINHO EM UMA LINHA*/
+    align-items: center; /* ALINHAMENTO VERTICAL DOS ÍCONES DE USUÁRIO E CARRINHO*/
+    gap: 30px; /* ESPAÇAMENTO ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
+}

@@ -1,5 +1,5 @@
 /* COLOCANDO COR DE FUNDO NO MEU CABEÇALHO*/
-.topo{
+header{
     background-color:rgb(12, 6, 6); /* COR DE FUNDO DO CABEÇALHO*/
     font-family: barlow, sans-serif; /*FONTE DE LETRA DO CABEÇALHO*/
     color:white; /* COR DA LETRA DO CABEÇALHO*/
@@ -208,8 +208,8 @@ nav a{
 .card-produtos{
     width: 200px; /* LARGURA DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DA TELA*/
     height: 50%; /* ALTURA DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DA TELA*/
-    background-color: rgb(139, 124, 124); /* COR DE FUNDO DOS CARDS DE PRODUTOS*/
-    border: 1px solid rgb(179, 41, 41); /* BORDA DOS CARDS DE PRODUTOS*/
+    background-color: rgb(218, 207, 207); /* COR DE FUNDO DOS CARDS DE PRODUTOS*/
+    border: 1px solid rgb(255, 255, 255); /* BORDA DOS CARDS DE PRODUTOS*/
     border-radius: 10px; /* ARREDONDAMENTO DAS BORDAS DOS CARDS DE PRODUTOS*/
     padding: 10px; /* ESPAÇAMENTO INTERNO DOS CARDS DE PRODUTOS*/
     text-align: center; /* ALINHAMENTO DO TEXTO DOS CARDS DE PRODUTOS*/
@@ -329,4 +329,30 @@ footer{ /* flooter não pode ter ponto*/
 }
 .superior img{
     width: 24px; /*definir tamanho dos icones*/
+}
+.formadepagamento{
+    background-color: white;
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    align-items: center;
+    
+}
+.formadepagamento a{
+    margin-left: 10px;
+}
+.redesSociais{
+    margin-left: 10px;
+
+}
+/*configurar para que os elementos da página preencham toda a tela*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* definir que a página não precisa de barra horizontal*/
+body{
+    overflow-x: hidden; /*remove a barra de rolagem horizontal*/
+    width: 100%; /*preencher sempre 100% da tela*/
 }
