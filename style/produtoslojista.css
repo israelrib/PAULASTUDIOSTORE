@@ -1,0 +1,1026 @@
+/*=========================================================
+    RESET
+=========================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#F7F8FC;
+    color:#2F2F2F;
+
+}
+
+/*=========================================================
+    LAYOUT
+=========================================================*/
+
+.dashboard{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+/*=========================================================
+    SIDEBAR
+=========================================================*/
+
+.sidebar{
+
+    width:260px;
+    background:#34272F;
+    color:#FFF;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    padding:25px;
+    display:flex;
+    justify-content:center;
+
+}
+
+.logo img{
+
+    width:140px;
+    background:#FFF;
+    border-radius:10px;
+    padding:8px;
+
+}
+
+.menu{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    padding:10px 20px;
+
+}
+
+.menu a{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px 16px;
+
+    border-radius:10px;
+
+    color:#BEB5BA;
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.menu a:hover,
+.menu .ativo{
+
+    background:#C96556;
+    color:#FFF;
+
+}
+
+.perfil-sidebar{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.perfil-sidebar img{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+}
+
+.perfil-sidebar h4{
+
+    font-size:14px;
+
+}
+
+.perfil-sidebar span{
+
+    font-size:12px;
+    color:#CCC;
+
+}
+
+.perfil-sidebar i{
+
+    margin-left:auto;
+
+}
+
+/*=========================================================
+    CONTEÚDO
+=========================================================*/
+
+.conteudo{
+
+    flex:1;
+
+    padding:25px 30px;
+
+}
+
+/*=========================================================
+    TOPO
+=========================================================*/
+
+.topo{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.pesquisa{
+
+    width:420px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 18px;
+
+    background:#FFF;
+
+    border:1px solid #E5E7EE;
+
+    border-radius:25px;
+
+}
+
+.pesquisa i{
+
+    color:#AAA;
+    margin-right:10px;
+
+}
+
+.pesquisa input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+}
+
+.acoes-topo{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.notificacao{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+    background:transparent;
+
+    position:relative;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.notificacao span{
+
+    position:absolute;
+
+    top:9px;
+    right:8px;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#FF5252;
+
+}
+
+.novo-produto{
+
+    height:42px;
+
+    padding:0 22px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#C96556;
+
+    color:#FFF;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.novo-produto:hover{
+
+    background:#B65547;
+
+}
+
+.ver-loja{
+
+    height:42px;
+
+    padding:0 22px;
+
+    border-radius:8px;
+
+    border:1px solid #C96556;
+
+    background:#FFF;
+
+    color:#C96556;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.ver-loja:hover{
+
+    background:#C96556;
+
+    color:#FFF;
+
+}
+
+/*=========================================================
+    TÍTULO
+=========================================================*/
+
+.titulo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.titulo h1{
+
+    font-size:40px;
+
+    margin-bottom:5px;
+
+}
+
+.titulo p{
+
+    color:#7D7D7D;
+
+}
+
+/*=========================================================
+    ABAS
+=========================================================*/
+
+.abas{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.abas button{
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    border:1px solid #ECECEC;
+
+    background:#FFF;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.abas .ativo{
+
+    background:#FDEEEB;
+
+    color:#C96556;
+
+    border-color:#F0D5CF;
+
+}
+
+/*=========================================================
+    FILTROS
+=========================================================*/
+
+.filtros{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr auto;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.campo-busca{
+
+    display:flex;
+    align-items:center;
+
+    background:#FFF;
+
+    border:1px solid #E5E7EE;
+
+    border-radius:10px;
+
+    padding:0 15px;
+
+    height:48px;
+
+}
+
+.campo-busca i{
+
+    color:#AAA;
+
+    margin-right:10px;
+
+}
+
+.campo-busca input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+}
+
+.filtros select{
+
+    height:48px;
+
+    border:1px solid #E5E7EE;
+
+    border-radius:10px;
+
+    padding:0 15px;
+
+    background:#FFF;
+
+    cursor:pointer;
+
+}
+
+.mais-filtros{
+
+    height:48px;
+
+    padding:0 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#F4F4F6;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.mais-filtros:hover{
+
+    background:#E8E8EC;
+
+}
+/*=========================================================
+    TABELA DE PRODUTOS
+=========================================================*/
+
+.tabela-produtos{
+
+    background:#FFF;
+
+    border-radius:18px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+    overflow:hidden;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#F8F9FC;
+
+}
+
+th{
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#777;
+
+    letter-spacing:.5px;
+
+}
+
+td{
+
+    padding:18px;
+
+    border-top:1px solid #EEEEEE;
+
+    vertical-align:middle;
+
+    font-size:14px;
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:#FAFAFC;
+
+}
+
+/*=========================================================
+    PRODUTO
+=========================================================*/
+
+.produto-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.produto-info img{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    background:#F5F5F5;
+
+}
+
+.produto-info h4{
+
+    font-size:15px;
+
+    color:#333;
+
+    margin-bottom:4px;
+
+}
+
+.produto-info span{
+
+    color:#8A8A8A;
+
+    font-size:12px;
+
+}
+
+/*=========================================================
+    ESTOQUE
+=========================================================*/
+
+.estoque{
+
+    width:150px;
+
+}
+
+.estoque span{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+    color:#666;
+
+}
+
+.barra{
+
+    width:100%;
+
+    height:8px;
+
+    background:#ECECEC;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.nivel{
+
+    height:100%;
+
+    border-radius:30px;
+
+}
+
+.alto{
+
+    background:#39B36D;
+
+}
+
+.medio{
+
+    background:#F6A623;
+
+}
+
+.baixo{
+
+    background:#E74C3C;
+
+}
+
+/*=========================================================
+    STATUS
+=========================================================*/
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:85px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.status.ativo{
+
+    background:#E8F8EE;
+
+    color:#2FA76D;
+
+}
+
+.status.inativo{
+
+    background:#F3F3F3;
+
+    color:#777;
+
+}
+
+/*=========================================================
+    AÇÕES
+=========================================================*/
+
+.acoes{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.acoes button{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#F5F6F8;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    color:#666;
+
+}
+
+.acoes button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.editar:hover{
+
+    background:#E9F2FF;
+
+    color:#3B82F6;
+
+}
+
+.excluir:hover{
+
+    background:#FFEAEA;
+
+    color:#E74C3C;
+
+}
+
+.menu:hover{
+
+    background:#EFEFEF;
+
+    color:#333;
+
+}
+/*=========================================================
+    RODAPÉ DA TABELA
+=========================================================*/
+
+.rodape-tabela{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 25px;
+
+    border-top:1px solid #EEEEEE;
+
+    background:#FFF;
+
+}
+
+.rodape-tabela span{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/*=========================================================
+    PAGINAÇÃO
+=========================================================*/
+
+.paginacao{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.paginacao button{
+
+    width:38px;
+
+    height:38px;
+
+    border:1px solid #E4E4E4;
+
+    background:#FFF;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    color:#555;
+
+}
+
+.paginacao button:hover{
+
+    background:#F3F3F3;
+
+}
+
+.paginacao .ativo{
+
+    background:#C96556;
+
+    color:#FFF;
+
+    border-color:#C96556;
+
+}
+
+.paginacao span{
+
+    padding:0 6px;
+
+    color:#999;
+
+}
+
+/*=========================================================
+    SCROLLBAR
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#C96556;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EFEFEF;
+
+}
+
+/*=========================================================
+    RESPONSIVO - NOTEBOOK
+=========================================================*/
+
+@media(max-width:1200px){
+
+    .filtros{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVO - TABLET
+=========================================================*/
+
+@media(max-width:992px){
+
+    .dashboard{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+    .menu{
+
+        flex-direction:row;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .perfil-sidebar{
+
+        justify-content:center;
+
+    }
+
+    .topo{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:20px;
+
+    }
+
+    .pesquisa{
+
+        width:100%;
+
+    }
+
+    .acoes-topo{
+
+        justify-content:flex-end;
+
+        flex-wrap:wrap;
+
+    }
+
+    .titulo{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVO - CELULAR
+=========================================================*/
+
+@media(max-width:768px){
+
+    .conteudo{
+
+        padding:20px;
+
+    }
+
+    .filtros{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .campo-busca{
+
+        width:100%;
+
+    }
+
+    .tabela-produtos{
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:900px;
+
+    }
+
+    .rodape-tabela{
+
+        flex-direction:column;
+
+        gap:18px;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVO - CELULAR PEQUENO
+=========================================================*/
+
+@media(max-width:480px){
+
+    .logo img{
+
+        width:120px;
+
+    }
+
+    .titulo h1{
+
+        font-size:30px;
+
+    }
+
+    .abas{
+
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .abas button{
+
+        width:100%;
+
+    }
+
+    .acoes-topo{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .novo-produto,
+    .ver-loja{
+
+        width:100%;
+
+    }
+
+}

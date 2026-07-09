@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title id="page-title"></title>
+
+    <link
+        rel="stylesheet"
+        href="/style/carrinho.css">
+
+</head>
+
+<body>
+
+    <!--======================================
+                    HEADER
+    =======================================-->
+
+    <header id="header">
+
+        <div class="container">
+
+            <div class="logo">
+
+                <img
+                    id="logo-img"
+                    src=""
+                    alt="">
+
+                <span id="logo-text"></span>
+
+            </div>
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li><a id="menu-home" href="#"></a></li>
+
+                    <li><a id="menu-produtos" href="#"></a></li>
+
+                    <li><a id="menu-carrinho" href="#"></a></li>
+
+                    <li><a id="menu-perfil" href="#"></a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!--======================================
+                    MAIN
+    =======================================-->
+
+    <main id="checkout">
+
+        <div class="container checkout-grid">
+
+            <!--=========================
+                COLUNA ESQUERDA
+            =========================-->
+
+            <section class="checkout-left">
+
+                <!--=====================
+                    CARRINHO
+                =====================-->
+
+                <section class="card">
+
+                    <div class="card-header">
+
+                        <h2 id="cart-title"></h2>
+
+                    </div>
+
+                    <!--
+                        Os produtos serão inseridos
+                        pelo checkout.js
+                    -->
+
+                    <div id="cart-products">
+
+                    </div>
+
+                </section>
+
+                <!--=====================
+                    ENDEREÇOS
+                =====================-->
+
+                <section class="card">
+
+                    <div class="card-header">
+
+                        <h2 id="address-title"></h2>
+
+                        <button
+                            id="btn-new-address"
+                            type="button">
+                        </button>
+
+                    </div>
+
+                    <!--
+                        Os cards de endereço
+                        serão inseridos pelo JS
+                    -->
+
+                    <div id="address-list">
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!--=========================
+                COLUNA DIREITA
+            =========================-->
+
+            <aside class="checkout-right">
+
+                <section class="summary-card">
+
+                    <h2 id="summary-title"></h2>
+
+                    <div class="summary-row">
+
+                        <span id="subtotal-label"></span>
+
+                        <span id="subtotal-value"></span>
+
+                    </div>
+
+                    <div class="summary-row">
+
+                        <span id="shipping-label"></span>
+
+                        <span id="shipping-value"></span>
+
+                    </div>
+
+                    <div class="summary-row">
+
+                        <span id="discount-label"></span>
+
+                        <span id="discount-value"></span>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-total">
+
+                        <div>
+
+                            <strong id="total-label"></strong>
+
+                            <h2 id="total-value"></h2>
+
+                        </div>
+
+                        <span id="pix-info"></span>
+
+                    </div>
+
+                    <div class="coupon">
+
+                        <input
+                            id="coupon-input"
+                            type="text"
+                            placeholder="">
+
+                        <button
+                            id="btn-coupon"
+                            type="button">
+                        </button>
+
+                    </div>
+
+                    <button
+                        id="btn-checkout"
+                        type="button">
+                    </button>
+
+                    <small id="secure-info"></small>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!--======================================
+                    FOOTER
+    =======================================-->
+
+    <footer id="footer">
+
+        <div class="container footer-content">
+
+            <p id="footer-copy"></p>
+
+            <nav>
+
+                <a id="footer-policy" href="#"></a>
+
+                <a id="footer-terms" href="#"></a>
+
+                <a id="footer-contact" href="#"></a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+    <script src="/js/carrinho.js"></script>
+
+</body>
+
+</html>

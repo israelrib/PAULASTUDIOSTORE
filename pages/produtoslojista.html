@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Produtos</title>
+
+    <link rel="stylesheet" href="../style/produtoslojista.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!--=========================================
+        SIDEBAR
+    ==========================================-->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <img src="img/logo.png"
+                 alt="Paula Studio">
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="produtos.html" class="ativo">
+
+                <i class="fa-solid fa-box"></i>
+
+                Produtos
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Pedidos
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-users"></i>
+
+                Clientes
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Relatórios
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Configurações
+
+            </a>
+
+        </nav>
+
+        <div class="perfil-sidebar">
+
+            <img src="img/perfil.jpg"
+                 alt="Perfil">
+
+            <div>
+
+                <h4>Paula Soares</h4>
+
+                <span>Admin</span>
+
+            </div>
+
+            <i class="fa-solid fa-circle-user"></i>
+
+        </div>
+
+    </aside>
+
+    <!--=========================================
+        CONTEÚDO
+    ==========================================-->
+
+    <main class="conteudo">
+
+        <!--=====================================
+            HEADER
+        ======================================-->
+
+        <header class="topo">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="pesquisarProduto"
+                    placeholder="Pesquisar produtos...">
+
+            </div>
+
+            <div class="acoes-topo">
+
+                <button class="notificacao">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span></span>
+
+                </button>
+
+                <button class="novo-produto">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Novo Produto
+
+                </button>
+
+                <button class="ver-loja">
+
+                    <i class="fa-regular fa-eye"></i>
+
+                    Ver Loja
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!--=====================================
+            TÍTULO
+        ======================================-->
+
+        <section class="titulo">
+
+            <div>
+
+                <h1>Meus Produtos</h1>
+
+                <p>
+
+                    Gerencie seu catálogo de produtos e estoque.
+
+                </p>
+
+            </div>
+
+            <div class="abas">
+
+                <button class="ativo">
+
+                    Todos
+
+                </button>
+
+                <button>
+
+                    Ativos
+
+                </button>
+
+                <button>
+
+                    Inativos
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!--=====================================
+            FILTROS
+        ======================================-->
+
+        <section class="filtros">
+
+            <div class="campo-busca">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="filtroNome"
+                    placeholder="Filtrar por nome ou código...">
+
+            </div>
+
+            <select id="categoria">
+
+                <option>Todas Categorias</option>
+                <option>Estética</option>
+                <option>Skincare</option>
+                <option>Maquiagem</option>
+                <option>Acessórios</option>
+
+            </select>
+
+            <select id="preco">
+
+                <option>Qualquer Preço</option>
+                <option>Até R$50</option>
+                <option>R$50 - R$100</option>
+                <option>Acima de R$100</option>
+
+            </select>
+
+            <button class="mais-filtros">
+
+                <i class="fa-solid fa-sliders"></i>
+
+                Mais Filtros
+
+            </button>
+
+        </section>
+
+        <!--=====================================
+            TABELA
+        ======================================-->
+
+        <section class="tabela-produtos">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>PRODUTO</th>
+                        <th>CATEGORIA</th>
+                        <th>PREÇO</th>
+                        <th>ESTOQUE</th>
+                        <th>STATUS</th>
+                        <th>AÇÕES</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                                    <!-- ================= PRODUTO 1 ================= -->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="produto-info">
+
+                                <img src="img/produto1.jpg"
+                                     alt="Caneta Derma Pen">
+
+                                <div>
+
+                                    <h4>Caneta Derma Pen Profissional</h4>
+
+                                    <span>SKU: DERM-001</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Estética</td>
+
+                        <td><strong>R$ 159,90</strong></td>
+
+                        <td>
+
+                            <div class="estoque">
+
+                                <span>42 unid.</span>
+
+                                <div class="barra">
+
+                                    <div class="nivel alto"
+                                         style="width:84%;"></div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- ================= PRODUTO 2 ================= -->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="produto-info">
+
+                                <img src="img/produto2.jpg"
+                                     alt="Máscara Keratin">
+
+                                <div>
+
+                                    <h4>Máscara Facial Keratin</h4>
+
+                                    <span>SKU: KERA-882</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Skincare</td>
+
+                        <td><strong>R$ 45,00</strong></td>
+
+                        <td>
+
+                            <div class="estoque">
+
+                                <span>8 unid.</span>
+
+                                <div class="barra">
+
+                                    <div class="nivel baixo"
+                                         style="width:16%;"></div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- ================= PRODUTO 3 ================= -->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="produto-info">
+
+                                <img src="img/produto3.jpg"
+                                     alt="Palito">
+
+                                <div>
+
+                                    <h4>Kit Palito de Algodão (500un)</h4>
+
+                                    <span>SKU: ACC-109</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Acessórios</td>
+
+                        <td><strong>R$ 12,90</strong></td>
+
+                        <td>
+
+                            <div class="estoque">
+
+                                <span>156 unid.</span>
+
+                                <div class="barra">
+
+                                    <div class="nivel alto"
+                                         style="width:100%;"></div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status inativo">
+
+                                Inativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!-- ================= PRODUTO 4 ================= -->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="produto-info">
+
+                                <img src="img/produto4.jpg"
+                                     alt="Paleta">
+
+                                <div>
+
+                                    <h4>Paleta Eyeshadow Nude Colors</h4>
+
+                                    <span>SKU: MAKE-054</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Maquiagem</td>
+
+                        <td><strong>R$ 89,90</strong></td>
+
+                        <td>
+
+                            <div class="estoque">
+
+                                <span>24 unid.</span>
+
+                                <div class="barra">
+
+                                    <div class="nivel medio"
+                                         style="width:48%;"></div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+                                    </tbody>
+
+            </table>
+
+            <!--=====================================
+                RODAPÉ DA TABELA
+            =====================================-->
+
+            <div class="rodape-tabela">
+
+                <span>
+
+                    Exibindo 1–4 de 48 produtos
+
+                </span>
+
+                <div class="paginacao">
+
+                    <button>
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                    </button>
+
+                    <button class="ativo">
+
+                        1
+
+                    </button>
+
+                    <button>
+
+                        2
+
+                    </button>
+
+                    <button>
+
+                        3
+
+                    </button>
+
+                    <span>...</span>
+
+                    <button>
+
+                        12
+
+                    </button>
+
+                    <button>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!--=====================================
+    JAVASCRIPT
+======================================-->
+
+<script src="../js/produtoslojista.js"></script>
+
+</body>
+
+</html>

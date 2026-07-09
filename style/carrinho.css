@@ -1,0 +1,774 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family: barlow, sans-serif; 
+
+    background:#F7F7F8;
+
+    color:#2F2F2F;
+
+    line-height:1.5;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+input{
+
+    outline:none;
+
+}
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+:root{
+
+    --primary:#C96658;
+
+    --secondary:#3C2C2F;
+
+    --success:#36B96E;
+
+    --border:#E5E5E5;
+
+    --text:#444;
+
+    --background:#F7F7F8;
+
+    --white:#FFFFFF;
+
+    --shadow:0 5px 20px rgba(0,0,0,.08);
+
+    --radius:10px;
+
+    --container:1280px;
+
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:95%;
+
+    max-width:var(--container);
+
+    margin:auto;
+
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+#header{
+
+    background:var(--secondary);
+
+    color:white;
+
+}
+
+#header .container{
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+#logo-img{
+
+    width:34px;
+
+    height:34px;
+
+    object-fit:contain;
+
+}
+
+#logo-text{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+.menu{
+
+    list-style:none;
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+.menu a{
+
+    font-size:14px;
+
+}
+
+.menu a:hover{
+
+    color:#FFD87A;
+
+}
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+#checkout{
+
+    padding:45px 0;
+
+}
+
+.checkout-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 380px;
+
+    gap:35px;
+
+    align-items:start;
+
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card,
+.summary-card{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+}
+
+.card{
+
+    margin-bottom:30px;
+
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.card-header h2{
+
+    font-size:20px;
+
+}
+
+#btn-new-address{
+
+    background:none;
+
+    color:var(--primary);
+
+    font-weight:bold;
+
+}
+
+/* =====================================================
+   PRODUTOS
+===================================================== */
+
+#cart-products{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.product-item{
+
+    display:grid;
+
+    grid-template-columns:90px 1fr auto;
+
+    gap:20px;
+
+    align-items:center;
+
+    padding:22px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.product-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.product-image{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:8px;
+
+    border:1px solid var(--border);
+
+    object-fit:cover;
+
+}
+
+.product-info h3{
+
+    font-size:17px;
+
+    margin-bottom:5px;
+
+}
+
+.product-info p{
+
+    font-size:14px;
+
+    color:#777;
+
+}
+
+.product-actions{
+
+    margin-top:12px;
+
+}
+
+.product-actions input{
+
+    width:65px;
+
+    height:36px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    border-radius:6px;
+
+}
+
+.product-price{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+/* =====================================================
+   ENDEREÇOS
+===================================================== */
+
+#address-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    padding:22px;
+
+}
+
+.address-card{
+
+    position:relative;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:18px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.address-card:hover{
+
+    border-color:var(--primary);
+
+}
+
+.address-card.active{
+
+    border:2px solid var(--primary);
+
+    background:#FFF6F5;
+
+}
+
+.address-type{
+
+    color:var(--primary);
+
+    font-weight:bold;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+
+}
+
+.address-title{
+
+    font-weight:bold;
+
+    margin-bottom:6px;
+
+}
+
+.address-text{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+/* =====================================================
+   RESUMO
+===================================================== */
+
+.summary-card{
+
+    padding:28px;
+
+    position:sticky;
+
+    top:25px;
+
+}
+
+.summary-card h2{
+
+    margin-bottom:25px;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+    color:#666;
+
+}
+
+.summary-row span:last-child{
+
+    font-weight:bold;
+
+}
+
+.summary-total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:25px 0;
+
+}
+
+.summary-total h2{
+
+    color:#111;
+
+    margin-top:6px;
+
+}
+
+#shipping-value{
+
+    color:var(--success);
+
+}
+
+#discount-value{
+
+    color:var(--primary);
+
+}
+
+#pix-info{
+
+    font-size:13px;
+
+    color:#888;
+
+}
+
+/* =====================================================
+   CUPOM
+===================================================== */
+
+.coupon{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:22px;
+
+}
+
+.coupon input{
+
+    flex:1;
+
+    height:42px;
+
+    border:1px solid var(--border);
+
+    border-radius:6px;
+
+    padding:0 15px;
+
+}
+
+.coupon button{
+
+    width:95px;
+
+    background:#ECECEC;
+
+    border-radius:6px;
+
+}
+
+.coupon button:hover{
+
+    background:#DDDDDD;
+
+}
+
+/* =====================================================
+   BOTÃO FINALIZAR
+===================================================== */
+
+#btn-checkout{
+
+    width:100%;
+
+    height:52px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    border-radius:8px;
+
+}
+
+#btn-checkout:hover{
+
+    filter:brightness(.95);
+
+}
+
+#secure-info{
+
+    display:block;
+
+    margin-top:18px;
+
+    text-align:center;
+
+    color:#888;
+
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+#footer{
+
+    background:white;
+
+    border-top:1px solid var(--border);
+
+    margin-top:50px;
+
+}
+
+.footer-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:22px 0;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-content nav{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.footer-content a:hover{
+
+    color:var(--primary);
+
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:992px){
+
+.checkout-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.summary-card{
+
+position:relative;
+
+top:0;
+
+}
+
+#address-list{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+#header .container{
+
+flex-direction:column;
+
+height:auto;
+
+padding:15px 0;
+
+gap:15px;
+
+}
+
+.menu{
+
+gap:18px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.product-item{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.product-image{
+
+margin:auto;
+
+}
+
+.product-price{
+
+margin-top:10px;
+
+}
+
+.card-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+.summary-card{
+
+padding:20px;
+
+}
+
+.footer-content{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.footer-content nav{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+}
+
+/* =====================================================
+   MOBILE PEQUENO
+===================================================== */
+
+@media(max-width:480px){
+
+.menu{
+
+display:none;
+
+}
+
+.summary-total{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+.coupon{
+
+flex-direction:column;
+
+}
+
+.coupon button{
+
+width:100%;
+
+}
+
+#btn-checkout{
+
+font-size:15px;
+
+}
+
+}

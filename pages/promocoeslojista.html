@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Promoções | Paula Studio Store</title>
+
+    <link rel="stylesheet"
+          href="../style/promocoeslojista.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!--=========================================
+        SIDEBAR
+    ==========================================-->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <img src="img/logo.png"
+                 alt="Paula Studio Store">
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="produtos.html" class="ativo">
+
+                <i class="fa-solid fa-box"></i>
+
+                Produtos
+
+            </a>
+
+            <div class="submenu">
+
+                <span>Catálogo</span>
+
+                <a href="promocoes.html" class="submenu-ativo">
+
+                    Promoções
+
+                </a>
+
+            </div>
+
+            <a href="pedidos.html">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Pedidos
+
+            </a>
+
+            <a href="clientes.html">
+
+                <i class="fa-solid fa-users"></i>
+
+                Clientes
+
+            </a>
+
+            <a href="relatorios.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Relatórios
+
+            </a>
+
+            <a href="configuracoes.html">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Configurações
+
+            </a>
+
+        </nav>
+
+        <div class="perfil-sidebar">
+
+            <img src="img/perfil.jpg"
+                 alt="Paula">
+
+            <div>
+
+                <h4>Paula Soares</h4>
+
+                <span>Admin</span>
+
+            </div>
+
+            <i class="fa-solid fa-circle-user"></i>
+
+        </div>
+
+    </aside>
+
+    <!--=========================================
+        CONTEÚDO
+    ==========================================-->
+
+    <main class="conteudo">
+
+        <!--=====================================
+            TOPO
+        ======================================-->
+
+        <header class="topo">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="pesquisaPromocao"
+                    placeholder="Pesquisar promoções...">
+
+            </div>
+
+            <div class="acoes-topo">
+
+                <button class="notificacao">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span></span>
+
+                </button>
+
+                <button class="criar-promocao">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Criar Promoção
+
+                </button>
+
+                <button class="ver-loja">
+
+                    <i class="fa-regular fa-eye"></i>
+
+                    Ver Loja
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!--=====================================
+            CABEÇALHO
+        ======================================-->
+
+        <section class="titulo">
+
+            <div>
+
+                <h1>Promoções</h1>
+
+                <p>
+
+                    Crie e gerencie ofertas especiais para impulsionar suas vendas.
+
+                </p>
+
+            </div>
+
+            <div class="abas">
+
+                <button class="ativo">
+
+                    Ofertas Ativas
+
+                </button>
+
+                <button>
+
+                    Cupons de Desconto
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!--=====================================
+            CARDS
+        ======================================-->
+
+        <section class="cards">
+
+            <article class="card">
+
+                <div class="icone verde">
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                </div>
+
+                <span class="crescimento positivo">
+
+                    +15% vs mês anterior
+
+                </span>
+
+                <small>Promoções Ativas</small>
+
+                <h2>08</h2>
+
+            </article>
+
+            <article class="card">
+
+                <div class="icone azul">
+
+                    <i class="fa-solid fa-ticket"></i>
+
+                </div>
+
+                <small>Cupons Resgatados</small>
+
+                <h2>245</h2>
+
+            </article>
+
+            <article class="card">
+
+                <div class="icone vermelho">
+
+                    <i class="fa-solid fa-dollar-sign"></i>
+
+                </div>
+
+                <small>Receita de Ofertas</small>
+
+                <h2>R$ 8.420,50</h2>
+
+            </article>
+
+        </section>
+
+        <!--=====================================
+            LISTAGEM
+        ======================================-->
+
+        <section class="lista-promocoes">
+
+            <div class="cabecalho-lista">
+
+                <h2>Listagem de Promoções</h2>
+
+                <div class="filtros-lista">
+
+                    <input
+                        type="text"
+                        id="buscarTabela"
+                        placeholder="Filtrar promoções...">
+
+                    <select>
+
+                        <option>Status</option>
+
+                        <option>Ativo</option>
+
+                        <option>Agendado</option>
+
+                        <option>Expirado</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>PROMOÇÃO</th>
+                        <th>TIPO</th>
+                        <th>DESCONTO</th>
+                        <th>PERÍODO</th>
+                        <th>STATUS</th>
+                        <th>AÇÕES</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                                        <!--=====================================
+                        PROMOÇÃO 01
+                    ======================================-->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="promocao-info">
+
+                                <div class="icone-promocao vermelho">
+
+                                    <i class="fa-solid fa-percent"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h4>Oferta Especial de Primavera</h4>
+
+                                    <span>ID: PRM-402</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Percentual</td>
+
+                        <td><strong>20% OFF</strong></td>
+
+                        <td>
+
+                            <strong>01 Out - 31 Out</strong><br>
+
+                            <small>Vence em 22 dias</small>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--=====================================
+                        PROMOÇÃO 02
+                    ======================================-->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="promocao-info">
+
+                                <div class="icone-promocao azul">
+
+                                    <i class="fa-solid fa-box-open"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h4>Leve 3, Pague 2 Máscaras</h4>
+
+                                    <span>ID: PRM-405</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Compre X Leve Y</td>
+
+                        <td><strong>Leve 3 Pague 2</strong></td>
+
+                        <td>
+
+                            <strong>15 Out - 20 Out</strong><br>
+
+                            <small>Inicia em 5 dias</small>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status agendado">
+
+                                Agendado
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--=====================================
+                        PROMOÇÃO 03
+                    ======================================-->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="promocao-info">
+
+                                <div class="icone-promocao verde">
+
+                                    <i class="fa-solid fa-tag"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h4>Desconto Boas Vindas</h4>
+
+                                    <span>ID: PRM-398</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Valor Fixo</td>
+
+                        <td><strong>R$ 15,00 OFF</strong></td>
+
+                        <td>
+
+                            <strong>Sem validade</strong><br>
+
+                            <small>Recorrente</small>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--=====================================
+                        PROMOÇÃO 04
+                    ======================================-->
+
+                    <tr>
+
+                        <td>
+
+                            <div class="promocao-info">
+
+                                <div class="icone-promocao cinza">
+
+                                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <h4>Liquidação de Inverno</h4>
+
+                                    <span>ID: PRM-350</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>Percentual</td>
+
+                        <td><strong>50% OFF</strong></td>
+
+                        <td>
+
+                            <strong>01 Jun - 30 Jun</strong><br>
+
+                            <small>Expirado</small>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status expirado">
+
+                                Expirado
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+                                    </tbody>
+
+            </table>
+
+            <!--=====================================
+                RODAPÉ DA TABELA
+            ======================================-->
+
+            <div class="rodape-lista">
+
+                <span>
+
+                    Exibindo 1–4 de 12 promoções
+
+                </span>
+
+                <div class="paginacao">
+
+                    <button>
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                    </button>
+
+                    <button class="ativo">1</button>
+
+                    <button>2</button>
+
+                    <button>3</button>
+
+                    <button>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--=====================================
+            ÁREA INFERIOR
+        ======================================-->
+
+        <section class="painel-inferior">
+
+            <!--=====================================
+                CUPONS
+            ======================================-->
+
+            <div class="cupons">
+
+                <div class="cabecalho-cupons">
+
+                    <h2>Cupons de Desconto Recentes</h2>
+
+                    <a href="#">
+
+                        Ver todos os cupons
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+                <div class="lista-cupons">
+
+                    <!-- CUPOM 01 -->
+
+                    <article class="cupom">
+
+                        <span class="tag vip">
+
+                            VIP-ONLY
+
+                        </span>
+
+                        <h3>PRIMEIRACOMPRA</h3>
+
+                        <p>
+
+                            Válido para pedidos acima de R$100,00
+
+                        </p>
+
+                        <div class="cupom-rodape">
+
+                            <strong>10% OFF</strong>
+
+                            <button class="copiar-cupom">
+
+                                <i class="fa-regular fa-copy"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CUPOM 02 -->
+
+                    <article class="cupom">
+
+                        <span class="tag verao">
+
+                            SUMMER-VIBE
+
+                        </span>
+
+                        <h3>VERAOESTETICA</h3>
+
+                        <p>
+
+                            Válido em todos os produtos capilares
+
+                        </p>
+
+                        <div class="cupom-rodape">
+
+                            <strong>R$20,00 OFF</strong>
+
+                            <button class="copiar-cupom">
+
+                                <i class="fa-regular fa-copy"></i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+                DICA DE MARKETING
+            ======================================-->
+
+            <aside class="marketing">
+
+                <div class="icone-marketing">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                </div>
+
+                <h2>Dica de Marketing</h2>
+
+                <p>
+
+                    Promoções do tipo
+                    <strong>"Compre X, Leve Y"</strong>
+                    costumam aumentar o ticket médio e incentivar
+                    compras em maior quantidade.
+
+                </p>
+
+                <p>
+
+                    Experimente criar campanhas para kits e produtos
+                    complementares.
+
+                </p>
+
+                <button class="btn-campanha">
+
+                    Agendar Campanha
+
+                </button>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!--=====================================
+    JAVASCRIPT
+======================================-->
+
+<script src="../js/promocoeslojista.js"></script>
+
+</body>
+
+</html>

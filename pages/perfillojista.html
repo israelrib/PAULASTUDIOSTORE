@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Perfil</title>
+
+    <link rel="stylesheet" href="../style/perfillojista.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topo">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <span>Acesso</span>
+
+        </div>
+
+        <nav>
+
+            <a href="#">Início</a>
+            <a href="#">Meus Pedidos</a>
+            <a class="ativo" href="#">Perfil</a>
+            <a href="#">Sair</a>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= CAPA ================= -->
+
+    <section class="perfil-banner">
+
+        <div class="perfil-box">
+
+            <div class="foto-container">
+
+                <img src="img/perfil.jpg" alt="Foto do usuário" id="fotoPerfil">
+
+                <label for="uploadFoto" class="editar-foto">
+
+                    <i class="fa-solid fa-camera"></i>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="uploadFoto"
+                    accept="image/*"
+                    hidden>
+
+            </div>
+
+            <h2>Paula Soares Costa</h2>
+
+            <span>paula.studio@exemplo.com.br</span>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONTEÚDO ================= -->
+
+    <main class="container">
+
+        <!-- ================= DADOS ================= -->
+
+        <section class="dados">
+
+            <div class="titulo">
+
+                <h2>Dados Pessoais</h2>
+
+                <p>
+                    Mantenha suas informações de contato atualizadas
+                    para facilitar suas compras.
+                </p>
+
+            </div>
+
+            <div class="formulario">
+
+                <div class="campo largura-total">
+
+                    <label>Nome Completo</label>
+
+                    <input
+                        type="text"
+                        value="Paula Soares Costa">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>E-mail</label>
+
+                    <input
+                        type="email"
+                        value="paula.studio@exemplo.com.br">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Telefone</label>
+
+                    <input
+                        type="text"
+                        value="(11) 99999-9999">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>CPF</label>
+
+                    <input
+                        type="text"
+                        value="000.000.000-00">
+
+                </div>
+
+                <div class="campo">
+
+                    <label>Data de Nascimento</label>
+
+                    <input
+                        type="text"
+                        value="01/01/1980">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= SEGURANÇA ================= -->
+
+        <section class="seguranca">
+
+            <div class="titulo">
+
+                <h2>Segurança</h2>
+
+                <p>
+
+                    Proteja sua conta alterando sua senha
+                    regularmente.
+
+                </p>
+
+            </div>
+
+            <div class="senha-card">
+
+                <div class="senha-info">
+
+                    <div class="icone">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Senha da Conta</h4>
+
+                        <span>Última alteração há 3 meses</span>
+
+                    </div>
+
+                </div>
+
+                <button id="alterarSenha">
+
+                    Alterar Senha
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ================= BOTÕES ================= -->
+
+        <section class="acoes">
+
+            <button class="cancelar">
+
+                Cancelar
+
+            </button>
+
+            <button class="salvar">
+
+                Salvar Alterações
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <span>© 2026 Paula Studio Store</span>
+
+        <a href="#">Política de Privacidade</a>
+
+        <a href="#">Termos de Uso</a>
+
+        <span>Contato: suporte@paulastudio.com</span>
+
+    </footer>
+
+    <script src="../js/perfillojista.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1135 @@
+/*=========================================================
+    RESET
+=========================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#F7F8FC;
+    color:#2F2F2F;
+
+}
+
+/*=========================================================
+    LAYOUT
+=========================================================*/
+
+.dashboard{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+/*=========================================================
+    SIDEBAR
+=========================================================*/
+
+.sidebar{
+
+    width:260px;
+    background:#34272F;
+    color:#FFF;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    padding:25px;
+
+    display:flex;
+    justify-content:center;
+
+}
+
+.logo img{
+
+    width:140px;
+    border-radius:10px;
+    background:#FFF;
+    padding:8px;
+
+}
+
+/*=========================================================
+    MENU
+=========================================================*/
+
+.menu{
+
+    display:flex;
+    flex-direction:column;
+
+    padding:10px 20px;
+
+    gap:8px;
+
+}
+
+.menu a{
+
+    color:#BEB5BA;
+    text-decoration:none;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 16px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.menu a:hover{
+
+    background:#C96556;
+    color:#FFF;
+
+}
+
+.menu .ativo{
+
+    background:#C96556;
+    color:#FFF;
+
+}
+
+.menu i{
+
+    width:20px;
+    text-align:center;
+
+}
+
+/*=========================================================
+    PERFIL
+=========================================================*/
+
+.perfil-sidebar{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:20px;
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.perfil-sidebar img{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.perfil-sidebar h4{
+
+    font-size:14px;
+
+}
+
+.perfil-sidebar span{
+
+    color:#CFC7CB;
+    font-size:12px;
+
+}
+
+.perfil-sidebar i{
+
+    margin-left:auto;
+
+    font-size:18px;
+
+}
+
+/*=========================================================
+    CONTEÚDO
+=========================================================*/
+
+.conteudo{
+
+    flex:1;
+
+    padding:20px 30px;
+
+}
+
+/*=========================================================
+    HEADER
+=========================================================*/
+
+.topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================================
+    PESQUISA
+=========================================================*/
+
+.pesquisa{
+
+    width:420px;
+    height:46px;
+
+    background:#FFF;
+
+    border:1px solid #E5E7EE;
+
+    border-radius:25px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 18px;
+
+}
+
+.pesquisa i{
+
+    color:#BBB;
+    margin-right:12px;
+
+}
+
+.pesquisa input{
+
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+
+    font-size:14px;
+
+}
+
+/*=========================================================
+    AÇÕES
+=========================================================*/
+
+.acoes-topo{
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.notificacao{
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    background:transparent;
+
+    cursor:pointer;
+
+    position:relative;
+
+    font-size:18px;
+
+}
+
+.notificacao span{
+
+    position:absolute;
+
+    top:10px;
+    right:10px;
+
+    width:8px;
+    height:8px;
+
+    background:#FF5A5A;
+
+    border-radius:50%;
+
+}
+
+.novo-produto{
+
+    background:#C96556;
+    color:#FFF;
+
+    border:none;
+
+    height:42px;
+
+    padding:0 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.novo-produto:hover{
+
+    background:#B35346;
+
+}
+
+.ver-loja{
+
+    background:#FFF;
+
+    border:1px solid #C96556;
+
+    color:#C96556;
+
+    height:42px;
+
+    padding:0 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.ver-loja:hover{
+
+    background:#C96556;
+    color:#FFF;
+
+}
+
+/*=========================================================
+    TÍTULO
+=========================================================*/
+
+.titulo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.titulo h1{
+
+    font-size:36px;
+    margin-bottom:6px;
+
+}
+
+.titulo p{
+
+    color:#7D7D7D;
+
+}
+
+/*=========================================================
+    FILTRO
+=========================================================*/
+
+.filtro{
+
+    display:flex;
+    gap:10px;
+
+}
+
+.filtro button{
+
+    background:#FFF;
+
+    border:1px solid #ECECEC;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.filtro .ativo{
+
+    background:#FDEEEB;
+    color:#C96556;
+
+    border-color:#F2D4CC;
+
+}
+/*=========================================================
+    CARDS DE INDICADORES
+=========================================================*/
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+.card{
+
+    background:#FFF;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    position:relative;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+    transition:.25s;
+
+    cursor:pointer;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.card small{
+
+    display:block;
+
+    color:#8A8A8A;
+
+    margin:18px 0 10px;
+
+    letter-spacing:1px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.card h2{
+
+    font-size:30px;
+
+    color:#303030;
+
+}
+
+.icone{
+
+    width:60px;
+    height:60px;
+
+    border-radius:16px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+
+}
+
+.verde{
+
+    background:#E8F7EE;
+    color:#35A56B;
+
+}
+
+.azul{
+
+    background:#EAF2FF;
+    color:#4977D8;
+
+}
+
+.laranja{
+
+    background:#FFF2E4;
+    color:#D38A2A;
+
+}
+
+.bege{
+
+    background:#F8EFE6;
+    color:#8C6D50;
+
+}
+
+.crescimento{
+
+    position:absolute;
+
+    top:25px;
+    right:25px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.positivo{
+
+    color:#2CA66A;
+
+}
+
+.negativo{
+
+    color:#E05656;
+
+}
+
+/*=========================================================
+    GRID PRINCIPAL
+=========================================================*/
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================================
+    CARD DO GRÁFICO
+=========================================================*/
+
+.grafico-card{
+
+    background:#FFF;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.card-header h2{
+
+    font-size:22px;
+
+    margin-bottom:4px;
+
+}
+
+.card-header span{
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+.legenda{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.ponto{
+
+    width:12px;
+
+    height:12px;
+
+    background:#C96556;
+
+    border-radius:50%;
+
+}
+
+.grafico-area{
+
+    width:100%;
+
+    height:360px;
+
+    position:relative;
+
+}
+
+.grafico-area canvas{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
+
+/*=========================================================
+    PRODUTOS MAIS VENDIDOS
+=========================================================*/
+
+.mais-vendidos{
+
+    background:#FFF;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+}
+
+.mais-vendidos h2{
+
+    margin-bottom:25px;
+
+    font-size:22px;
+
+}
+
+.produto{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #EEEEEE;
+
+}
+
+.produto:last-child{
+
+    border-bottom:none;
+
+}
+
+.produto h4{
+
+    font-size:16px;
+
+    margin-bottom:4px;
+
+}
+
+.produto span{
+
+    color:#8C8C8C;
+
+    font-size:13px;
+
+}
+
+.produto strong{
+
+    color:#2FA76D;
+
+    font-size:15px;
+
+}
+
+/*=========================================================
+    BOTÃO
+=========================================================*/
+
+.btn-produtos{
+
+    width:100%;
+
+    margin-top:25px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#C96556;
+
+    color:#FFF;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-produtos:hover{
+
+    background:#B55649;
+
+}
+/*=========================================================
+    ÚLTIMOS PEDIDOS
+=========================================================*/
+
+.ultimos-pedidos{
+
+    background:#FFF;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+}
+
+.ultimos-pedidos .card-header{
+
+    margin-bottom:25px;
+
+}
+
+.ultimos-pedidos .card-header a{
+
+    color:#C96556;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.ultimos-pedidos .card-header a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=========================================================
+    TABELA
+=========================================================*/
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#F8F8FB;
+
+}
+
+th{
+
+    text-align:left;
+
+    padding:18px 15px;
+
+    color:#777;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+td{
+
+    padding:18px 15px;
+
+    border-top:1px solid #EEEEEE;
+
+    font-size:14px;
+
+    vertical-align:middle;
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:#FAFAFC;
+
+}
+
+/*=========================================================
+    CLIENTE
+=========================================================*/
+
+.cliente{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.cliente img{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+/*=========================================================
+    STATUS
+=========================================================*/
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:.5px;
+
+}
+
+.concluido{
+
+    background:#E8F8EE;
+
+    color:#2CA66A;
+
+}
+
+.preparo{
+
+    background:#FFF5E6;
+
+    color:#D38A2A;
+
+}
+
+.aguardando{
+
+    background:#EAF2FF;
+
+    color:#4977D8;
+
+}
+
+/*=========================================================
+    PAGAMENTO
+=========================================================*/
+
+td i{
+
+    margin-right:8px;
+
+    font-size:16px;
+
+    color:#777;
+
+}
+
+/*=========================================================
+    MENU DA TABELA
+=========================================================*/
+
+.menu-pedido{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    background:transparent;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.menu-pedido:hover{
+
+    background:#F1F1F1;
+
+}
+
+/*=========================================================
+    BARRA DE ROLAGEM
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#C96556;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F2F2F2;
+
+}
+
+/*=========================================================
+    RESPONSIVO - TABLET
+=========================================================*/
+
+@media(max-width:1200px){
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVO - TABLETS MENORES
+=========================================================*/
+
+@media(max-width:992px){
+
+    .dashboard{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+    .menu{
+
+        flex-direction:row;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .perfil-sidebar{
+
+        justify-content:center;
+
+    }
+
+    .topo{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:20px;
+
+    }
+
+    .pesquisa{
+
+        width:100%;
+
+    }
+
+    .acoes-topo{
+
+        justify-content:flex-end;
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVO - CELULAR
+=========================================================*/
+
+@media(max-width:768px){
+
+    .conteudo{
+
+        padding:20px;
+
+    }
+
+    .titulo{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+    .grafico-area{
+
+        height:260px;
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVO - CELULARES PEQUENOS
+=========================================================*/
+
+@media(max-width:480px){
+
+    .logo img{
+
+        width:120px;
+
+    }
+
+    .novo-produto,
+    .ver-loja{
+
+        width:100%;
+
+    }
+
+    .acoes-topo{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .titulo h1{
+
+        font-size:28px;
+
+    }
+
+    .card h2{
+
+        font-size:24px;
+
+    }
+
+}

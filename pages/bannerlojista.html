@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Banners e Destaques | Paula Studio Store</title>
+
+    <link rel="stylesheet"
+          href="../style/bannerlojista.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!--=========================================
+        SIDEBAR
+    ==========================================-->
+
+    <aside class="sidebar">
+
+        <div class="parte-topo">   
+
+        <div class="logo">
+
+            <img src="../assets/marca.png"
+                 alt="Paula Studio Store">
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="produtos.html" class="ativo">
+
+                <i class="fa-solid fa-box"></i>
+
+                Produtos
+
+            </a>
+
+            <div class="submenu">
+
+                <span>Catálogo</span>
+
+                <a href="promocoes.html">
+
+                    Promoções
+
+                </a>
+
+                <a href="banners.html" class="submenu-ativo">
+
+                    Banners
+
+                </a>
+
+            </div>
+
+            <a href="pedidos.html">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Pedidos
+
+            </a>
+
+            <a href="clientes.html">
+
+                <i class="fa-solid fa-users"></i>
+
+                Clientes
+
+            </a>
+
+            <a href="relatorios.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Relatórios
+
+            </a>
+
+            <a href="configuracoes.html">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Configurações
+
+            </a>
+
+        </nav>
+         </div>
+
+        <div class="perfil-sidebar">
+
+            <img src="img/perfil.jpg"
+                 alt="Paula">
+
+            <div>
+
+                <h4>Paula Soares</h4>
+
+                <span>Admin</span>
+
+            </div>
+
+            <i class="fa-solid fa-circle-user"></i>
+
+        </div>
+
+    </aside>
+
+    <!--=========================================
+        CONTEÚDO
+    ==========================================-->
+
+    <main class="conteudo">
+
+        <!--=====================================
+            TOPO
+        ======================================-->
+
+        <header class="topo">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="pesquisarBanner"
+                    placeholder="Pesquisar banners...">
+
+            </div>
+
+            <div class="acoes-topo">
+
+                <button class="notificacao">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span></span>
+
+                </button>
+
+                <button class="novo-banner">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Novo Banner
+
+                </button>
+
+                <button class="ver-loja">
+
+                    <i class="fa-regular fa-eye"></i>
+
+                    Ver Loja
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!--=====================================
+            TÍTULO
+        ======================================-->
+
+        <section class="titulo">
+
+            <div>
+
+                <h1>Banners e Destaques</h1>
+
+                <p>
+
+                    Gerencie os banners da sua página inicial para destacar seus melhores produtos.
+
+                </p>
+
+            </div>
+
+            <div class="abas">
+
+                <button class="ativo">
+
+                    Página Inicial
+
+                </button>
+
+                <button>
+
+                    Categorias
+
+                </button>
+
+                <button>
+
+                    Pop-ups
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!--=====================================
+            BANNER PRINCIPAL
+        ======================================-->
+
+        <section class="banner-principal">
+
+            <div class="cabecalho-banner">
+
+                <div>
+
+                    <h2>
+
+                        Banner Principal (Carousel)
+
+                        <span class="badge">HERO</span>
+
+                    </h2>
+
+                </div>
+
+                <small>
+
+                    Arraste para reordenar a exibição no carrossel.
+
+                </small>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th></th>
+                        <th>BANNER</th>
+                        <th>LINK / DESTINO</th>
+                        <th>DISPOSITIVO</th>
+                        <th>STATUS</th>
+                        <th>AÇÕES</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody> 
+                                    <!--=====================================
+                        BANNER 01
+                    ======================================-->
+
+                    <tr>
+
+                        <td class="drag">
+
+                            <i class="fa-solid fa-grip-vertical"></i>
+
+                        </td>
+
+                        <td>
+
+                            <div class="banner-info">
+
+                                <img src="img/banner01.jpg"
+                                     alt="Banner Primavera">
+
+                                <div>
+
+                                    <h4>Coleção Primavera 2024</h4>
+
+                                    <span>1920x600px • JPG</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <a href="#">
+
+                                /categoria/skincare
+
+                            </a>
+
+                        </td>
+
+                        <td>
+
+                            <div class="dispositivos">
+
+                                <i class="fa-solid fa-desktop"></i>
+
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <!--=====================================
+                        BANNER 02
+                    ======================================-->
+
+                    <tr>
+
+                        <td class="drag">
+
+                            <i class="fa-solid fa-grip-vertical"></i>
+
+                        </td>
+
+                        <td>
+
+                            <div class="banner-info">
+
+                                <img src="img/banner02.jpg"
+                                     alt="Banner Dermapen">
+
+                                <div>
+
+                                    <h4>Lançamento DermaPen Pro</h4>
+
+                                    <span>1920x600px • PNG</span>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <a href="#">
+
+                                /produto/dermapen-pro
+
+                            </a>
+
+                        </td>
+
+                        <td>
+
+                            <div class="dispositivos">
+
+                                <i class="fa-solid fa-desktop"></i>
+
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="status ativo">
+
+                                Ativo
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="acoes">
+
+                                <button class="editar">
+
+                                    <i class="fa-regular fa-pen-to-square"></i>
+
+                                </button>
+
+                                <button class="excluir">
+
+                                    <i class="fa-regular fa-trash-can"></i>
+
+                                </button>
+
+                                <button class="menu">
+
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!--=====================================
+            ÁREA INFERIOR
+        ======================================-->
+
+        <section class="painel-banners">
+
+            <!--=====================================
+                GRID DE BANNERS
+            ======================================-->
+
+            <section class="banners-secundarios">
+
+                <h2>Banners Secundários (Grid)</h2>
+
+                <div class="grid-banners">
+
+                    <!-- Banner Grid 01 -->
+
+                    <article class="card-banner">
+
+                        <div class="imagem-banner">
+
+                            <img src="img/banner-grid1.jpg"
+                                 alt="Oferta Makeup">
+
+                            <button class="editar-banner">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+
+                        </div>
+
+                        <div class="info-banner">
+
+                            <h3>Oferta Makeup Set</h3>
+
+                            <small>POSIÇÃO: GRID ESQUERDA</small>
+
+                            <p>
+
+                                Target: /promo/makeup
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Banner Grid 02 -->
+
+                    <article class="card-banner">
+
+                        <div class="imagem-banner">
+
+                            <img src="img/banner-grid2.jpg"
+                                 alt="Frete Grátis">
+
+                            <button class="editar-banner">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                            </button>
+
+                        </div>
+
+                        <div class="info-banner">
+
+                            <h3>Frete Grátis Sul/SP</h3>
+
+                            <small>POSIÇÃO: GRID DIREITA</small>
+
+                            <p>
+
+                                Target: N/A
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+                        <!--=====================================
+                COLUNA LATERAL
+            ======================================-->
+
+            <aside class="sidebar-info">
+
+                <!--=================================
+                    DICAS DE FORMATO
+                =================================-->
+
+                <section class="dicas-formato">
+
+                    <div class="icone-dica">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                    </div>
+
+                    <h2>Dicas de Formato</h2>
+
+                    <ul>
+
+                        <li>
+                            Utilize imagens com alta resolução.
+                        </li>
+
+                        <li>
+                            Banner principal recomendado:
+                            <strong>1920 × 600 px</strong>.
+                        </li>
+
+                        <li>
+                            Prefira arquivos
+                            <strong>JPG</strong> ou
+                            <strong>WEBP</strong>.
+                        </li>
+
+                        <li>
+                            Evite textos muito pequenos para dispositivos
+                            móveis.
+                        </li>
+
+                        <li>
+                            Comprima as imagens para melhorar a velocidade
+                            de carregamento.
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <!--=================================
+                    PERFORMANCE
+                =================================-->
+
+                <section class="performance">
+
+                    <h3>Performance de Banners</h3>
+
+                    <div class="indicador">
+
+                        <span>CTR Médio (Principal)</span>
+
+                        <strong>4.2%</strong>
+
+                    </div>
+
+                    <div class="barra">
+
+                        <div class="progresso ctr"></div>
+
+                    </div>
+
+                    <div class="indicador">
+
+                        <span>Cliques Totais (Hoje)</span>
+
+                        <strong>218</strong>
+
+                    </div>
+
+                    <div class="barra">
+
+                        <div class="progresso cliques"></div>
+
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!--=====================================
+    JAVASCRIPT
+======================================-->
+
+<script src="../js/bannerlojista.js"></script>
+
+</body>
+
+</html>

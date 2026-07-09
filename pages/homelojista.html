@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Lojista</title>
+
+    <link rel="stylesheet"
+          href="../style/homelojista.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!--=========================================
+        SIDEBAR
+    ==========================================-->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <img src="img/logo.png"
+                 alt="Paula Studio">
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="#"
+               class="ativo">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-box"></i>
+
+                Produtos
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Pedidos
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-users"></i>
+
+                Clientes
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Relatórios
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Configurações
+
+            </a>
+
+        </nav>
+
+        <div class="perfil-sidebar">
+
+            <img src="img/perfil.jpg"
+                 alt="Perfil">
+
+            <div>
+
+                <h4>Paula Soares</h4>
+
+                <span>Admin</span>
+
+            </div>
+
+            <i class="fa-solid fa-circle-user"></i>
+
+        </div>
+
+    </aside>
+
+    <!--=========================================
+        CONTEÚDO
+    ==========================================-->
+
+    <main class="conteudo">
+
+        <!--=====================================
+            HEADER
+        ======================================-->
+
+        <header class="topo">
+
+            <div class="pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Pesquisar pedidos, produtos...">
+
+            </div>
+
+            <div class="acoes-topo">
+
+                <button class="notificacao">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span></span>
+
+                </button>
+
+                <button class="novo-produto">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Novo Produto
+
+                </button>
+
+                <button class="ver-loja">
+
+                    <i class="fa-regular fa-eye"></i>
+
+                    Ver Loja
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!--=====================================
+            TÍTULO
+        ======================================-->
+
+        <section class="titulo">
+
+            <div>
+
+                <h1>Visão Geral</h1>
+
+                <p>
+                    Bem-vinda de volta, Paula!
+                    Aqui está o que aconteceu hoje.
+                </p>
+
+            </div>
+
+            <div class="filtro">
+
+                <button class="ativo">Hoje</button>
+
+                <button>Semana</button>
+
+                <button>Mês</button>
+
+            </div>
+
+        </section>
+
+        <!--=====================================
+            CARDS
+        ======================================-->
+
+        <section class="cards">
+
+            <!-- CARD 1 -->
+
+            <div class="card">
+
+                <div class="icone verde">
+
+                    <i class="fa-solid fa-dollar-sign"></i>
+
+                </div>
+
+                <span class="crescimento positivo">
+
+                    ↑ 12.5%
+
+                </span>
+
+                <small>VENDAS TOTAIS</small>
+
+                <h2>R$ 24.590,00</h2>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="card">
+
+                <div class="icone azul">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                </div>
+
+                <span class="crescimento positivo">
+
+                    ↑ 8.2%
+
+                </span>
+
+                <small>TOTAL DE PEDIDOS</small>
+
+                <h2>142</h2>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="card">
+
+                <div class="icone laranja">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <span class="crescimento negativo">
+
+                    ↓ 2.4%
+
+                </span>
+
+                <small>NOVOS CLIENTES</small>
+
+                <h2>48</h2>
+
+            </div>
+
+            <!-- CARD 4 -->
+
+            <div class="card">
+
+                <div class="icone bege">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                </div>
+
+                <span class="crescimento positivo">
+
+                    ↑ 5.7%
+
+                </span>
+
+                <small>TICKET MÉDIO</small>
+
+                <h2>R$ 173,16</h2>
+
+            </div>
+
+        </section>
+                <!--=====================================
+            GRÁFICOS
+        ======================================-->
+
+        <section class="dashboard-grid">
+
+            <!--==============================
+                DESEMPENHO DE VENDAS
+            ===============================-->
+
+            <div class="grafico-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Desempenho de Vendas</h2>
+
+                        <span>Evolução diária da receita</span>
+
+                    </div>
+
+                    <div class="legenda">
+
+                        <span class="ponto"></span>
+
+                        <small>Vendas (R$)</small>
+
+                    </div>
+
+                </div>
+
+                <div class="grafico-area">
+
+                    <canvas id="graficoVendas"></canvas>
+
+                </div>
+
+            </div>
+
+            <!--==============================
+                PRODUTOS MAIS VENDIDOS
+            ===============================-->
+
+            <aside class="mais-vendidos">
+
+                <h2>Produtos Mais Vendidos</h2>
+
+                <div class="produto">
+
+                    <div>
+
+                        <h4>Caneta Derma Pen</h4>
+
+                        <span>142 vendas</span>
+
+                    </div>
+
+                    <strong>R$ 22,7k</strong>
+
+                </div>
+
+                <div class="produto">
+
+                    <div>
+
+                        <h4>Máscara Keratin</h4>
+
+                        <span>98 vendas</span>
+
+                    </div>
+
+                    <strong>R$ 4,4k</strong>
+
+                </div>
+
+                <div class="produto">
+
+                    <div>
+
+                        <h4>Palito de Algodão</h4>
+
+                        <span>85 vendas</span>
+
+                    </div>
+
+                    <strong>R$ 3,3k</strong>
+
+                </div>
+
+                <div class="produto">
+
+                    <div>
+
+                        <h4>Paleta Olhos Nude</h4>
+
+                        <span>72 vendas</span>
+
+                    </div>
+
+                    <strong>R$ 5,0k</strong>
+
+                </div>
+
+                <button class="btn-produtos">
+
+                    Ver todos os produtos
+
+                </button>
+
+            </aside>
+
+        </section>
+
+        <!--=====================================
+            ÚLTIMOS PEDIDOS
+        ======================================-->
+
+        <section class="ultimos-pedidos">
+
+            <div class="card-header">
+
+                <h2>Últimos Pedidos</h2>
+
+                <a href="#">
+
+                    Ver Relatório Completo
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </a>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID PEDIDO</th>
+
+                        <th>CLIENTE</th>
+
+                        <th>DATA</th>
+
+                        <th>VALOR</th>
+
+                        <th>STATUS</th>
+
+                        <th>PAGAMENTO</th>
+
+                        <th></th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>#12584</td>
+
+                        <td>
+
+                            <div class="cliente">
+
+                                <img src="img/cliente1.jpg" alt="">
+
+                                Mariana Souza
+
+                            </div>
+
+                        </td>
+
+                        <td>10 Out, 14:30</td>
+
+                        <td><strong>R$ 345,90</strong></td>
+
+                        <td>
+
+                            <span class="status concluido">
+
+                                CONCLUÍDO
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <i class="fa-brands fa-pix"></i>
+
+                            Pix
+
+                        </td>
+
+                        <td>
+
+                            <button class="menu-pedido">
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>#12583</td>
+
+                        <td>
+
+                            <div class="cliente">
+
+                                <img src="img/cliente2.jpg" alt="">
+
+                                Carlos Roberto
+
+                            </div>
+
+                        </td>
+
+                        <td>10 Out, 12:15</td>
+
+                        <td><strong>R$ 1.250,00</strong></td>
+
+                        <td>
+
+                            <span class="status preparo">
+
+                                EM PREPARO
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <i class="fa-brands fa-cc-mastercard"></i>
+
+                            Cartão 10x
+
+                        </td>
+
+                        <td>
+
+                            <button class="menu-pedido">
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>#12582</td>
+
+                        <td>
+
+                            <div class="cliente">
+
+                                <img src="img/cliente3.jpg" alt="">
+
+                                Aline Pereira
+
+                            </div>
+
+                        </td>
+
+                        <td>10 Out, 09:45</td>
+
+                        <td><strong>R$ 89,90</strong></td>
+
+                        <td>
+
+                            <span class="status aguardando">
+
+                                AGUARDANDO
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <i class="fa-solid fa-barcode"></i>
+
+                            Boleto
+
+                        </td>
+
+                        <td>
+
+                            <button class="menu-pedido">
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+                <!--=====================================
+            FIM DO CONTEÚDO
+        ======================================-->
+
+    </main>
+
+</div>
+
+<!--=====================================
+    CHART.JS
+======================================-->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!--=====================================
+    JAVASCRIPT
+======================================-->
+
+<script src="../js/homelojista.js"></script>
+
+</body>
+</html>

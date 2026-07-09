@@ -116,3 +116,66 @@ nav a{
     align-items: center; /* ALINHAMENTO VERTICAL DOS ÍCONES DE USUÁRIO E CARRINHO*/
     gap: 30px; /* ESPAÇAMENTO ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
 }
+/*configurar as imagens*/
+
+/* GALERIA */
+
+.area-detalhes {
+
+    max-width: 1200px;
+    /*tamanho máximo da largura da área*/
+    margin: 50px auto;
+    /*margem de espaçamento, distanciar as imagens da borda da tela*/
+    padding: 20px;
+    /*serve para separar os elemento de perto das bordas da div*/
+    display: flex;
+    /*permitir que as imagens fiquem uma embaixo da outra
+    ou uma do lado da outra*/
+    gap: 50px;
+    /*e a distancia entre uma imagem e outra*/
+}
+
+.area-imagens {
+    display: flex;
+    gap: 20px;
+    /*e a distancia as tags dentro da div*/
+}
+
+.img-lateral {
+    display: flex;
+    flex-direction: column;
+    /*deixa as imagem uma embaixo da outra*/
+    gap: 15px;
+    /*e a distancia entre uma miniatura e outra*/
+}
+
+.img-lateral {
+    width: 70px;
+    /*largura da área laterias*/
+    height: 90px;
+    /*altura da área lateral*/
+    object-fit: cover;
+    /*redimenciona  a imagem para caber na área*/
+    border: 2px solid transparent;
+    /*bordas ao redor da área*/
+    border-radius: 10px;
+    /*arredondar as bordas*/
+    cursor: pointer;
+    /*alterar o curso para a mão*/
+    transition: 0.3s;
+    /*colocar efeito de transição*/
+}
+
+.img-lateral:hover {
+    border-color: #d61d72;
+    /*adicionar borda ao passar o mouse pela imagem*/
+}
+
+.img-principal img {
+    width: 420px;
+    /*tamanho da imagemprincipal*/
+    border-radius: 15px;
+    /*arredondar a imagem principal*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    /*adicionar sombra à imagem principal*/
+}

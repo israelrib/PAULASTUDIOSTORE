@@ -1,0 +1,537 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#FAFAFA;
+    color:#333;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.topo{
+
+    width:100%;
+    height:72px;
+
+    background:#33252E;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 45px;
+
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:#FFF;
+
+    font-size:30px;
+
+}
+
+.logo span{
+
+    font-size:19px;
+    font-weight:700;
+
+}
+
+.topo nav{
+
+    display:flex;
+    gap:28px;
+
+}
+
+.topo nav a{
+
+    color:#FFF;
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.topo nav a:hover{
+
+    color:#F47A67;
+
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container{
+
+    max-width:1180px;
+
+    margin:40px auto;
+
+    padding:0 20px;
+
+}
+
+/* ==========================================================
+   TÍTULO
+========================================================== */
+
+.titulo-pagina{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.titulo-pagina h1{
+
+    color:#D56554;
+
+    font-size:42px;
+
+    margin-bottom:6px;
+
+}
+
+.titulo-pagina p{
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+.buscar{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.buscar input{
+
+    width:270px;
+
+    height:45px;
+
+    border:1px solid #E3E5EC;
+
+    border-radius:12px;
+
+    padding:0 18px;
+
+    background:#F3F5F8;
+
+    outline:none;
+
+}
+
+.buscar button{
+
+    width:45px;
+    height:45px;
+
+    border-radius:12px;
+
+    border:1px solid #E3E5EC;
+
+    background:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.buscar button:hover{
+
+    background:#D56554;
+    color:white;
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.pedido{
+
+    background:white;
+
+    border:1px solid #ECECEC;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    margin-bottom:28px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.04);
+
+}
+
+/* ==========================================================
+   TOPO DO CARD
+========================================================== */
+
+.pedido-topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 28px;
+
+    border-bottom:1px solid #EEEEEE;
+
+}
+
+.info{
+
+    display:flex;
+
+    gap:60px;
+
+}
+
+.info small{
+
+    display:block;
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-bottom:5px;
+
+}
+
+.info strong{
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.status-area{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+.status{
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.transito{
+
+    background:#DDE9FF;
+
+    color:#4A6EA8;
+
+}
+
+.entregue{
+
+    background:#DDF6EC;
+
+    color:#26A66D;
+
+}
+
+.cancelado{
+
+    background:#F2F2F2;
+
+    color:#555;
+
+}
+
+.detalhes{
+
+    text-decoration:none;
+
+    color:#D56554;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+
+.detalhes:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+   CORPO
+========================================================== */
+
+.pedido-corpo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:28px;
+
+}
+
+/* ==========================================================
+   PRODUTO
+========================================================== */
+
+.produto{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.imagem{
+
+    width:82px;
+
+    height:82px;
+
+    border-radius:10px;
+
+    background:#D9D9D9;
+
+    flex-shrink:0;
+
+}
+
+.descricao h3{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+    color:#333;
+
+}
+
+.descricao p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+.acoes{
+
+    display:flex;
+
+    gap:14px;
+
+}
+
+.btn{
+
+    height:45px;
+
+    padding:0 24px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    border:none;
+
+}
+
+.vermelho{
+
+    background:#D56554;
+
+    color:white;
+
+}
+
+.vermelho:hover{
+
+    background:#BE5243;
+
+}
+
+.branco{
+
+    background:white;
+
+    border:1px solid #DDDDDD;
+
+    color:#444;
+
+}
+
+.branco:hover{
+
+    background:#F5F5F5;
+
+}
+
+.destaque{
+
+    color:#D56554;
+
+    border:1px solid #D56554;
+
+}
+
+.destaque:hover{
+
+    background:#D56554;
+
+    color:white;
+
+}
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+
+@media(max-width:980px){
+
+    .titulo-pagina{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+
+    }
+
+    .pedido-topo{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+
+    }
+
+    .pedido-corpo{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+
+    }
+
+    .acoes{
+
+        width:100%;
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+@media(max-width:680px){
+
+    .topo{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:15px;
+
+    }
+
+    .info{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    .buscar{
+
+        width:100%;
+
+    }
+
+    .buscar input{
+
+        width:100%;
+
+    }
+
+    .descricao h3{
+
+        font-size:17px;
+
+    }
+
+    .acoes{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+}
