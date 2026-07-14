@@ -3,7 +3,7 @@ const conexão = mysql.createConnection({ //váriavel que vai armazenar a conex�
     host: 'localhost',
     user: 'root',
     password: '', //senha do MySQL
-    database: 'PaulaStudioFitness'
+    database: 'paulastudiostore'
 });
 conexao.connect((erro) => {
     if (erro) {

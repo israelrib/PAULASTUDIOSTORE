@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const conexao = require('./conexao/'); // Importa a conexão com o banco de dados
+const conexao = require('./conexao'); // Importa a conexão com o banco de dados
 
 // importar as rotas da aplicação
 app.listen(3000, () => {
