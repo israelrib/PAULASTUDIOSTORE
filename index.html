@@ -43,192 +43,841 @@
                     
                  </div>
 
+        <!-- FINAL DA DIV TOPO -->
+</div>
+
+<!-- INÍCIO DO BANNER PRINCIPAL -->
+<section class="banner-principal">
+
+    <div class="banner-slides">
+
+        <!-- SLIDE 1 -->
+        <article class="banner-slide ativo">
+
+            <img
+                src="assets/BANNER.png"
+                alt="Banner promocional da Paula Studio Store"
+                class="banner-imagem"
+            >
+
+        </article>
+
+        <!-- SLIDE 2 -->
+        <article class="banner-slide">
+
+            <img
+                src="assets/banner-2.png"
+                alt="Segundo banner promocional da Paula Studio Store"
+                class="banner-imagem"
+            >
+
+        </article>
+
+        <!-- SLIDE 3 -->
+        <article class="banner-slide">
+
+            <img
+                src="assets/banner-3.png"
+                alt="Terceiro banner promocional da Paula Studio Store"
+                class="banner-imagem"
+            >
+
+        </article>
+
+    </div>
+
+    <!-- BOTÃO VOLTAR -->
+    <button
+        type="button"
+        class="banner-seta banner-seta-anterior"
+        id="bannerAnterior"
+        aria-label="Exibir banner anterior"
+    >
+        &#10094;
+    </button>
+
+    <!-- BOTÃO AVANÇAR -->
+    <button
+        type="button"
+        class="banner-seta banner-seta-proximo"
+        id="bannerProximo"
+        aria-label="Exibir próximo banner"
+    >
+        &#10095;
+    </button>
+
+    <!-- INDICADORES -->
+    <div class="banner-indicadores">
+
+        <button
+            type="button"
+            class="banner-indicador ativo"
+            data-slide="0"
+            aria-label="Exibir primeiro banner"
+        ></button>
+
+        <button
+            type="button"
+            class="banner-indicador"
+            data-slide="1"
+            aria-label="Exibir segundo banner"
+        ></button>
+
+        <button
+            type="button"
+            class="banner-indicador"
+            data-slide="2"
+            aria-label="Exibir terceiro banner"
+        ></button>
+
+    </div>
+
+</section>
+<!-- FINAL DO BANNER PRINCIPAL -->
+
+
+<!-- OFERTAS DA SEMANA -->
+<section class="secao-home ofertas-semana">
+
+    <div class="secao-cabecalho">
+
+        <div>
+            <h2>Oferta da Semana</h2>
+            <p>Seleção com os melhores preços do dia — garanta enquanto durar.</p>
         </div>
 
-        <nav class="menu">
-            <a id="idacesso" href="#">ACESSO</a>
-            <a href="#">HOME</a>
-            <a href="#">MEUS PEDIDOS</a>
-            <a href="#">PERFIL</a>
-            <a href="#">SAIR</a>
-            <a href="#">CARRINHO</a>
-       
-        </nav>
-    </header>
-    <!-- AREA DO BANNER DA LOJA -->
-    <div class="banner">
-        <div class="imagens-banner">
-            <img src="assets/BANNER.png" alt="Banner 1">
-        </div>
-        <div class="botoes-banner">
-            <button class="btn-anterior">
-                <img src="assets/btn-anterior.png" alt="Seta para esquerda">
-            </button>
-            
-            <button class="btn-proximo">
-                <img src="assets/btn-proximo.png" alt="Seta para direita">
-            </button>
+        <a href="#" class="secao-link">Ver todas as ofertas</a>
+
+    </div>
+
+    <div class="grade-produtos">
+
+        <article class="card-produto">
+
+            <div class="card-produto-imagem">
+
+                <img
+                    src="assets/gel-sobrancelha.png"
+                    alt="Gel para sobrancelhas"
+                >
+
+                <button
+                    type="button"
+                    class="botao-favorito"
+                    aria-label="Adicionar produto aos favoritos"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="card-produto-conteudo">
+
+                <h3>Gel para sobrancelhas</h3>
+
+                <p class="card-produto-descricao">
+                    Fixação e definição para suas sobrancelhas.
+                </p>
+
+                <div class="card-produto-avaliacao">
+                    <span>★★★★★</span>
+                    <small>4,8</small>
+                </div>
+
+                <p class="preco-antigo">R$ 39,90</p>
+
+                <p class="preco-atual">R$ 29,90 no PIX</p>
+
+                <div class="controle-compra">
+
+                    <div class="controle-quantidade">
+
+                        <button type="button">−</button>
+
+                        <span>1</span>
+
+                        <button type="button">+</button>
+
+                    </div>
+
+                    <button type="button" class="botao-adicionar">
+                        Adicionar
+                    </button>
+
+                </div>
+
+                <a href="#" class="botao-whatsapp">
+                    Comprar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </article>
+
+        <article class="card-produto">
+
+            <div class="card-produto-imagem">
+
+                <img
+                    src="assets/produto-2.png"
+                    alt="Linha de cuidados para sobrancelhas"
+                >
+
+                <button
+                    type="button"
+                    class="botao-favorito"
+                    aria-label="Adicionar produto aos favoritos"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="card-produto-conteudo">
+
+                <h3>Linha de cuidados</h3>
+
+                <p class="card-produto-descricao">
+                    Produtos profissionais para sua rotina.
+                </p>
+
+                <div class="card-produto-avaliacao">
+                    <span>★★★★★</span>
+                    <small>4,9</small>
+                </div>
+
+                <p class="preco-antigo">R$ 59,90</p>
+
+                <p class="preco-atual">R$ 49,90 no PIX</p>
+
+                <div class="controle-compra">
+
+                    <div class="controle-quantidade">
+
+                        <button type="button">−</button>
+
+                        <span>1</span>
+
+                        <button type="button">+</button>
+
+                    </div>
+
+                    <button type="button" class="botao-adicionar">
+                        Adicionar
+                    </button>
+
+                </div>
+
+                <a href="#" class="botao-whatsapp">
+                    Comprar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </article>
+
+        <article class="card-produto">
+
+            <div class="card-produto-imagem">
+
+                <img
+                    src="assets/produto-3.png"
+                    alt="Caneta dermográfica"
+                >
+
+                <button
+                    type="button"
+                    class="botao-favorito"
+                    aria-label="Adicionar produto aos favoritos"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="card-produto-conteudo">
+
+                <h3>Caneta dermográfica</h3>
+
+                <p class="card-produto-descricao">
+                    Precisão profissional para procedimentos.
+                </p>
+
+                <div class="card-produto-avaliacao">
+                    <span>★★★★★</span>
+                    <small>4,7</small>
+                </div>
+
+                <p class="preco-antigo">R$ 199,90</p>
+
+                <p class="preco-atual">R$ 159,90 no PIX</p>
+
+                <div class="controle-compra">
+
+                    <div class="controle-quantidade">
+
+                        <button type="button">−</button>
+
+                        <span>1</span>
+
+                        <button type="button">+</button>
+
+                    </div>
+
+                    <button type="button" class="botao-adicionar">
+                        Adicionar
+                    </button>
+
+                </div>
+
+                <a href="#" class="botao-whatsapp">
+                    Comprar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </article>
+
+        <article class="card-produto">
+
+            <div class="card-produto-imagem">
+
+                <img
+                    src="assets/produto-4.png"
+                    alt="Escovinhas descartáveis"
+                >
+
+                <button
+                    type="button"
+                    class="botao-favorito"
+                    aria-label="Adicionar produto aos favoritos"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="card-produto-conteudo">
+
+                <h3>Escovinhas descartáveis</h3>
+
+                <p class="card-produto-descricao">
+                    Kit profissional para cílios e sobrancelhas.
+                </p>
+
+                <div class="card-produto-avaliacao">
+                    <span>★★★★★</span>
+                    <small>4,8</small>
+                </div>
+
+                <p class="preco-antigo">R$ 9,90</p>
+
+                <p class="preco-atual">R$ 5,99 no PIX</p>
+
+                <div class="controle-compra">
+
+                    <div class="controle-quantidade">
+
+                        <button type="button">−</button>
+
+                        <span>1</span>
+
+                        <button type="button">+</button>
+
+                    </div>
+
+                    <button type="button" class="botao-adicionar">
+                        Adicionar
+                    </button>
+
+                </div>
+
+                <a href="#" class="botao-whatsapp">
+                    Comprar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIAS EM DESTAQUE -->
+<section class="secao-home categorias-destaque">
+
+    <div class="secao-cabecalho centralizado">
+
+        <div>
+            <h2>Categorias em destaque</h2>
+            <p>Encontre rapidamente o que você precisa para sua rotina completa.</p>
         </div>
 
     </div>
-    <!-- FINALIZAÇÃO DA ÁREA DO BANNER DA LOJA-->
 
-    <!-- ÁREA DE OFERTAS -->
-     <section class="ofertas">
-        <div class="titulo-ofertas">
-            <h2>OFERTAS DA SEMANA</h2>
-            <p>Confira as melhores ofertas para você</p>
-            <a href="#" class="ver-tudo">VER TUDO</a>
+    <div class="acoes-categorias">
+
+        <a href="#" class="botao-contorno">
+            Cupons e promoções
+        </a>
+
+        <a href="#" class="botao-principal">
+            Ver todas as categorias
+        </a>
+
+    </div>
+
+    <div class="grade-categorias">
+
+        <article class="card-categoria">
+
+            <img
+                src="assets/categoria-micropigmentacao.png"
+                alt="Micropigmentação"
+            >
+
+            <div>
+                <h3>Micropigmentação</h3>
+
+                <p>
+                    Limpeza, hidratação e cuidados para diferentes tipos de pele.
+                </p>
+            </div>
+
+        </article>
+
+        <article class="card-categoria">
+
+            <img
+                src="assets/categoria-maquiagem.png"
+                alt="Maquiagem"
+            >
+
+            <div>
+                <h3>Maquiagem</h3>
+
+                <p>
+                    Reconstrução, nutrição e brilho para todos os fios.
+                </p>
+            </div>
+
+        </article>
+
+        <article class="card-categoria">
+
+            <img
+                src="assets/categoria-pigmentos.png"
+                alt="Pigmentos"
+            >
+
+            <div>
+                <h3>Pigmentos</h3>
+
+                <p>
+                    Bases, pós, delineadores, máscaras e batons de alta fixação.
+                </p>
+            </div>
+
+        </article>
+
+        <article class="card-categoria">
+
+            <img
+                src="assets/categoria-sobrancelhas.png"
+                alt="Sobrancelhas e cílios"
+            >
+
+            <div>
+                <h3>Sobrancelhas &amp; Cílios</h3>
+
+                <p>
+                    Ferramentas, loções hidratantes e cuidados profissionais.
+                </p>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUTOS EM ALTA -->
+<section class="secao-home produtos-alta">
+
+    <div class="secao-cabecalho centralizado">
+
+        <div>
+            <h2>Produtos em alta</h2>
+            <p>Itens populares para você comprar com confiança.</p>
         </div>
-        <div class="lista-produtos">
-            <div class="card-produtos">
-                <div class="imagem-botao">
-                    <img src="assets/gel-sobrancelha.png" alt="Produto 1">
-                    <button class="favorito">
-                        <img src="assets/favorito.png" alt="Ícone de favorito">
+
+    </div>
+
+    <div class="acoes-produtos-alta">
+
+        <a href="#" class="botao-principal">
+            Ver mais
+        </a>
+
+    </div>
+
+    <div class="grade-produtos-alta">
+
+        <article class="card-produto-simples">
+
+            <img
+                src="assets/produto-alta-1.png"
+                alt="Máscara reconstrução"
+            >
+
+            <h3>Máscara Reconstrução Keratin</h3>
+
+            <p>R$ 45,00 no PIX</p>
+
+        </article>
+
+        <article class="card-produto-simples">
+
+            <img
+                src="assets/produto-alta-2.png"
+                alt="Protetor solar"
+            >
+
+            <h3>Protetor Solar FPS 50 Matte</h3>
+
+            <p>R$ 32,90 no PIX</p>
+
+        </article>
+
+        <article class="card-produto-simples">
+
+            <img
+                src="assets/produto-alta-3.png"
+                alt="Água micelar"
+            >
+
+            <h3>Água Micelar Calmante</h3>
+
+            <p>R$ 27,50 no PIX</p>
+
+        </article>
+
+        <article class="card-produto-simples">
+
+            <img
+                src="assets/produto-alta-4.png"
+                alt="Paleta de olhos"
+            >
+
+            <h3>Paleta Olhos Nude Pro</h3>
+
+            <p>R$ 69,90 no PIX</p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- BENEFÍCIOS -->
+<section class="secao-home beneficios">
+
+    <div class="secao-cabecalho centralizado">
+
+        <div>
+            <h2>Por que comprar com a gente?</h2>
+            <p>Vantagens para uma compra segura e prática.</p>
+        </div>
+
+    </div>
+
+    <div class="grade-beneficios">
+
+        <article class="card-beneficio">
+
+            <div class="beneficio-icone">🚚</div>
+
+            <h3>Entrega rápida</h3>
+
+            <p>Prazos estimados por CEP</p>
+
+            <strong>Simulação no checkout</strong>
+
+        </article>
+
+        <article class="card-beneficio">
+
+            <div class="beneficio-icone">🔒</div>
+
+            <h3>Pagamento seguro</h3>
+
+            <p>Cartão, Pix e boleto</p>
+
+            <strong>Criptografia e antifraude</strong>
+
+        </article>
+
+        <article class="card-beneficio">
+
+            <div class="beneficio-icone">🧾</div>
+
+            <h3>Nota fiscal</h3>
+
+            <p>Compra com procedência</p>
+
+            <strong>Em até 24h após envio</strong>
+
+        </article>
+
+        <article class="card-beneficio">
+
+            <div class="beneficio-icone">💬</div>
+
+            <h3>Atendimento</h3>
+
+            <p>Tire dúvidas em minutos</p>
+
+            <strong>Chat e e-mail</strong>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- AVALIAÇÕES -->
+<section class="secao-home avaliacoes-clientes">
+
+    <div class="secao-cabecalho centralizado">
+
+        <div>
+            <h2>Avaliações de clientes</h2>
+            <p>Veja experiências reais com produtos que você vai amar.</p>
+        </div>
+
+    </div>
+
+    <div class="grade-avaliacoes">
+
+        <article class="card-avaliacao">
+
+            <div class="avaliacao-cliente">
+
+                <img
+                    src="assets/cliente-1.png"
+                    alt="Foto de Mariana"
+                >
+
+                <strong>Mariana S.</strong>
+
+                <span>★★★★★</span>
+
+            </div>
+
+            <p>
+                Ótima qualidade! Ficou bem e a pele ficou com acabamento bonito.
+            </p>
+
+        </article>
+
+        <article class="card-avaliacao">
+
+            <div class="avaliacao-cliente">
+
+                <img
+                    src="assets/cliente-2.png"
+                    alt="Foto de Carlos"
+                >
+
+                <strong>Carlos R.</strong>
+
+                <span>★★★★★</span>
+
+            </div>
+
+            <p>
+                Chegou rápido e o shampoo deixou meu cabelo bem macio. Recomendo!
+            </p>
+
+        </article>
+
+        <article class="card-avaliacao">
+
+            <div class="avaliacao-cliente">
+
+                <img
+                    src="assets/cliente-3.png"
+                    alt="Foto de Aline"
+                >
+
+                <strong>Aline P.</strong>
+
+                <span>★★★★★</span>
+
+            </div>
+
+            <p>
+                O sérum é maravilhoso. Notei diferença na textura já na primeira semana.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="secao-home newsletter">
+
+    <div class="newsletter-conteudo">
+
+        <div class="newsletter-logo">
+
+            <img
+                src="assets/logo.png"
+                alt="Logo Paula Studio Store"
+            >
+
+        </div>
+
+        <div class="newsletter-formulario">
+
+            <h2>Receba cupons e ofertas no seu e-mail</h2>
+
+            <p>
+                Cadastre-se e ganhe condições exclusivas da loja.
+            </p>
+
+            <form>
+
+                <div class="newsletter-campos">
+
+                    <div class="campo-formulario">
+
+                        <label for="newsletterNome">
+                            Seu nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="newsletterNome"
+                            placeholder="Ex.: Ana"
+                        >
+
+                    </div>
+
+                    <div class="campo-formulario">
+
+                        <label for="newsletterEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="newsletterEmail"
+                            placeholder="voce@exemplo.com"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="newsletter-acoes">
+
+                    <button
+                        type="button"
+                        class="botao-contorno"
+                    >
+                        Não, obrigado
                     </button>
-                </div>
-                <h3>Nome do Produto</h3>
-                <div class="precos">
-                    <p class="p-antigo">R$ 199,99</p>
-                    <p class="p-promocional">R$ 99,99</p>
-                </div>
-            <div class="btn-card">
-                <img src="assets/avaliacao.png" alt="avaliacao">
-                <h5>4.5</h5>
-                <button class="btn-carrinho">
-                    <img src="assets/carrinhos.png" alt="Ícones do carrinho">
-                </button>
-            </div>
-        </div>
-     </section>
-    <!-- ÁREA DE OFERTAS -->
-     <section class="ofertas">
-        <div class="titulo-ofertas">
-            <h2>CATEGORIAS EM DESTAQUE</h2>
-            <p>Confira as melhores ofertas para você</p>
-            <a href="#" class="ver-tudo">VER TUDO</a>
-        </div>
-        <div class="lista-produtos">
-            <div class="card-produtos">
-                <div class="imagem-botao">
-                    <img src="assets/gel-sobrancelha.png" alt="Produto 1">
-                    <button class="favorito">
-                        <img src="assets/favorito.png" alt="Ícone de favorito">
+
+                    <button
+                        type="submit"
+                        class="botao-principal"
+                    >
+                        Cadastrar
                     </button>
+
                 </div>
-                <h3>Nome do Produto</h3>
-                <div class="precos">
-                    <p class="p-antigo">R$ 199,99</p>
-                    <p class="p-promocional">R$ 99,99</p>
-                </div>
-            <div class="btn-card">
-                <img src="assets/avaliacao.png" alt="avaliacao">
-                <h5>4.5</h5>
-                <button class="btn-carrinho">
-                    <img src="assets/carrinhos.png" alt="Ícones do carrinho">
-                </button>
-            </div>
+
+            </form>
+
         </div>
-     </section>
-    <!-- ÁREA DE OFERTAS -->
-     <section class="ofertas">
-        <div class="titulo-ofertas">
-            <h2>PRODUTOS EM ALTA</h2>
-            <p>Confira as melhores ofertas para você</p>
-            <a href="#" class="ver-tudo">VER TUDO</a>
+
+    </div>
+
+</section>
+
+
+<!-- RODAPÉ -->
+<footer class="rodape">
+
+    <div class="rodape-conteudo">
+
+        <div class="rodape-pagamentos">
+
+            <img
+                src="assets/formas-pagamento.png"
+                alt="Formas de pagamento aceitas"
+            >
+
         </div>
-        <div class="lista-produtos">
-            <div class="card-produtos">
-                <div class="imagem-botao">
-                    <img src="assets/gel-sobrancelha.png" alt="Produto 1">
-                    <button class="favorito">
-                        <img src="assets/favorito.png" alt="Ícone de favorito">
-                    </button>
-                </div>
-                <h3>Nome do Produto</h3>
-                <div class="precos">
-                    <p class="p-antigo">R$ 199,99</p>
-                    <p class="p-promocional">R$ 99,99</p>
-                </div>
-            <div class="btn-card">
-                <img src="assets/avaliacao.png" alt="avaliacao">
-                <h5>4.5</h5>
-                <button class="btn-carrinho">
-                    <img src="assets/carrinhos.png" alt="Ícones do carrinho">
-                </button>
+
+        <div class="rodape-beneficio">
+
+            <span>🚚</span>
+
+            <div>
+                <strong>Frete grátis</strong>
+                <p>Compras acima de R$ 100</p>
             </div>
+
         </div>
-     </section>
-    <!-- ÁREA DE OFERTAS -->
-     <section class="ofertas">
-        <div class="titulo-ofertas">
-            <h2>POR QUE COMPRAR COM A GENTE?</h2>
-            <p>Confira as melhores ofertas para você</p>
-            <a href="#" class="ver-tudo">VER TUDO</a>
-        </div>
-        <div class="lista-produtos">
-            <div class="card-produtos">
-                <div class="imagem-botao">
-                    <img src="assets/gel-sobrancelha.png" alt="Produto 1">
-                    <button class="favorito">
-                        <img src="assets/favorito.png" alt="Ícone de favorito">
-                    </button>
-                </div>
-                <h3>Nome do Produto</h3>
-                <div class="precos">
-                    <p class="p-antigo">R$ 199,99</p>
-                    <p class="p-promocional">R$ 99,99</p>
-                </div>
-            <div class="btn-card">
-                <img src="assets/avaliacao.png" alt="avaliacao">
-                <h5>4.5</h5>
-                <button class="btn-carrinho">
-                    <img src="assets/carrinhos.png" alt="Ícones do carrinho">
-                </button>
-            </div>
-        </div>
-     </section>
-    <!--INICIO DO RODAPÉ-->
-    <footer>
-        <!-- parte superior do radapé-->
-         <div class="superior">
-            <div class="coluna1">
-                <h2> PAULA STUDIO STORE</h2>
-                <p> A melhor distribuidora de produtos de beleza de Araguaína e região.</p>
-                <div class="formadepagamento">
-                    <img src="assets/">
-                </div>
-                
-            </div>
-            <div class="coluna2">
-                <h4>FRETE GRÁTIS</h4>
-                <p>Compras cima de R$ 100</p>
-            </div>
-            <div class="coluna3">
-                <h4>ENTREGA EXPRESSA</h4>
+
+        <div class="rodape-beneficio">
+
+            <span>◷</span>
+
+            <div>
+                <strong>Entrega expressa</strong>
                 <p>A partir de 1 dia útil</p>
             </div>
-            <div class="coluna4">
-                <h4>EM ATÉ 10X</h4>
-                <p>no cartão de crédito</p>
-            </div>
-            <div class="redesSociais">
-                <a href="">
-                    <img src="assets/instagram.png">
-                </a>
-                <a href="">
-                    <img src="assets/whatsapp.png">
-                </a>
-                <a href="">
-                    <img src="assets/tik-tok.png">
-                </a>
-            </div>
-         </div>
-        <!-- parte inferior -->
-        <div class="inferior">
-            
+
         </div>
-    </footer>
-</body>
-</html>
+
+        <div class="rodape-beneficio">
+
+            <span>▣</span>
+
+            <div>
+                <strong>Em até 10x</strong>
+                <p>No cartão de crédito</p>
+            </div>
+
+        </div>
+
+        <div class="rodape-redes">
+
+            <a href="#" aria-label="Instagram">
+                <img src="assets/instagram.png" alt="">
+            </a>
+
+            <a href="#" aria-label="WhatsApp">
+                <img src="assets/whatsapp.png" alt="">
+            </a>
+
+            <a href="#" aria-label="TikTok">
+                <img src="assets/tik-tok.png" alt="">
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>

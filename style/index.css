@@ -1,358 +1,1229 @@
-/* COLOCANDO COR DE FUNDO NO MEU CABEÇALHO*/
-header{
-    background-color:rgb(12, 6, 6); /* COR DE FUNDO DO CABEÇALHO*/
-    font-family: barlow, sans-serif; /*FONTE DE LETRA DO CABEÇALHO*/
-    color:white; /* COR DA LETRA DO CABEÇALHO*/
-}
-nav {
-  
-    text-align: center; /* ALINHAMENTO DO TEXTO DO MENU DE NAVEGAÇÃO*/
-    border-color: rgb(179, 41, 41); /* COR DA BORDA DO MENU DE NAVEGAÇÃO*/
-    background-color: rgb(12, 6, 6); /* COR DE FUNDO DO MENU DE NAVEGAÇÃO*/
-    border-width: 1px; /* LARGURA DA BORDA DO MENU DE NAVEGAÇÃO*/
-    border-style: solid; /* ESTILO DA BORDA DO MENU DE NAVEGAÇÃO*/
-    padding: 10px; /* ESPAÇAMENTO INTERNO DO MENU DE NAVEGAÇÃO*/
-}
-nav a{
-    color:rgb(255, 255, 255); /* COR DA LETRA DO MENU DE NAVEGAÇÃO*/
-    text-decoration:none; /* TIRA O SUBLINHADO DO MENU DE NAVEGAÇÃO*/
-    margin: 0 30px; /* ESPAÇAMENTO ENTRE OS ITENS DO MENU DE NAVEGAÇÃO*/
-    text-align: center; /* ALINHAMENTO DO TEXTO DO MENU DE NAVEGAÇÃO*/
-    font-family: barlow, sans-serif; /* FONTE DE LETRA DO MENU DE NAVEGAÇÃO*/
-}
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
 
-.logo img{
-    width: 100px; /* LARGURA DA IMAGEM DO LOGO*/
-    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DA IMAGEM DO LOGO*/
-}
-/* CONFIGURANDO O CAIXA DE PESQUISA */
-.caixa-pesquisa input{
-    padding: 15px; /* ESPAÇAMENTO INTERNO DO CAMPO DE PESQUISA*/
-    border: none; /* REMOVE A BORDA DO CAMPO DE PESQUISA*/
-    border-radius: 25px; /* ARREDONDAMENTO DAS BORDAS DO CAMPO DE PESQUISA*/
-    font-family: barlow, sans-serif; /* FONTE DE LETRA DO CAMPO DE PESQUISA*/
-    height: auto; /* ALTURA DO CAMPO DE PESQUISA*/
-    width: 300px; /* LARGURA DO CAMPO DE PESQUISA*/
-    color: rgb(163, 163, 163); /* COR DA LETRA DO CAMPO DE PESQUISA*/
-    padding-right: 40px; /* ESPAÇAMENTO INTERNO DO CAMPO DE PESQUISA PARA O ÍCONE DE PESQUISA*/
-}
-/* CONFIGURANDO A DIV DA PESQUISA */
-.caixa-pesquisa{
-    display: flex; /* EXIBE OS ELEMENTOS EM UMA LINHA */
-    justify-content: center; /* ALINHAMENTO HORIZONTAL DOS ELEMENTOS*/
-    margin-top: 10px; /* MARGEM SUPERIOR DA DIV DA PESQUISA*/
-    margin-bottom: 10px; /* MARGEM INFERIOR DA DIV DA PESQUISA*/
-    position: relative; /* POSIÇÃO RELATIVA PARA PERMITIR O POSICIONAMENTO ABSOLUTO DO ÍCONE DE PESQUISA*/
-}
-/* ALINHAR AS DIVS DO CABEÇALHO */
-.topo{
-    display: flex; /* EXIBE OS ELEMENTOS EM UMA LINHA */
-    align-items: center; /* ALINHAMENTO VERTICAL DOS ELEMENTOS*/
-    justify-content: space-between; /* DISTRIBUIÇÃO DOS ELEMENTOS COM ESPAÇO ENTRE ELES*/
-    
-}
-/*CONFIGURANDO OS ICONES*/
-.caixa-pesquisa img{
-    height: 30px; /* ALTURA DO ÍCONE DE PESQUISA*/
-    width: 30px; /* LARGURA AUTOMÁTICA PARA MANTER A PROPOR*/
-    position: absolute; /* POSIÇÃO ABSOLUTA PARA POSICIONAR O ÍCONE DE PESQUISA DENTRO DA DIV DA PESQUISA*/
-    right: 10px; /* DISTÂNCIA DO ÍCONE DE PESQUISA DA BORDA ESQUERDA DO CAMPO DE PESQUISA*/
-    top: 50%; /* ALINHAMENTO VERTICAL DO ÍCONE DE PESQUISA*/
-    transform: translateY(-50%); /* AJUSTA O ALINHAMENTO VERTICAL DO ÍCONE DE PESQUISA*/
-}
-.caixa-pesquisa input::placeholder{
-    padding-left: 10px; /* ESPAÇAMENTO INTERNO DO TEXTO DE PLACEHOLDER DO CAMPO DE PESQUISA*/
-}
-.icones a img{
-    height: 30px; /* ALTURA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    width: 30px; /* LARGURA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    margin-left: px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
-    grid-row: 1 / 3; /* FAZ COM QUE OS ÍCONES DE USUÁRIO E CARRINHO OCUPEM DUAS LINHAS NA GRADE*/
-
-}
-/* CONFIGURANDO OS ÍCONES DE USUÁRIO E CARRINHO */
-.icones a small{
-    font-size: 12px; /* TAMANHO DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    display: block; /* EXIBE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO EM UMA NOVA LINHA*/
-    color:rgb(255, 255, 255); /* COR DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    grid-column: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA COLUNA DA GRADE*/
-    grid-row: 1; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A PRIMEIRA LINHA DA GRADE*/
-    margin: 0; /* REMOVE A MARGEM DOS ÍCONES DE USUÁRIO E CARRINHO*/
-   
-}
-.icones a p{
-    font-size: 12px; /* TAMANHO DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    display: block; /* EXIBE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO EM UMA NOVA LINHA*/
-    color:rgb(255, 255, 255); /* COR DA LETRA DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    grid-column: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA COLUNA DA GRADE*/
-    grid-row: 2; /* FAZ COM QUE O TEXTO DOS ÍCONES DE USUÁRIO E CARRINHO OCUPE A SEGUNDA LINHA DA GRADE*/
-    margin: 0; /* REMOVE A MARGEM DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    
-    
-}
-.icones a p{
-    text-decoration: none; /* REMOVE O SUBLINHADO DOS ÍCONES DE USUÁRIO E CARRINHO*/
-}
-.icones a{
-    text-decoration: none; /* REMOVE O SUBLINHADO DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    display: grid; /* EXIBE OS ÍCONES DE USUÁRIO E CARRINHO EM UMA GRADE*/
-    grid-template-columns: 40px auto; /* DEFINE UMA COLUNA PARA OS ÍCONES DE USUÁRIO E CARRINHO*/
-    grid-template-rows: auto auto; /* DEFINE DUAS LINHAS PARA OS ÍCONES DE USUÁRIO E CARRINHO*/
-    margin-right: 20px; /* DISTÂNCIA ENTRE OS ÍCONES DE USUÁRIO E CARRINHO E A BORDA DIREITA DO CABEÇALHO*/
-}
-/* CONFIGURANDO A DIV ICONES*/
-.icones{
-    display: flex; /* EXIBE OS ÍCONES DE USUÁRIO E CARRINHO EM UMA LINHA*/
-    align-items: center; /* ALINHAMENTO VERTICAL DOS ÍCONES DE USUÁRIO E CARRINHO*/
-    gap: 30px; /* ESPAÇAMENTO ENTRE OS ÍCONES DE USUÁRIO E CARRINHO*/
-}
-/*configurando a área do banner*/
-.imagens-banner img{
-    max-width: 100%; /* LARGURA MÁXIMA DO BANNER PARA SE AJUSTAR AO TAMANHO DA TELA*/
-}
-.banner{
-    display: flex; /* EXIBE AS IMAGENS DO BANNER EM UMA LINHA*/
-    justify-content: space-between; /* ALINHAMENTO HORIZONTAL DAS IMAGENS DO BANNER*/
-    align-items: center; /* ALINHAMENTO VERTICAL DAS IMAGENS DO BANNER*/
-   
-}
-
-.imagens-banner{
-    position: relative; /* POSIÇÃO RELATIVA PARA PERMITIR O POSICIONAMENTO ABSOLUTO DOS BOTÕES DE NAVEGAÇÃO DO BANNER*/
-    width: 100%; /* LARGURA DO BANNER PARA SE AJUSTAR AO TAMANHO DA TELA*/
-    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DO BANNER*/
-}
-.btn-comprar{
-    position: absolute;
-    top: 70%;
-    left: 20%;
-    background-color: #A21D54;
-    color: #FFFFFF;
-    border-radius: 10px;
-    font-family: poppins, sans-serif;       
-    font-size: 18px;
-    padding: 5px 20px;
-    border: none;
-}
-.btn-anterior{
-    position:absolute;
-    top: 50%;
-    left: 2%;
-    background-color: transparent;
-    color: #A21D54;
-    border-radius: 50%;
-    border: none;
-    padding: 10px;
-}
-.btn-proximo{
-    position:absolute;
-    top: 50%;
-    left: 93%;
-    background-color: transparent;
-    color: #A21D54;
-    border-radius: 50%;
-    border: none;
-    padding: 10px;
-   
-}
-.btn-comprar:hover{
-    background-color: #f1f1f1;
-    color: #A21D54;
-}
-.btn-anterior:hover, .btn-proximo:hover{
-    background-color: #A21D54;
-    color: #FFFFFF;
-}
-/* CONFIGURANDO A ÁREA DE OFERTAS */
-.ofertas{
-    padding: 20px; /*DISTANCIA ENTRE O CONTEÚDO DA DIV DE OFERTAS E AS BORDAS DA DIV*/
-}
-/* CONFIGURANDO O TÍTULO DA ÁREA DE OFERTAS */
-.titulo-ofertas{
-    font-family: barlow, sans-serif; /* FONTE DE LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
-    display: grid; /* EXIBE OS ITENS DA ÁREA DE OFERTAS EM UMA GRADE*/
-    grid-template-columns: 2 80% 20%; /*DEFINE O TAMANHO DAS COLUNAS DA GRADE*/
-    grid-template-rows: 2 50% 50%; /*DEFINE O TAMANHO DAS LINHAS DA GRADE*/
-    margin-bottom: 20px; /* MARGEM INFERIOR DO TÍTULO DA ÁREA DE OFERTAS*/
-}
-.titulo-ofertas h2{
-    color:rgb(0, 0, 0); /* COR DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
-    font-size: 24px; /* TAMANHO DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
-    grid-column: 1; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A PRIMEIRA COLUNA DA GRADE*/
-    grid-row: 1; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A PRIMEIRA LINHA DA GRADE*/
-    margin: 0; /* REMOVE A MARGEM DO TÍTULO DA ÁREA DE OFERTAS*/
-}
-.titulo-ofertas p{
-    color:rgb(66, 55, 4); /* COR DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
-    font-size: 14px; /* TAMANHO DA LETRA DO TÍTULO DA ÁREA DE OFERTAS*/
-    grid-column: 1; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A PRIMEIRA COLUNA DA GRADE*/
-    grid-row: 2; /* FAZ COM QUE O TÍTULO DA ÁREA DE OFERTAS OCUPE A SEGUNDA LINHA DA GRADE*/
-    margin: 0; /* REMOVE A MARGEM DO TÍTULO DA ÁREA DE OFERTAS*/
-}
-.titulo-ofertas a{
-    text-decoration: none; /* REMOVE O SUBLINHADO DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
-    color:rgb(68, 12, 197); /* COR DA LETRA DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
-    font-size: 14px; /* TAMANHO DA LETRA DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
-    grid-column: 2; /* FAZ COM QUE O LINK DO TÍTULO DA ÁREA DE OFERTAS OCUPE A SEGUNDA COLUNA DA GRADE*/
-    grid-row: 1 / 3; /* FAZ COM QUE O LINK DO TÍTULO DA ÁREA DE OFERTAS OCUPE AS DUAS LINHAS DA GRADE*/
-    align-self: center; /* ALINHAMENTO VERTICAL DO LINK DO TÍTULO DA ÁREA DE OFERTAS*/
-    padding-left: 80%; /* ESPAÇAMENTO INTERNO DO LINK DO TÍTULO DA ÁREA DE OFERTAS PARA A ESQUERDA*/
-}
-.lista-produto{
-    display: flex; /* EXIBE OS PRODUTOS EM UMA LINHA*/
-    justify-content: space-between; /* ALINHAMENTO HORIZONTAL DOS PRODUTOS*/
-    font-family: barlow, sans-serif; /* FONTE DE LETRA DOS PRODUTOS*/
-    margin-top: 40px; /* MARGEM SUPERIOR DOS PRODUTOS*/
-    
-}
-.card-produtos{
-    width: 200px; /* LARGURA DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DA TELA*/
-    height: 50%; /* ALTURA DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DA TELA*/
-    background-color: rgb(218, 207, 207); /* COR DE FUNDO DOS CARDS DE PRODUTOS*/
-    border: 1px solid rgb(255, 255, 255); /* BORDA DOS CARDS DE PRODUTOS*/
-    border-radius: 10px; /* ARREDONDAMENTO DAS BORDAS DOS CARDS DE PRODUTOS*/
-    padding: 10px; /* ESPAÇAMENTO INTERNO DOS CARDS DE PRODUTOS*/
-    text-align: center; /* ALINHAMENTO DO TEXTO DOS CARDS DE PRODUTOS*/
-}
-.card-produtos img{
-    width: 100%; /* LARGURA DAS IMAGENS DOS CARDS DE PRODUTOS PARA SE AJUSTAR AO TAMANHO DO CARD*/
-    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DAS IMAGENS DOS CARDS DE PRODUTOS*/
-    margin-bottom: 10px; /* MARGEM INFERIOR DAS IMAGENS DOS CARDS DE PRODUTOS*/
-    border-radius: 10px; /* ARREDONDAMENTO DAS BORDAS DAS IMAGENS DOS CARDS DE PRODUTOS*/
-    
-}
-.imagem-botao{
-    position: relative; /* POSIÇÃO RELATIVA PARA PERMITIR O POSICIONAMENTO ABSOLUTO DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
-}
-.favorito{
-    position: absolute; /* POSIÇÃO ABSOLUTA PARA POSICIONAR O BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/    
-    border: none; /* REMOVE A BORDA DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
-    border-radius: 50%; /* ARREDONDAMENTO DAS BORDAS DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
-    background-color: transparent; /* COR DE FUNDO TRANSPARENTE PARA O BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
-    top: 0px; /* DISTÂNCIA DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS DA BORDA SUPERIOR DA IMAGEM DO CARD DE PRODUTO*/
-    right: 0px; /* DISTÂNCIA DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS DA BORDA DIREITA DA IMAGEM DO CARD DE PRODUTO*/
-    padding: 10px; /* ESPAÇAMENTO INTERNO DO BOTÃO DE FAVORITO DOS CARDS DE PRODUTOS*/
-}
-
-.favorito img{
-    width: 25px; /* LARGURA DO ÍCONE DE FAVORITO DOS CARDS DE PRODUTOS*/
-    height: auto; /* ALTURA AUTOMÁTICA PARA MANTER A PROPORÇÃO DO ÍCONE DE FAVORITO DOS CARDS DE PRODUTOS*/
-    
-}
-/*CONFIGURANDO O NOME DO PRODUTO*/
-.card-produtos h3{
-    font-size: 16px; /* TAMANHO DA LETRA DO NOME DOS PRODUTOS*/
-    font-family: barlow, sans-serif; /* FONTE DE LETRA DO NOME DOS PRODUTOS*/
-    color: rgb(0, 0, 0); /* COR DA LETRA DO NOME DOS PRODUTOS*/
-    font-style: normal; /* ESTILO DA LETRA DO NOME DOS PRODUTOS*/
-}
-/*CONFIGURANDO O BOTÃO DE ADICIONAR AO CARRINHO*/
-.btn-adicionar{
-    border-radius: 40px; /* ARREDONDAMENTO DAS BORDAS DO BOTÃO DE ADICIONAR AO CARRINHO DOS CARDS DE PRODUTOS*/
-    background-color: #ffffff00; /* COR DE FUNDO DO BOTÃO DE ADICIONAR AO CARRINHO DOS CARDS DE PRODUTOS*/
-    border: none; /* REMOVE A BORDA DO BOTÃO DE ADICIONAR AO CARRINHO DOS CARDS DE PRODUTOS*/
-    margin-left: 60px; /* DISTÂNCIA ENTRE O BOTÃO DE ADICIONAR AO CARRINHO DOS CARDS DE PRODUTOS E A BORDA DIREITA DO CARD DE PRODUTO*/
-    
-}
-.btn-adicionar img{
-    width: 30px; /* LARGURA DO ÍCONE DE ADICIONAR AO CARRINHO DOS CARDS DE PRODUTOS*/
-    padding: 5px; /* ESPAÇAMENTO INTERNO DO ÍCONE DE ADICIONAR AO CARRINHO DOS CARDS DE PRODUTOS*/
-}
-.precos{
-    display: grid; /*PERMITE COLOCAR ITENS UM AO LADO OUTRO*/
-    grid-template-columns: 2; /*DEFINE O TAMANHO DAS COLUNAS DA GRADE*/
-    grid-template-rows: 1; /*DEFINE O TAMANHO DAS LINHAS DA GRADE*/
-    align-items: center;
-    font-family: barlow, sans-serif;
-}
-.p-antigo{
-    grid-column: 1; /* FAZ COM QUE O PREÇO ANTIGO OCUPE A PRIMEIRA COLUNA DA GRADE*/
-    grid-row: 1; /* FAZ COM QUE O PREÇO ANTIGO OCUPE A PRIMEIRA LINHA DA GRADE*/
-    text-decoration: line-through; /* ADICIONA UMA LINHA ATRAVÉS DO PREÇO ANTIGO PARA INDICAR QUE ELE ESTÁ DESCONTADO*/
-    font-size: 12px; /*TAMANHO DO TEXTO*/
-    color: bisque;
-}
-.p-promocional{
-    grid-column: 2; /* FAZ COM QUE O PREÇO PROMOCIONAL OCUPE A SEGUNDA COLUNA DA GRADE*/
-    grid-row: 1; /* FAZ COM QUE O PREÇO PROMOCIONAL OCUPE A PRIMEIRA LINHA DA GRADE*/
-    text-decoration: bold;
-    font-size: 18px; /* TAMANHO DO TEXTO*/
-    color: #A21D54; /*COR DO TEXTO*/
-    text-align: left; /*ALINHA O TEXTO PARA A ESQUERDA*/
-    
-}
-.btn-card{
-    display: flex; /*modelo flexivel*/
-    align-items: center; /*alinha os itens ao meio*/
-    gap: 20px; /*espaçamento entre os elementos*/
-}
-.btn-card img{
-    width: 24px; /*largura da imagem*/
-}
-.btn-card h5{
-    font-size: 14px; /*tamanho do texto*/
-}
-/*Configurações de Rodapé*/
-footer{ /* flooter não pode ter ponto*/
-    background-color: black; /*cor de fundo*/
-    color: white; /*todos os textos na cor branca*/
-    font-family: barlow, sans-serif; /*tipo de fonte*/
-    padding: 40px;
-}
-.superior{
-    display: flex; /*permitir flexibilidade entre as colunas*/
-    gap:10px; /*espaçamento entre as divs*/
-    justify-content: space-between; /*define um tamanho igual entre as divs*/
-    flex-wrap: wrap; /*joga os textos para outra linha caso não possa caber na div*/
-}
-.inferior{
-    display: flex; /*permitir flexibilidade entre as colunas*/
-    gap:20px; /*espaçamento entre as divs*/
-    justify-content: space-between; /*definir um tamanho igual entre os paragrafos*/
-    flex-wrap: wrap; /*joga os textos para outra linha caso não possa caber na div*/
-    align-items: center; /*alinha os paragrafos no centro*/
-}
-.coluna1,.coluna2,.coluna3,.coluna4{
-    flex: 1; /*que cada coluna ocupa 1 espaço na página*/
-}
-.superior h2,.h4{
-    font-size: 18px; /*tamanho dos titulos*/
-    font-weight: bold; /*apliquei negrito aos titulos*/
-}
-.superior p{
-    font-size: 12px; /*tamanho dos parágrafos*/
-}
-.superior a{
-    color: white; /*cor dos links*/
-    font-size: 10px; /*tamanho dos paragrafos*/
-    text-decoration: none; /*rmeove o sublinado*/
-}
-.superior img{
-    width: 24px; /*definir tamanho dos icones*/
-}
-.formadepagamento{
-    background-color: white;
-    border-radius: 20px;
-    width: 200px;
-    height: 30px;
-    align-items: center;
-    
-}
-.formadepagamento a{
-    margin-left: 10px;
-}
-.redesSociais{
-    margin-left: 10px;
-
-}
-/*configurar para que os elementos da página preencham toda a tela*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* definir que a página não precisa de barra horizontal*/
-body{
-    overflow-x: hidden; /*remove a barra de rolagem horizontal*/
-    width: 100%; /*preencher sempre 100% da tela*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    color: #242124;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   Mantém a estrutura da div .topo
+========================================================= */
+
+header {
+    width: 100%;
+    background-color: #352730;
+    color: #ffffff;
+}
+
+.topo {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 96px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 105px;
+    height: auto;
+    object-fit: contain;
+}
+
+.caixa-pesquisa {
+    position: relative;
+    width: min(430px, 100%);
+    flex: 1;
+}
+
+.caixa-pesquisa input {
+    width: 100%;
+    height: 48px;
+    padding: 0 52px 0 22px;
+
+    border: none;
+    border-radius: 30px;
+    outline: none;
+
+    background-color: #ffffff;
+    color: #342a30;
+    font-size: 14px;
+}
+
+.caixa-pesquisa input::placeholder {
+    color: #a7a0a4;
+}
+
+.caixa-pesquisa img {
+    position: absolute;
+    top: 50%;
+    right: 17px;
+
+    width: 23px;
+    height: 23px;
+
+    object-fit: contain;
+    transform: translateY(-50%);
+}
+
+.icones {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.icones a {
+    display: grid;
+    grid-template-columns: 38px auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 8px;
+
+    color: #ffffff;
+}
+
+.icones a > img {
+    grid-column: 1;
+    grid-row: 1 / 3;
+
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.icones small {
+    grid-column: 2;
+    grid-row: 1;
+
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.icones p {
+    grid-column: 2;
+    grid-row: 2;
+
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   BANNER PRINCIPAL
+========================================================= */
+
+.banner-principal {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #201b1e;
+}
+
+.banner-slides {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 635;
+    min-height: 330px;
+    max-height: 635px;
+}
+
+.banner-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    visibility: hidden;
+    opacity: 0;
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+.banner-slide.ativo {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+.banner-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner-seta {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(25, 20, 23, 0.5);
+    color: #ffffff;
+
+    font-size: 28px;
+    line-height: 1;
+
+    transform: translateY(-50%);
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.banner-seta:hover {
+    background-color: rgba(198, 91, 80, 0.95);
+    transform: translateY(-50%) scale(1.07);
+}
+
+.banner-seta-anterior {
+    left: 24px;
+}
+
+.banner-seta-proximo {
+    right: 24px;
+}
+
+.banner-indicadores {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    transform: translateX(-50%);
+}
+
+.banner-indicador {
+    width: 10px;
+    height: 10px;
+
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.35);
+    transition:
+        width 0.25s ease,
+        border-radius 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.banner-indicador.ativo {
+    width: 29px;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+
+/* =========================================================
+   ESTRUTURA DAS SEÇÕES
+========================================================= */
+
+.secao-home {
+    width: min(1160px, calc(100% - 40px)); 
+    margin: 0 auto;
+    padding: 70px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.secao-cabecalho {
+    margin-bottom: 34px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.secao-cabecalho h2 {
+    margin-bottom: 10px;
+
+    color: #191719;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.1;
+}
+
+.secao-cabecalho p {
+    color: #777077;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.secao-cabecalho.centralizado {
+    display: block;
+    text-align: center;
+}
+
+.secao-link {
+    flex-shrink: 0;
+
+    color: #c65b50;
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.25s ease;
+}
+
+.secao-link:hover {
+    color: #934239;
+}
+
+
+/* =========================================================
+   BOTÕES GERAIS
+========================================================= */
+
+.botao-principal,
+.botao-contorno {
+    min-width: 155px;
+    min-height: 44px;
+    padding: 12px 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.botao-principal {
+    border: 1px solid #c65b50;
+    background-color: #c65b50;
+    color: #ffffff;
+}
+
+.botao-principal:hover {
+    border-color: #a94a41;
+    background-color: #a94a41;
+    transform: translateY(-2px);
+}
+
+.botao-contorno {
+    border: 1px solid #d8786e;
+    background-color: #ffffff;
+    color: #c65b50;
+}
+
+.botao-contorno:hover {
+    background-color: #fff4f2;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   OFERTAS DA SEMANA
+========================================================= */
+
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card-produto {
+    min-width: 0;
+    overflow: hidden;
+
+    border: 1px solid #e9e6e7;
+    border-radius: 9px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 8px 24px rgba(40, 29, 35, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 13px 32px rgba(40, 29, 35, 0.12);
+}
+
+.card-produto-imagem {
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+    background-color: #f8f7f7;
+}
+
+.card-produto-imagem > img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    padding: 16px;
+
+    transition: transform 0.35s ease;
+}
+
+.card-produto:hover .card-produto-imagem > img {
+    transform: scale(1.04);
+}
+
+.botao-favorito {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e6e0e2;
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.93);
+    color: #8a7d82;
+
+    font-size: 25px;
+    line-height: 1;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.botao-favorito:hover {
+    border-color: #c65b50;
+    color: #c65b50;
+    transform: scale(1.08);
+}
+
+.card-produto-conteudo {
+    padding: 17px;
+}
+
+.card-produto-conteudo h3 {
+    min-height: 40px;
+    margin-bottom: 7px;
+
+    color: #282326;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.card-produto-descricao {
+    min-height: 38px;
+    margin-bottom: 10px;
+
+    color: #858085;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.card-produto-avaliacao {
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.card-produto-avaliacao span {
+    color: #f4b400;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.card-produto-avaliacao small {
+    color: #696268;
+    font-size: 11px;
+}
+
+.preco-antigo {
+    margin-bottom: 3px;
+
+    color: #aaa3a7;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+.preco-atual {
+    margin-bottom: 15px;
+
+    color: #2c272a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.controle-compra {
+    margin-bottom: 9px;
+
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.controle-quantidade {
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #ded9db;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.controle-quantidade button {
+    width: 31px;
+    height: 100%;
+
+    border: none;
+    background-color: #ffffff;
+    color: #5f575c;
+
+    font-size: 18px;
+}
+
+.controle-quantidade button:hover {
+    background-color: #f5f2f3;
+}
+
+.controle-quantidade span {
+    min-width: 27px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.botao-adicionar {
+    flex: 1;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #c65b50;
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: background-color 0.25s ease;
+}
+
+.botao-adicionar:hover {
+    background-color: #a94a41;
+}
+
+.botao-whatsapp {
+    width: 100%;
+    min-height: 34px;
+    padding: 7px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #50bf78;
+    border-radius: 5px;
+
+    color: #3aaa66;
+    font-size: 11px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.botao-whatsapp:hover {
+    background-color: #50bf78;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   CATEGORIAS EM DESTAQUE
+========================================================= */
+
+.acoes-categorias,
+.acoes-produtos-alta {
+    margin: -10px 0 38px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.grade-categorias {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.card-categoria {
+    min-height: 132px;
+    padding: 13px;
+
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    align-items: center;
+    gap: 18px;
+
+    border: 1px solid #e9e6e7;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-categoria:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(40, 29, 35, 0.08);
+}
+
+.card-categoria > img {
+    width: 135px;
+    height: 102px;
+
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.card-categoria h3 {
+    margin-bottom: 8px;
+
+    color: #2d282b;
+    font-size: 16px;
+}
+
+.card-categoria p {
+    color: #7b7478;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PRODUTOS EM ALTA
+========================================================= */
+
+.grade-produtos-alta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 27px;
+}
+
+.card-produto-simples {
+    padding: 18px;
+
+    border: 1px solid #e8e5e6;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-produto-simples:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(40, 29, 35, 0.09);
+}
+
+.card-produto-simples img {
+    width: 100%;
+    height: 225px;
+
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.card-produto-simples h3 {
+    min-height: 40px;
+    margin-bottom: 8px;
+
+    color: #302a2e;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.card-produto-simples p {
+    color: #312b2e;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BENEFÍCIOS
+========================================================= */
+
+.grade-beneficios {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.card-beneficio {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.beneficio-icone {
+    width: 74px;
+    height: 74px;
+    margin: 0 auto 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background-color: #f5f3f4;
+
+    font-size: 31px;
+}
+
+.card-beneficio h3 {
+    margin-bottom: 7px;
+
+    color: #332e31;
+    font-size: 15px;
+}
+
+.card-beneficio p {
+    margin-bottom: 13px;
+
+    color: #8b8488;
+    font-size: 12px;
+}
+
+.card-beneficio strong {
+    display: block;
+
+    color: #2b2629;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   AVALIAÇÕES
+========================================================= */
+
+.grade-avaliacoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.card-avaliacao {
+    min-height: 180px;
+    padding: 23px;
+
+    border-radius: 7px;
+    background-color: #f5f4f4;
+}
+
+.avaliacao-cliente {
+    margin-bottom: 17px;
+
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.avaliacao-cliente img {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avaliacao-cliente strong {
+    color: #302b2e;
+    font-size: 13px;
+}
+
+.avaliacao-cliente span {
+    color: #f4b400;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.card-avaliacao > p {
+    color: #5e575c;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter {
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+.newsletter-conteudo {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.newsletter-logo img {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto;
+
+    object-fit: contain;
+}
+
+.newsletter-formulario h2 {
+    margin-bottom: 10px;
+
+    color: #211d20;
+    font-size: clamp(25px, 3vw, 36px);
+}
+
+.newsletter-formulario > p {
+    margin-bottom: 28px;
+
+    color: #7f777c;
+    font-size: 13px;
+}
+
+.newsletter-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-formulario label {
+    color: #514a4e;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.campo-formulario input {
+    width: 100%;
+    height: 43px;
+    padding: 0 13px;
+
+    border: 1px solid #dedadb;
+    border-radius: 5px;
+    outline: none;
+
+    color: #302a2e;
+    font-size: 13px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.campo-formulario input:focus {
+    border-color: #c65b50;
+    box-shadow: 0 0 0 3px rgba(198, 91, 80, 0.11);
+}
+
+.campo-formulario input::placeholder {
+    color: #b0aaad;
+}
+
+.newsletter-acoes {
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+.rodape {
+    width: 100%;
+    padding: 28px 30px;
+
+    background-color: #352730;
+    color: #ffffff;
+}
+
+.rodape-conteudo {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.3fr repeat(3, 1fr) auto;
+    align-items: center;
+    gap: 35px;
+}
+
+.rodape-pagamentos img {
+    width: 210px;
+    max-height: 44px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.rodape-beneficio {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.rodape-beneficio > span {
+    font-size: 25px;
+}
+
+.rodape-beneficio strong {
+    display: block;
+    margin-bottom: 3px;
+
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.rodape-beneficio p {
+    color: #ddd5da;
+    font-size: 10px;
+}
+
+.rodape-redes {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.rodape-redes a {
+    transition: transform 0.25s ease;
+}
+
+.rodape-redes a:hover {
+    transform: translateY(-3px);
+}
+
+.rodape-redes img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — NOTEBOOKS E TABLETS
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .topo {
+        gap: 20px;
+    }
+
+    .icones {
+        gap: 15px;
+    }
+
+    .grade-produtos,
+    .grade-produtos-alta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rodape-redes {
+        justify-content: flex-start;
+    }
+
+}
+
+@media (max-width: 820px) {
+
+    .topo {
+        padding: 18px 0;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .icones {
+        order: 2;
+    }
+
+    .caixa-pesquisa {
+        order: 3;
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .banner-slides {
+        min-height: 300px;
+        aspect-ratio: 16 / 7;
+    }
+
+    .banner-seta {
+        width: 42px;
+        height: 42px;
+        font-size: 23px;
+    }
+
+    .banner-seta-anterior {
+        left: 12px;
+    }
+
+    .banner-seta-proximo {
+        right: 12px;
+    }
+
+    .secao-home {
+        padding: 55px 0;
+    }
+
+    .secao-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .grade-categorias {
+        grid-template-columns: 1fr;
+    }
+
+    .grade-beneficios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grade-avaliacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-conteudo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .newsletter-logo img {
+        width: 125px;
+        height: 125px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULARES
+========================================================= */
+
+@media (max-width: 580px) {
+
+    .topo,
+    .secao-home {
+        width: min(100% - 28px, 1160px);
+    }
+
+    .logo img {
+        width: 84px;
+    }
+
+    .icones {
+        gap: 9px;
+    }
+
+    .icones a {
+        grid-template-columns: 30px auto;
+        column-gap: 5px;
+    }
+
+    .icones a > img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .icones small,
+    .icones p {
+        font-size: 9px;
+    }
+
+    .caixa-pesquisa input {
+        height: 43px;
+        font-size: 12px;
+    }
+
+    .banner-slides {
+        min-height: 220px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .banner-imagem {
+        object-position: center;
+    }
+
+    .banner-seta {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .banner-indicadores {
+        bottom: 12px;
+    }
+
+    .secao-home {
+        padding: 43px 0;
+    }
+
+    .secao-cabecalho {
+        margin-bottom: 25px;
+    }
+
+    .secao-cabecalho h2 {
+        font-size: 25px;
+    }
+
+    .grade-produtos,
+    .grade-produtos-alta,
+    .grade-beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .card-produto-imagem {
+        height: 260px;
+    }
+
+    .card-categoria {
+        grid-template-columns: 100px 1fr;
+        gap: 13px;
+    }
+
+    .card-categoria > img {
+        width: 100px;
+        height: 90px;
+    }
+
+    .newsletter-campos {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-acoes {
+        flex-direction: column;
+    }
+
+    .newsletter-acoes .botao-principal,
+    .newsletter-acoes .botao-contorno {
+        width: 100%;
+    }
+
+    .rodape {
+        padding: 28px 20px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+        gap: 23px;
+    }
+
+    .rodape-pagamentos img {
+        margin: 0 auto;
+        object-position: center;
+    }
+
+    .rodape-beneficio,
+    .rodape-redes {
+        justify-content: center;
+        text-align: left;
+    }
+
 }

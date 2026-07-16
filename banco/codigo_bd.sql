@@ -23,8 +23,8 @@ complemento VARCHAR(200),
 tipo VARCHAR(45)
 );
 
-CREATE TABLE Forma_Pagamento (
-idForma_pagamento INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Formas_Pagamento (
+idFormas_pagamento INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45) NOT NULL,
 link VARCHAR(200),
 ativo BOOLEAN
@@ -136,10 +136,10 @@ FOREIGN KEY (Categoria_idCategoria) REFERENCES Categorias (idCategoria)
 );
 
 CREATE TABLE Produto_has_Tamanho (
-Produto_idProduto INT,
-Cupom_idCupom INT,
-FOREIGN KEY (Produto_idProduto) REFERENCES Produto (idProduto),
-FOREIGN KEY (Cupom_idCupom) REFERENCES Cupom (idCupom)
+    Produto_idProduto INT,
+    Tamanho_idTamanho INT,
+    FOREIGN KEY (Produto_idProduto) REFERENCES Produto (idProduto),
+    FOREIGN KEY (Tamanho_idTamanho) REFERENCES Tamanho (idTamanho)
 );
 
 CREATE TABLE Pedidos (
@@ -264,3 +264,22 @@ Categorias_idCategoria INT,
 FOREIGN KEY (Promocao_idPromocao) REFERENCES Promocao (idPromocao),
 FOREIGN KEY (Categorias_idCategoria) REFERENCES Categorias (idCategoria)
 );
+
+-- DML - COMANDO DE MODELAGEM DO BD --
+-- INSERIR, EDITAR, EXCLUIR, LISTAR --
+
+-- LISTAGEM DE TABELA --
+SHOW TABLES;
+
+-- INSERT - INSERIR DADOS NA TABELA
+INSERT INTO endereco (rua, cep, bairro, numero, complemento, tipo) values('Avenida Caramuru', 77809050, 'Eldorado', '740', 'Próximo à Escola Welder Maria', 'Comercial');
+
+-- LISTAR DADOS DA TABELA --
+
+SELECT * FROM loja;
+
+INSERT INTO Lojista (nome, cpf, email, senha, telefone) values ('João', 06288778117, 'paulastudistore@gmail.com', '123abc', '63992938076');
+
+-- CADASTRAR OS DADOS DA LOJA --
+INSERT INTO Loja (nome, whatsapp, telefone, email, endereco_idendereco, lojista_idLojista) values ('PAULA STUDIO STORE', '6399293-8076', '6399293-8076', 'paulastudiostore@gmail.com', 1, 1);
+
