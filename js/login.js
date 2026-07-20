@@ -30,22 +30,22 @@ document.getElementById("menu-ajuda").href = "#footer";
 =====================================================*/
 
 document.getElementById("hero-title").textContent =
-"Bem-vindo de volta 👋";
+    "Bem-vindo de volta 👋";
 
 document.getElementById("hero-description").textContent =
-"Entre com sua conta para acessar sua plataforma.";
+    "Entre com sua conta para acessar sua plataforma.";
 
 document.getElementById("btn-criar-conta").textContent =
-"Criar conta";
+    "Criar conta";
 
 document.getElementById("btn-ir-login").textContent =
-"Entrar";
+    "Entrar";
 
 document.getElementById("hero-image").src =
-"/assets/marca.png";
+    "/assets/marca.png";
 
 document.getElementById("hero-image").alt =
-"Logo da empresa";
+    "Logo da empresa";
 
 
 
@@ -54,28 +54,28 @@ document.getElementById("hero-image").alt =
 =====================================================*/
 
 document.getElementById("login-title").textContent =
-"Login";
+    "Login";
 
 document.getElementById("login-description").textContent =
-"Acesse sua conta em poucos segundos.";
+    "Acesse sua conta em poucos segundos.";
 
 document.getElementById("label-email").textContent =
-"E-mail";
+    "E-mail";
 
 document.getElementById("label-password").textContent =
-"Senha";
+    "Senha";
 
 document.getElementById("email").placeholder =
-"Digite seu e-mail";
+    "Digite seu e-mail";
 
 document.getElementById("password").placeholder =
-"Digite sua senha";
+    "Digite sua senha";
 
 document.getElementById("btn-forgot-password").textContent =
-"Esqueci minha senha";
+    "Esqueci minha senha";
 
 document.getElementById("btn-login").textContent =
-"Entrar";
+    "Entrar";
 
 
 
@@ -84,40 +84,40 @@ document.getElementById("btn-login").textContent =
 =====================================================*/
 
 document.getElementById("social-title").textContent =
-"Entrar com Google ou Microsoft";
+    "Entrar com Google ou Microsoft";
 
 document.getElementById("social-description").textContent =
-"Faça autenticação utilizando sua conta.";
+    "Faça autenticação utilizando sua conta.";
 
 document.getElementById("google-icon").src =
-"/assets/google.png";
+    "/assets/google.png";
 
 document.getElementById("google-icon").alt =
-"Google";
+    "Google";
 
 document.getElementById("google-title").textContent =
-"Google";
+    "Google";
 
 document.getElementById("google-description").textContent =
-"Utilize sua conta Google para acessar a plataforma.";
+    "Utilize sua conta Google para acessar a plataforma.";
 
 document.getElementById("btn-google").textContent =
-"Entrar com Google";
+    "Entrar com Google";
 
 document.getElementById("microsoft-icon").src =
-"/assets/microsoft.png";
+    "/assets/microsoft.png";
 
 document.getElementById("microsoft-icon").alt =
-"Microsoft";
+    "Microsoft";
 
 document.getElementById("microsoft-title").textContent =
-"Microsoft";
+    "Microsoft";
 
 document.getElementById("microsoft-description").textContent =
-"Utilize sua conta Microsoft para acessar a plataforma.";
+    "Utilize sua conta Microsoft para acessar a plataforma.";
 
 document.getElementById("btn-microsoft").textContent =
-"Entrar com Microsoft";
+    "Entrar com Microsoft";
 
 
 
@@ -126,16 +126,16 @@ document.getElementById("btn-microsoft").textContent =
 =====================================================*/
 
 document.getElementById("account-title").textContent =
-"Crie sua conta";
+    "Crie sua conta";
 
 document.getElementById("account-description").textContent =
-"Cadastre-se para acessar o sistema.";
+    "Cadastre-se para acessar o sistema.";
 
 document.getElementById("btn-open-login").textContent =
-"Já tenho conta";
+    "Já tenho conta";
 
 document.getElementById("btn-open-register").textContent =
-"Cadastrar";
+    "Cadastrar";
 
 
 
@@ -144,40 +144,40 @@ document.getElementById("btn-open-register").textContent =
 =====================================================*/
 
 document.getElementById("register-title").textContent =
-"Cadastro de usuário";
+    "Cadastro de usuário";
 
 document.getElementById("register-description").textContent =
-"Preencha os dados abaixo para criar sua conta.";
+    "Preencha os dados abaixo para criar sua conta.";
 
 document.getElementById("label-name").textContent =
-"Nome completo";
+    "Nome completo";
 
 document.getElementById("label-register-email").textContent =
-"E-mail";
+    "E-mail";
 
 document.getElementById("label-register-password").textContent =
-"Senha";
+    "Senha";
 
 document.getElementById("label-confirm-password").textContent =
-"Confirmar senha";
+    "Confirmar senha";
 
 document.getElementById("name").placeholder =
-"Digite seu nome";
+    "Digite seu nome";
 
 document.getElementById("register-email").placeholder =
-"Digite seu e-mail";
+    "Digite seu e-mail";
 
 document.getElementById("register-password").placeholder =
-"Digite sua senha";
+    "Digite sua senha";
 
 document.getElementById("confirm-password").placeholder =
-"Confirme sua senha";
+    "Confirme sua senha";
 
 document.getElementById("btn-back").textContent =
-"Voltar";
+    "Voltar";
 
 document.getElementById("btn-register").textContent =
-"Cadastrar";
+    "Cadastrar";
 
 
 
@@ -186,25 +186,25 @@ document.getElementById("btn-register").textContent =
 =====================================================*/
 
 document.getElementById("footer-copy").textContent =
-"© 2025 Sua Plataforma";
+    "© 2025 Sua Plataforma";
 
 document.getElementById("footer-policy").textContent =
-"Política de Privacidade";
+    "Política de Privacidade";
 
 document.getElementById("footer-policy").href =
-"#";
+    "#";
 
 document.getElementById("footer-terms").textContent =
-"Termos de Uso";
+    "Termos de Uso";
 
 document.getElementById("footer-terms").href =
-"#";
+    "#";
 
 document.getElementById("footer-contact").textContent =
-"Contato";
+    "Contato";
 
 document.getElementById("footer-contact").href =
-"mailto:suporte@suaempresa.com";
+    "mailto:suporte@suaempresa.com";
 
 
 
@@ -245,23 +245,159 @@ document.getElementById("btn-open-login").addEventListener("click", () => {
 });
 
 
-
 /*=====================================================
     FORMULÁRIOS
 =====================================================*/
 
-document.getElementById("form-login").addEventListener("submit", function(e){
+document
+    .getElementById("form-login")
+    .addEventListener("submit", function (e) {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    alert("Login enviado.");
+        alert("Login enviado.");
 
-});
+    });
 
-document.getElementById("form-register").addEventListener("submit", function(e){
 
-    e.preventDefault();
 
-    alert("Cadastro enviado.");
 
-});
+document
+    .getElementById("btn-register")
+    .addEventListener("click", function (evento) {
+
+        // Impede o formulário de recarregar a página
+        evento.preventDefault();
+
+        const name = document
+            .getElementById("name")
+            .value
+            .trim();
+
+        const email = document
+            .getElementById("register-email")
+            .value
+            .trim();
+
+        const password = document
+            .getElementById("register-password")
+            .value;
+
+        const confirmPassword = document
+            .getElementById("confirm-password")
+            .value;
+
+
+        if (
+            name === "" ||
+            email === "" ||
+            password === "" ||
+            confirmPassword === ""
+        ) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
+
+        if (password.length > 13) {
+            alert("A senha deve ter no máximo 13 caracteres.");
+            return;
+        }
+
+
+        if (password.length < 8) {
+            alert("A senha deve ter no mínimo 8 caracteres.");
+            return;
+        }
+
+
+        if (password !== confirmPassword) {
+            alert("As senhas não coincidem.");
+            return;
+        }
+
+
+        if (!email.includes("@") || !email.includes(".")) {
+            alert("Por favor, insira um e-mail válido.");
+            return;
+        }
+
+
+        const cliente = {
+            nome: name,
+            email: email,
+            senha: password,
+            Loja_idLoja: 1
+        };
+
+
+        console.log("Dados enviados:", cliente);
+
+
+        fetch("http://localhost:3000/cliente", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(cliente)
+
+        })
+            .then(async function (response) {
+
+                const resposta = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        resposta.mensagem ||
+                        "Erro na requisição. Código: " + response.status
+                    );
+                }
+
+                return resposta;
+
+            })
+            .then(function (resposta) {
+
+                if (resposta.sucesso === true) {
+
+                    alert(
+                        resposta.mensagem ||
+                        "Cadastro realizado com sucesso!"
+                    );
+
+                    document
+                        .getElementById("form-register")
+                        .reset();
+
+                    document
+                        .getElementById("login")
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                } else {
+
+                    alert(
+                        "Erro ao cadastrar: " +
+                        (resposta.mensagem || "Erro desconhecido.")
+                    );
+
+                }
+
+            })
+            .catch(function (erro) {
+
+                console.error(
+                    "Erro ao cadastrar cliente:",
+                    erro
+                );
+
+                alert(erro.message);
+
+            });
+
+    });
+

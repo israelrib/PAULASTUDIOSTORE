@@ -4,27 +4,34 @@ const conexao = require("../conexao/conexao.js"); // CONEXÃO COM O BANCO DE DAD
 // Cadastrar Cliente
 // =========================
 
-function cadastrar(cliente, callback) { // FUNÇÃO QUE EXECUTA O COMANDO INSERT PARA CADASTRAR UM NOVO CLIENTE
+function cadastrar(cliente, callback) {
 
-    const sql = `INSERT INTO Cliente
-        ( nome,cpf,telefone,email,senha,
-         data_nascimento,Loja_idLoja )
-        VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    const sql = `
+        INSERT INTO Cliente (
+            nome,
+            cpf,
+            telefone,
+            email,
+            senha,
+            data_nascimento,
+            Loja_idLoja
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
 
-    conexao.query( // EXECUTA O COMANDO INSERT NO BANCO DE DADOS
+    conexao.query(
         sql,
         [
             cliente.nome,
-            cliente.cpf,
-            cliente.telefone,
+            cliente.cpf || null,
+            cliente.telefone || null,
             cliente.email,
             cliente.senha,
-            cliente.data_nascimento,
-            cliente.Loja_idLoja
+            cliente.data_nascimento || null,
+            cliente.Loja_idLoja || 1
         ],
         callback
     );
-
 }
 
 // =========================

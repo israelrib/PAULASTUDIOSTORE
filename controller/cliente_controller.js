@@ -1,9 +1,9 @@
 //==========================================
 // IMPORTA O MODEL
-// passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const clienteModel = require("../model/cliente_model");
+const clienteModel = require("../model/cliente_model.js");
+
 
 //==========================================
 // CADASTRAR CLIENTE
@@ -13,80 +13,94 @@ function cadastrar(req, res) {
 
     const cliente = req.body;
 
-    // Validação dos campos obrigatórios
+    // Define uma loja padrão caso não seja enviada
+    if (!cliente.Loja_idLoja) {
+        cliente.Loja_idLoja = 1;
+    }
 
+   
+
+    // Validação dos campos obrigatórios
     if (
         !cliente.nome ||
-        !cliente.cpf ||
-        !cliente.telefone ||
         !cliente.email ||
-        !cliente.senha ||
-        !cliente.data_nascimento ||
-        !cliente.Loja_idLoja
+        !cliente.senha
     ) {
-
         return res.status(400).json({
             sucesso: false,
-            mensagem: "Preencha todos os campos."
+            mensagem: "Preencha todos os campos obrigatórios."
         });
-
     }
 
-    // Caso não seja enviado o código da loja
-    if (!cliente.Loja_idLoja) {
-
-        cliente.Loja_idLoja = 1;
-
+    // Validação do tamanho da senha
+    if (cliente.senha.length < 8) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "A senha deve ter no mínimo 8 caracteres."
+        });
     }
 
-    // Verifica se já existe um usuário com o mesmo e-mail
+    if (cliente.senha.length > 13) {
+        return res.status(400).json({
+            sucesso: false,
+            mensagem: "A senha deve ter no máximo 13 caracteres."
+        });
+    }
 
-    clienteModel.buscarPorEmail(cliente.email, (erro, resultado) => {
-
-        if (erro) {
-
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao consultar o banco de dados."
-            });
-
-        }
-
-        if (resultado.length > 0) {
-
-            return res.status(409).json({
-                sucesso: false,
-                mensagem: "E-mail já cadastrado."
-            });
-
-        }
-
-        // Cadastra o cliente
-
-        clienteModel.cadastrar(cliente, (erro, resultado) => {
+    // Verifica se já existe um cliente com o mesmo e-mail
+    clienteModel.buscarPorEmail(
+        cliente.email,
+        function (erro, resultado) {
 
             if (erro) {
 
+                console.error(
+                    "Erro ao consultar cliente por e-mail:",
+                    erro
+                );
+
                 return res.status(500).json({
                     sucesso: false,
-                    mensagem: "Erro ao cadastrar cliente."
+                    mensagem: "Erro ao consultar o banco de dados."
                 });
-
             }
 
-            return res.status(201).json({
+            if (resultado.length > 0) {
+                return res.status(409).json({
+                    sucesso: false,
+                    mensagem: "E-mail já cadastrado."
+                });
+            }
 
-                sucesso: true,
-                mensagem: "Cliente cadastrado com sucesso!",
-                idCliente: resultado.insertId
+            // Cadastra o cliente
+            clienteModel.cadastrar(
+                cliente,
+                function (erro, resultado) {
 
-            });
+                    if (erro) {
 
-        });
+                        console.error(
+                            "Erro do MySQL ao cadastrar cliente:",
+                            erro
+                        );
 
-    });
+                        return res.status(500).json({
+                            sucesso: false,
+                            mensagem: "Erro ao cadastrar cliente."
+                        });
+                    }
 
+                    return res.status(201).json({
+                        sucesso: true,
+                        mensagem: "Cliente cadastrado com sucesso!",
+                        idCliente: resultado.insertId
+                    });
+                }
+            );
+        }
+    );
 }
+
 
 //==========================================
 // LISTAR CLIENTES
@@ -94,22 +108,25 @@ function cadastrar(req, res) {
 
 function listar(req, res) {
 
-    clienteModel.listar((erro, resultado) => {
+    clienteModel.listar(function (erro, resultado) {
 
         if (erro) {
+
+            console.error("Erro ao listar clientes:", erro);
 
             return res.status(500).json({
                 sucesso: false,
                 mensagem: "Erro ao listar clientes."
             });
-
         }
-        // Retorna a lista de clientes em formato JSON
-        res.json(resultado);
 
+        return res.status(200).json({
+            sucesso: true,
+            clientes: resultado
+        });
     });
-
 }
+
 
 //==========================================
 // BUSCAR CLIENTE POR ID
@@ -119,100 +136,122 @@ function buscarPorId(req, res) {
 
     const id = req.params.id;
 
-    clienteModel.buscarPorId(id, (erro, resultado) => {
+    clienteModel.buscarPorId(
+        id,
+        function (erro, resultado) {
 
-        if (erro) {
+            if (erro) {
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao buscar cliente."
+                console.error("Erro ao buscar cliente:", erro);
+
+                return res.status(500).json({
+                    sucesso: false,
+                    mensagem: "Erro ao buscar cliente."
+                });
+            }
+
+            if (resultado.length === 0) {
+                return res.status(404).json({
+                    sucesso: false,
+                    mensagem: "Cliente não encontrado."
+                });
+            }
+
+            return res.status(200).json({
+                sucesso: true,
+                cliente: resultado[0]
             });
-
         }
-
-        if (resultado.length === 0) {
-
-            return res.status(404).json({
-                sucesso: false,
-                mensagem: "Cliente não encontrado."
-            });
-
-        }
-        // Retorna o cliente encontrado em formato JSON
-        res.json(resultado[0]);
-
-    });
-
+    );
 }
+
 
 //==========================================
 // ATUALIZAR CLIENTE
 //==========================================
 
 function atualizar(req, res) {
-    // Obtém o ID do cliente a ser atualizado a partir dos parâmetros da URL
+
     const id = req.params.id;
-    // Obtém os dados atualizados do cliente a partir do corpo da requisição
     const cliente = req.body;
 
-    clienteModel.atualizar(id, cliente, (erro, resultado) => {
+    clienteModel.atualizar(
+        id,
+        cliente,
+        function (erro, resultado) {
 
-        if (erro) {
+            if (erro) {
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao atualizar cliente."
+                console.error("Erro ao atualizar cliente:", erro);
+
+                return res.status(500).json({
+                    sucesso: false,
+                    mensagem: "Erro ao atualizar cliente."
+                });
+            }
+
+            if (resultado.affectedRows === 0) {
+                return res.status(404).json({
+                    sucesso: false,
+                    mensagem: "Cliente não encontrado."
+                });
+            }
+
+            return res.status(200).json({
+                sucesso: true,
+                mensagem: "Cliente atualizado com sucesso."
             });
-
         }
-
-        res.json({
-            sucesso: true,
-            mensagem: "Cliente atualizado com sucesso."
-        });
-
-    });
-
+    );
 }
+
 
 //==========================================
 // EXCLUIR CLIENTE
 //==========================================
 
 function excluir(req, res) {
-    // Obtém o ID do cliente a ser excluído a partir dos parâmetros da URL
+
     const id = req.params.id;
 
-    clienteModel.excluir(id, (erro, resultado) => {
+    clienteModel.excluir(
+        id,
+        function (erro, resultado) {
 
-        if (erro) {
+            if (erro) {
 
-            return res.status(500).json({
-                sucesso: false,
-                mensagem: "Erro ao excluir cliente."
+                console.error("Erro ao excluir cliente:", erro);
+
+                return res.status(500).json({
+                    sucesso: false,
+                    mensagem: "Erro ao excluir cliente."
+                });
+            }
+
+            if (resultado.affectedRows === 0) {
+                return res.status(404).json({
+                    sucesso: false,
+                    mensagem: "Cliente não encontrado."
+                });
+            }
+
+            return res.status(200).json({
+                sucesso: true,
+                mensagem: "Cliente excluído com sucesso."
             });
-
         }
-
-        res.json({
-            sucesso: true,
-            mensagem: "Cliente excluído com sucesso."
-        });
-
-    });
-
+    );
 }
+
 
 //==========================================
 // EXPORTAÇÃO
 //==========================================
 
 module.exports = {
-
     cadastrar,
     listar,
     buscarPorId,
     atualizar,
     excluir
-
 };
