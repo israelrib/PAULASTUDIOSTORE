@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Categorias.
-const CategoriasController = require("../control/categorias_controller.js");
+const CategoriasController = require("../controller/categorias_controller.js");
 
 //==========================================
 // ROTAS

@@ -13,11 +13,11 @@ html {
 }
 
 body {
-    width: 100%;
+    width: 100%; 
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: #ffffff;
-    color: #242124;
+    background-color: #fcfafa; /* Cor de fundo da página */
+    color: #242124; /* Cor do texto */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -425,7 +425,7 @@ header {
     height: 100%;
 
     object-fit: contain;
-    padding: 16px;
+    padding: 16px; /* Adiciona espaçamento interno para a imagem */
 
     transition: transform 0.35s ease;
 }

@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Imagem.
-const ImagemController = require("../control/imagem_controller.js");
+const ImagemController = require("../controller/imagem_controller.js");
 
 //==========================================
 // ROTAS

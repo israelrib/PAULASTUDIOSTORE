@@ -18,7 +18,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Avaliação de Produto.
-const AvaliacaoProdutoController = require("../control/avaliacao_produto_controller.js");
+const AvaliacaoProdutoController = require("../controller/avalicao_produto_controller.js");
 
 //==========================================
 // ROTAS

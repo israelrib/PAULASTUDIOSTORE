@@ -21,7 +21,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller.
-const PromocaoHasCategoriaController = require("../control/promocao_has_categoria_controller.js");
+const PromocaoHasCategoriaController = require("../controller/promocao_has_categoria_controller.js");
 
 //==========================================
 // ROTAS

@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Marca.
-const MarcaController = require("../control/marca_controller.js");
+const MarcaController = require("../controller/marca_controller.js");
 
 //==========================================
 // ROTAS

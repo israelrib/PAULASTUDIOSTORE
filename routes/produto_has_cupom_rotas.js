@@ -21,7 +21,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller.
-const ProdutoHasCupomController = require("../control/produto_has_cupom_controller.js");
+const ProdutoHasCupomController = require("../controller/produto_has_cupom_controller.js");
 
 //==========================================
 // ROTAS

@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Tamanho.
-const TamanhoController = require("../control/tamanho_controller.js");
+const TamanhoController = require("../controller/tamanho_controller.js");
 
 //==========================================
 // ROTAS

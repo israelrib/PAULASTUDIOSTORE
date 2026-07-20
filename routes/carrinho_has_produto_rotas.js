@@ -21,7 +21,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller.
-const CarrinhoHasProdutoController = require("../control/carrinho_has_produto_controller.js");
+const CarrinhoHasProdutoController = require("../controller/carrinho_has_produto_controller.js");
 
 //==========================================
 // ROTAS

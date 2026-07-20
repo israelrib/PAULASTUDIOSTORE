@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Promoção.
-const PromocaoController = require("../control/promocao_controller.js");
+const PromocaoController = require("../controller/promocao_controller.js");
 
 //==========================================
 // ROTAS

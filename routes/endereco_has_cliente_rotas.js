@@ -21,7 +21,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller.
-const EnderecoHasClienteController = require("../control/endereco_has_cliente_controller.js");
+const EnderecoHasClienteController = require("../controller/endereco_has_cliente_controller.js");
 
 //==========================================
 // ROTAS

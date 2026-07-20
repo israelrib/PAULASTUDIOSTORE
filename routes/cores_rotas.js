@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Cores.
-const CoresController = require("../control/cores_controller.js");
+const CoresController = require("../controller/cores_controller.js");
 
 //==========================================
 // ROTAS

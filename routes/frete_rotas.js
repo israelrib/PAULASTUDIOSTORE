@@ -17,7 +17,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importando o controller de Frete.
-const FreteController = require("../control/frete_controller.js");
+const FreteController = require("../controller/frete_controller.js");
 
 //==========================================
 // ROTAS
