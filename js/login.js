@@ -316,24 +316,50 @@ document
             return;
         }
 
+        // Verifica se o usuário tem pelo menos 18 anos
+        const idade = new Date().getFullYear() - new Date(document.getElementById("birthdate").value).getFullYear(); // Calcula a idade do usuário com base na data de nascimento fornecida
+        if (idade < 18) {
+            alert("Você deve ter pelo menos 18 anos para se cadastrar.");
+            return;
+        }
+        
+        if(!/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) { // Verifica se a senha contém pelo menos uma letra maiúscula, uma letra minúscula e um número
+            alert("A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+            return;
+        }
 
-        if (!email.includes("@") || !email.includes(".")) {
+        if(!/[!@#$%^~&*(),.?!":;{}|<>]/.test(password)) { // Verifica se a senha contém pelo menos um caractere especial
+            alert("A senha deve conter pelo menos um caractere especial.");
+            return;
+        }
+
+        if(!/[0-9]/.test(password)) { // Verifica se a senha contém pelo menos um número
+            alert("A senha deve conter pelo menos um número.");
+            return;
+        }
+
+        if((password.includes(name))) { // Verifica se a senha contém o nome do usuário
+            alert("A senha não pode conter o nome do usuário.");
+            return;
+        }
+
+        if (!email.includes("@") && !email.includes(".")) {
             alert("Por favor, insira um e-mail válido.");
             return;
         }
 
-
-        const cliente = {
-            nome: name,
-            email: email,
-            senha: password,
-            Loja_idLoja: 1
+        // Objeto pronto para ser enviado para o backend (Node.js) para cadastrar o cliente no banco de dados (MySQL)
+        const cliente = { // Objeto que representa o cliente a ser cadastrado
+            nome: name, // Nome do cliente
+            email: email, // E-mail do cliente
+            senha: password, // Senha do cliente
+            Loja_idLoja: 1 // ID da loja a qual o cliente pertence
         };
 
 
         console.log("Dados enviados:", cliente);
 
-
+        // Envia os dados do cliente para o backend (Node.js) para cadastrar no banco de dados (MySQL)
         fetch("http://localhost:3000/cliente", {
 
             method: "POST",
@@ -367,7 +393,8 @@ document
                         resposta.mensagem ||
                         "Cadastro realizado com sucesso!"
                     );
-
+                    
+                    // Limpa os campos do formulário de cadastro
                     document
                         .getElementById("form-register")
                         .reset();

@@ -1,136 +1,507 @@
-// CRIANDO VÁRIAVEIS
-/* nome das váriaveis não pode ter:
--acentos
--espaço
--simbolos
--não pode começar com números
--não deve ser escrito com a primeira letra em maiusculo
- */
+//======================================================
+// DADOS DO PRODUTO
+//======================================================
 
-// variaveis que alteram de valor
-let preco_promocional = 85.43;
-let preco_antigo = 120.50;
-let desconto = "-15%";
-let quantidade = 10;
-let favorito = false;
-//variaveis que são constantes/ não alteram de valor
-const nomeProduto = "kit 3 conjuntos top + short leggin";
-const tamanho = ["P", "M", "G", "GG"];
-const cores = ["ROSA", "VERDE", "PRETO"];
-const avaliacoes = 4.5;
-const img_miniaturas =
-    [
+const produto = {
+
+    nome: "Kit 3 Conjuntos Top + Short Legging",
+
+    descricao:
+        "Confeccionado em tecido macio, com excelente elasticidade e toque suave. O conjunto proporciona ajuste perfeito ao corpo, valorizando a silhueta e oferecendo conforto durante todo o treino.",
+
+    precoAntigo: 120.50,
+
+    precoPromocional: 85.43,
+
+    desconto: "-15%",
+
+    estoque: 10,
+
+    avaliacao: 4.5,
+
+    favorito: false,
+
+    imagens: [
+
         "/assets/produto1.png",
+
         "/assets/produto2.png",
+
         "/assets/produto3.png",
+
         "/assets/produto4.png"
-    ];
-const img_principal = "/assets/produto1.png";
-const descricao = "Confeccionado em tecido macio, com excelente elasticidade e toque suave, o conjunto proporciona ajuste perfeito ao corpo, valorizando a silhueta e oferecendo segurança durante atividades físicas de diferentes intensidades. O top possui alças finas e cós reforçado, garantindo sustentação e conforto, enquanto o short de cintura alta oferece melhor modelagem e firmeza";
-let frete;
-// botoes e arquivos
-let btn_add_carrinho;
-let btn_comprar;
-let btn_add_quantidade;
-let btn_remover_quantidade;
-let btn_calcular_frete;
+
+    ],
+
+    cores: [
+
+        "ROSA",
+
+        "VERDE",
+
+        "PRETO"
+
+    ],
+
+    tamanhos: [
+
+        "P",
+
+        "M",
+
+        "G",
+
+        "GG"
+
+    ]
+
+};
+
+//======================================================
+// FORMATAR PREÇO
+//======================================================
+
+function formatarPreco(valor){
+
+    return valor.toLocaleString(
+
+        "pt-BR",
+
+        {
+
+            style:"currency",
+
+            currency:"BRL"
+
+        }
+
+    );
+
+}
+
+//======================================================
+// PREENCHER DADOS
+//======================================================
+
+document.getElementById("nome-produto").textContent =
+produto.nome;
+
+document.getElementById("descricao-produto").textContent =
+produto.descricao;
+
+document.getElementById("preco-antigo").textContent =
+formatarPreco(produto.precoAntigo);
+
+document.getElementById("preco-promocional").textContent =
+formatarPreco(produto.precoPromocional);
+
+document.getElementById("desconto").textContent =
+produto.desconto;
+
+document.getElementById("estoque-disponivel").textContent =
+`Disponível em estoque: ${produto.estoque} unidades`;
+
+document.getElementById("valor-avaliacao").textContent =
+`${produto.avaliacao}/5`;
 
 
-// CÓDIGO PARA PREENCHER AS IMAGENS NO HTML
+//======================================================
+// ESTRELAS
+//======================================================
 
-//CRIANDO UMA VÁRIAVEL PARA RECONHER O ID DA IMAGEM LATERAL
-const lateral = document.getElementById("img-lateral");
+const estrelas =
+document.getElementById("estrela-avaliacao");
 
-//LENDO A QUANTIDADE DE IMAGENS CADASTRADAS E CRIANDO AS TAGS IMG
+let textoEstrelas = "";
 
-/* ForEach: percorre uma lista de itens até o final
-- ele percorre o primeiro, se ver que tem outro, ele lê o outro
-- quando chega no ultimo ele para de ler e finaliza a execução
-- img_miniatura é chamado pq é ele que contém a lista de imagens
-- depois o ForEach é chamado para ler a lista
-- e dentro do ForEach passamos o tipo de documento lido (imagem)
- */
-img_miniaturas.forEach(imagem => {
-    // CRIANDO UMA VÁRIAVEL QUE CRIE A TAG IMG NA DIV DO HTML
-    const img = document.createElement("img");
+for(let i=1;i<=5;i++){
 
-    // criando o código que mostra as imagens no site
-    img.src = imagem;//ele joga o caminho da imagem na tag img
-    img.classList.add("img-lateral");//jogar a tag criada na div
+    if(i<=Math.floor(produto.avaliacao)){
 
-    /*criando o código que substitui a imagem 
-     principal pela miniatura clicada*/
-    img.addEventListener("click", () => {
-        document.getElementById("imagem-maior").src =
-            imagem;
-    });//ver se a pessoa clicou na imagem
-    lateral.appendChild(img);//mostra a imagem adicionada
+        textoEstrelas+="★";
 
-});//fechar o ForEach
+    }else{
 
-// preencher a imagem principal
-document.getElementById("imagem-maior").src = img_principal;
+        textoEstrelas+="☆";
 
-
-// -------------------PREENCHER DADOS DO PRODUTO-----------------
-
-document.getElementById("nome-produto").textContent = nomeProduto;
-document.getElementById("valor-avaliacao").textContent = avaliacoes;
-document.getElementById("preco-antigo").textContent = preco_antigo;
-document.getElementById("preco-promocional").textContent
-    = preco_promocional;
-document.getElementById("desconto").textContent
-    = desconto;
-// -------CORES DO PRODUTO-----------------------------
-// ELE VAI LER QUANTAS CORES O PRODUTO E
-// VAI CRIAR BOTÕES PARA AS CORES
-const listaCores = document.getElementById("cores");
-cores.forEach(cores => { // percorrer as cores cadastradas
-    const botao = document.createElement("button");
-    //criar um botão para cada cor que ele encontrar
-    botao.textContent = cores;
-    listaCores.appendChild(botao);
-});
-
-// -------TAMANHOS DO PRODUTO-----------------------------
-// ELE VAI LER QUANTAS TAMANHOS O PRODUTO E
-// VAI CRIAR BOTÕES PARA OS TAMANHOS
-const listaTamanhos = document.getElementById("tamanhos");
-tamanho.forEach(tamanho => { // percorrer as cores cadastradas
-    const botao = document.createElement("button");
-    //criar um botão para cada cor que ele encontrar
-    botao.textContent = tamanho;
-    listaTamanhos.appendChild(botao);
-});
-
-//------------QUANTIDADE DE PRODUTO -----------------------------
-/*O LIMITE DE QUANTIDADE VAI SER IGUAL A QUANTIDADE DE PRODUTOS QUE O LOJISTA CADASTROU NO ESTOQUE.
-QUANDO O CLIENTE CLICAR NO BOTÃO + A QUANTIDADE COMPRADA AUMENTA DE 1 EM 1.
-QUANDO ELE CLICAR NO BOTÃO DE - A QUANTIDADE COMPRADA DIMINUI DE 1 EM 1.
-INICIALMENTE O VALOR DA QUANTIDADE APARECE COMO 1.*/
-let quantidade_inicial = 1; // criar a quantidade incial.
-// chamar os botões e passar o id do html dentro deles
-btn_add_quantidade = document.getElementById("aumentar");
-btn_remover_quantidade = document.getElementById("diminuir");
-const numero = document.getElementById("numero-quantidade");
-
-//passando o valor inicial para a tag html
-numero.textContent = quantidade_inicial;
-// criando o código de aumentar a quantidade de  em 1
-btn_add_quantidade.addEventListener("click", () => {
-    if (quantidade_inicial < quantidade) {
-        quantidade_inicial++; //aumentar de 1 em 1
-        numero.textContent = quantidade_inicial;
-    } else{
-        alert("você atingiu o limite do estoque");
     }
-    
+
+}
+
+estrelas.textContent = textoEstrelas;
+
+
+//======================================================
+// IMAGEM PRINCIPAL
+//======================================================
+
+const imagemMaior =
+document.getElementById("imagem-maior");
+
+imagemMaior.src =
+produto.imagens[0];
+
+
+//======================================================
+// MINIATURAS
+//======================================================
+
+const miniaturas = [
+
+    document.getElementById("imagem-miniatura-1"),
+
+    document.getElementById("imagem-miniatura-2"),
+
+    document.getElementById("imagem-miniatura-3"),
+
+    document.getElementById("imagem-miniatura-4")
+
+];
+
+const botoesMiniaturas = [
+
+    document.getElementById("miniatura-1"),
+
+    document.getElementById("miniatura-2"),
+
+    document.getElementById("miniatura-3"),
+
+    document.getElementById("miniatura-4")
+
+];
+
+produto.imagens.forEach((imagem,indice)=>{
+
+    miniaturas[indice].src = imagem;
+
 });
-// criando o código de diminuir a quantidade de 1 em 1
-btn_remover_quantidade.addEventListener("click", () => {
-    if(quantidade_inicial > 0) {
-        quantidade_inicial--;// diminuir de 1 em 1
-        numero.textContent = quantidade_inicial
+
+
+produto.imagens.forEach((imagem,indice)=>{
+
+    botoesMiniaturas[indice].addEventListener(
+
+        "click",
+
+        ()=>{
+
+            imagemMaior.src = imagem;
+
+            botoesMiniaturas.forEach(botao=>{
+
+                botao.classList.remove("ativa");
+
+            });
+
+            botoesMiniaturas[indice].classList.add("ativa");
+
+        }
+
+    );
+
+});
+
+
+//======================================================
+// ESCONDER MINIATURAS NÃO UTILIZADAS
+//======================================================
+
+for(
+
+    let i=produto.imagens.length;
+
+    i<miniaturas.length;
+
+    i++
+
+){
+
+    document
+    .getElementById(`miniatura-${i+1}`)
+    .classList
+    .add("oculta");
+
+}
+
+//======================================================
+// SELEÇÃO DE CORES
+//======================================================
+
+const botoesCores = [
+
+    document.getElementById("cor-1"),
+
+    document.getElementById("cor-2"),
+
+    document.getElementById("cor-3")
+
+];
+
+const corSelecionadaTexto =
+    document.getElementById("cor-selecionada");
+
+const coresVisuais = {
+
+    ROSA: "#d88f9a",
+
+    VERDE: "#687b67",
+
+    PRETO: "#1f1f1f"
+
+};
+
+
+// PREENCHER OS BOTÕES DE CORES
+
+botoesCores.forEach((botao, indice) => {
+
+    const cor = produto.cores[indice];
+
+    if (cor) {
+
+        botao.style.backgroundColor =
+            coresVisuais[cor] || "#cccccc";
+
+        botao.title = cor;
+
+        botao.setAttribute(
+            "aria-label",
+            `Selecionar a cor ${cor}`
+        );
+
+    } else {
+
+        botao.classList.add("oculta");
+
     }
-    
-})
+
+});
+
+
+// DEFINIR A PRIMEIRA COR COMO SELECIONADA
+
+let corSelecionada = produto.cores[0];
+
+corSelecionadaTexto.textContent =
+    corSelecionada;
+
+botoesCores[0].classList.add("ativa");
+
+
+// EVENTO DE SELEÇÃO DAS CORES
+
+botoesCores.forEach((botao, indice) => {
+
+    if (!produto.cores[indice]) {
+
+        return;
+
+    }
+
+    botao.addEventListener("click", () => {
+
+        botoesCores.forEach((item) => {
+
+            item.classList.remove("ativa");
+
+        });
+
+        botao.classList.add("ativa");
+
+        corSelecionada =
+            produto.cores[indice];
+
+        corSelecionadaTexto.textContent =
+            corSelecionada;
+
+    });
+
+});
+
+
+//======================================================
+// SELEÇÃO DE TAMANHOS
+//======================================================
+
+const botoesTamanhos = [
+
+    document.getElementById("tamanho-1"),
+
+    document.getElementById("tamanho-2"),
+
+    document.getElementById("tamanho-3"),
+
+    document.getElementById("tamanho-4")
+
+];
+
+
+// PREENCHER OS BOTÕES DE TAMANHO
+
+botoesTamanhos.forEach((botao, indice) => {
+
+    const tamanho = produto.tamanhos[indice];
+
+    if (tamanho) {
+
+        botao.textContent = tamanho;
+
+        botao.setAttribute(
+            "aria-label",
+            `Selecionar o tamanho ${tamanho}`
+        );
+
+    } else {
+
+        botao.classList.add("oculta");
+
+    }
+
+});
+
+
+// DEFINIR O PRIMEIRO TAMANHO COMO SELECIONADO
+
+let tamanhoSelecionado =
+    produto.tamanhos[0];
+
+botoesTamanhos[0].classList.add("ativa");
+
+
+// EVENTO DE SELEÇÃO DOS TAMANHOS
+
+botoesTamanhos.forEach((botao, indice) => {
+
+    if (!produto.tamanhos[indice]) {
+
+        return;
+
+    }
+
+    botao.addEventListener("click", () => {
+
+        botoesTamanhos.forEach((item) => {
+
+            item.classList.remove("ativa");
+
+        });
+
+        botao.classList.add("ativa");
+
+        tamanhoSelecionado =
+            produto.tamanhos[indice];
+
+    });
+
+});
+
+
+//======================================================
+// CONTROLE DE QUANTIDADE
+//======================================================
+
+let quantidadeSelecionada = 1;
+
+const botaoAumentar =
+    document.getElementById("aumentar");
+
+const botaoDiminuir =
+    document.getElementById("diminuir");
+
+const numeroQuantidade =
+    document.getElementById("numero-quantidade");
+
+
+// MOSTRAR QUANTIDADE INICIAL
+
+numeroQuantidade.textContent =
+    quantidadeSelecionada;
+
+
+// AUMENTAR QUANTIDADE
+
+botaoAumentar.addEventListener("click", () => {
+
+    if (
+        quantidadeSelecionada <
+        produto.estoque
+    ) {
+
+        quantidadeSelecionada++;
+
+        numeroQuantidade.textContent =
+            quantidadeSelecionada;
+
+    } else {
+
+        alert(
+            "Você atingiu o limite disponível em estoque."
+        );
+
+    }
+
+});
+
+
+// DIMINUIR QUANTIDADE
+
+botaoDiminuir.addEventListener("click", () => {
+
+    if (quantidadeSelecionada > 1) {
+
+        quantidadeSelecionada--;
+
+        numeroQuantidade.textContent =
+            quantidadeSelecionada;
+
+    } else {
+
+        alert(
+            "A quantidade mínima do produto é 1."
+        );
+
+    }
+
+});
+
+
+//======================================================
+// BOTÃO FAVORITAR
+//======================================================
+
+const botaoFavoritar =
+    document.getElementById("btn-favoritar");
+
+const iconeFavorito =
+    document.getElementById("icone-favorito");
+
+const textoFavorito =
+    document.getElementById("texto-favorito");
+
+
+botaoFavoritar.addEventListener("click", () => {
+
+    produto.favorito =
+        !produto.favorito;
+
+    if (produto.favorito) {
+
+        botaoFavoritar.classList.add("ativo");
+
+        iconeFavorito.textContent = "♥";
+
+        textoFavorito.textContent =
+            "Favoritado";
+
+    } else {
+
+        botaoFavoritar.classList.remove("ativo");
+
+        iconeFavorito.textContent = "♡";
+
+        textoFavorito.textContent =
+            "Favoritar";
+
+    }
+
+});
