@@ -22,4 +22,6 @@ router.put("/:id", ClienteController.atualizar);
 
 router.delete("/:id", ClienteController.excluir);
 
+router.post("/login", ClienteController.login);
+
 module.exports = router;

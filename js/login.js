@@ -212,13 +212,7 @@ document.getElementById("footer-contact").href =
     EVENTOS
 =====================================================*/
 
-document.getElementById("btn-criar-conta").addEventListener("click", () => {
 
-    document.getElementById("register").scrollIntoView({
-        behavior: "smooth"
-    });
-
-});
 
 document.getElementById("btn-ir-login").addEventListener("click", () => {
 
@@ -248,28 +242,18 @@ document.getElementById("btn-open-login").addEventListener("click", () => {
 /*=====================================================
     FORMULÁRIOS
 =====================================================*/
-
-document
-    .getElementById("form-login")
-    .addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        alert("Login enviado.");
-
-    });
-
-
-
+/*=====================================================
+    CADASTRO DO CLIENTE
+=====================================================*/
 
 document
     .getElementById("btn-register")
-    .addEventListener("click", function (evento) {
+    .addEventListener("click", async (event) => {
 
         // Impede o formulário de recarregar a página
-        evento.preventDefault();
+        event.preventDefault();
 
-        const name = document
+        const nome = document
             .getElementById("name")
             .value
             .trim();
@@ -277,154 +261,359 @@ document
         const email = document
             .getElementById("register-email")
             .value
-            .trim();
+            .trim()
+            .toLowerCase();
 
-        const password = document
+        const senha = document
             .getElementById("register-password")
             .value;
 
-        const confirmPassword = document
+        const confirmarSenha = document
             .getElementById("confirm-password")
             .value;
 
+        /*
+        O seu HTML ainda não possui um elemento com id="mensagem".
+        Por isso, ele será criado apenas uma vez pelo JavaScript.
+        */
+        let mensagem = document.getElementById("mensagem");
+
+        if (!mensagem) {
+            mensagem = document.createElement("p");
+            mensagem.id = "mensagem";
+
+            document
+                .getElementById("form-register")
+                .appendChild(mensagem);
+        }
+
+        // Limpa a mensagem anterior
+        mensagem.innerHTML = "";
+
+        // Verifica se todos os campos foram preenchidos
+        if (
+            nome === "" ||
+            email === "" ||
+            senha === "" ||
+            confirmarSenha === ""
+        ) {
+            exibirMensagem(
+                "Preencha todos os campos.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Validação do nome
+        if (nome.length < 3) {
+            exibirMensagem(
+                "O nome deve possuir pelo menos 3 caracteres.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Validação do e-mail
+        const emailValido =
+            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+        if (!emailValido.test(email)) {
+            exibirMensagem(
+                "Digite um e-mail válido.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Validação do tamanho da senha
+        if (senha.length < 8 || senha.length > 13) {
+            exibirMensagem(
+                "A senha deve possuir entre 8 e 13 caracteres.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Verifica se existe letra maiúscula
+        if (!/[A-Z]/.test(senha)) {
+            exibirMensagem(
+                "A senha deve conter pelo menos uma letra maiúscula.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Verifica se existe letra minúscula
+        if (!/[a-z]/.test(senha)) {
+            exibirMensagem(
+                "A senha deve conter pelo menos uma letra minúscula.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Verifica se existe um número
+        if (!/[0-9]/.test(senha)) {
+            exibirMensagem(
+                "A senha deve conter pelo menos um número.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Verifica se existe caractere especial
+        if (!/[^A-Za-z0-9]/.test(senha)) {
+            exibirMensagem(
+                "A senha deve conter pelo menos um caractere especial.",
+                "red"
+            );
+
+            return;
+        }
+
+        // Verifica se a senha contém o primeiro nome
+        const primeiroNome = nome
+            .split(" ")[0]
+            .toLowerCase();
 
         if (
-            name === "" ||
-            email === "" ||
-            password === "" ||
-            confirmPassword === ""
+            primeiroNome.length >= 3 &&
+            senha.toLowerCase().includes(primeiroNome)
         ) {
-            alert("Por favor, preencha todos os campos.");
+            exibirMensagem(
+                "A senha não pode conter o seu nome.",
+                "red"
+            );
+
             return;
         }
 
+        // Verifica se as senhas são iguais
+        if (senha !== confirmarSenha) {
+            exibirMensagem(
+                "As senhas não são iguais.",
+                "red"
+            );
 
-        if (password.length > 13) {
-            alert("A senha deve ter no máximo 13 caracteres.");
             return;
         }
 
-
-        if (password.length < 8) {
-            alert("A senha deve ter no mínimo 8 caracteres.");
-            return;
-        }
-
-
-        if (password !== confirmPassword) {
-            alert("As senhas não coincidem.");
-            return;
-        }
-
-        // Verifica se o usuário tem pelo menos 18 anos
-        const idade = new Date().getFullYear() - new Date(document.getElementById("birthdate").value).getFullYear(); // Calcula a idade do usuário com base na data de nascimento fornecida
-        if (idade < 18) {
-            alert("Você deve ter pelo menos 18 anos para se cadastrar.");
-            return;
-        }
-        
-        if(!/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) { // Verifica se a senha contém pelo menos uma letra maiúscula, uma letra minúscula e um número
-            alert("A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um número.");
-            return;
-        }
-
-        if(!/[!@#$%^~&*(),.?!":;{}|<>]/.test(password)) { // Verifica se a senha contém pelo menos um caractere especial
-            alert("A senha deve conter pelo menos um caractere especial.");
-            return;
-        }
-
-        if(!/[0-9]/.test(password)) { // Verifica se a senha contém pelo menos um número
-            alert("A senha deve conter pelo menos um número.");
-            return;
-        }
-
-        if((password.includes(name))) { // Verifica se a senha contém o nome do usuário
-            alert("A senha não pode conter o nome do usuário.");
-            return;
-        }
-
-        if (!email.includes("@") && !email.includes(".")) {
-            alert("Por favor, insira um e-mail válido.");
-            return;
-        }
-
-        // Objeto pronto para ser enviado para o backend (Node.js) para cadastrar o cliente no banco de dados (MySQL)
-        const cliente = { // Objeto que representa o cliente a ser cadastrado
-            nome: name, // Nome do cliente
-            email: email, // E-mail do cliente
-            senha: password, // Senha do cliente
-            Loja_idLoja: 1 // ID da loja a qual o cliente pertence
+        /*
+        Como cpf, telefone e data de nascimento não existem
+        no HTML, eles não podem ser enviados neste cadastro.
+        */
+        const cliente = {
+            nome: nome,
+            email: email,
+            senha: senha,
+            Loja_idLoja: 1
         };
 
+        console.log("Cliente enviado:", cliente);
 
-        console.log("Dados enviados:", cliente);
+        try {
+            exibirMensagem(
+                "Realizando cadastro...",
+                "blue"
+            );
 
-        // Envia os dados do cliente para o backend (Node.js) para cadastrar no banco de dados (MySQL)
-        fetch("http://localhost:3000/cliente", {
+            const respostaServidor = await fetch(
+                "http://localhost:3000/cliente",
+                {
+                    method: "POST",
 
-            method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify(cliente)
-
-        })
-            .then(async function (response) {
-
-                const resposta = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(
-                        resposta.mensagem ||
-                        "Erro na requisição. Código: " + response.status
-                    );
+                    body: JSON.stringify(cliente)
                 }
+            );
 
-                return resposta;
+            let resposta;
 
-            })
-            .then(function (resposta) {
+            try {
+                resposta = await respostaServidor.json();
+            } catch {
+                resposta = {};
+            }
 
-                if (resposta.sucesso === true) {
-
-                    alert(
-                        resposta.mensagem ||
-                        "Cadastro realizado com sucesso!"
-                    );
-                    
-                    // Limpa os campos do formulário de cadastro
-                    document
-                        .getElementById("form-register")
-                        .reset();
-
-                    document
-                        .getElementById("login")
-                        .scrollIntoView({
-                            behavior: "smooth"
-                        });
-
-                } else {
-
-                    alert(
-                        "Erro ao cadastrar: " +
-                        (resposta.mensagem || "Erro desconhecido.")
-                    );
-
-                }
-
-            })
-            .catch(function (erro) {
-
-                console.error(
-                    "Erro ao cadastrar cliente:",
-                    erro
+            if (!respostaServidor.ok) {
+                exibirMensagem(
+                    resposta.mensagem ||
+                    "Não foi possível realizar o cadastro.",
+                    "red"
                 );
 
-                alert(erro.message);
+                return;
+            }
 
-            });
+            exibirMensagem(
+                resposta.mensagem ||
+                "Cadastro realizado com sucesso!",
+                "green"
+            );
 
+            limparCampos();
+
+        } catch (erro) {
+            console.error(
+                "Erro ao cadastrar cliente:",
+                erro
+            );
+
+            exibirMensagem(
+                "Erro ao conectar com o servidor.",
+                "red"
+            );
+        }
+
+        function exibirMensagem(texto, cor) {
+            mensagem.style.color = cor;
+            mensagem.innerHTML = texto;
+        }
+
+        function limparCampos() {
+            document.getElementById("name").value = "";
+            document.getElementById("register-email").value = "";
+            document.getElementById("register-password").value = "";
+            document.getElementById("confirm-password").value = "";
+        }
     });
 
+
+
+
+    /*=====================================================
+    LOGIN DO CLIENTE
+=====================================================*/
+
+document
+    .getElementById("btn-login")
+    .addEventListener("click", async () => {
+
+        const email = document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+        const senha = document
+            .getElementById("password")
+            .value;
+
+        const mensagem = document
+            .getElementById("mensagem");
+
+        mensagem.textContent = "";
+
+        /*=====================================================
+            VALIDAR CAMPOS
+        =====================================================*/
+
+        if (email === "" || senha === "") {
+
+            mensagem.style.color = "red";
+            mensagem.textContent =
+                "Preencha o e-mail e a senha.";
+            return;
+
+        }
+
+        /*=====================================================
+            VALIDAR E-MAIL
+        =====================================================*/
+
+        const emailValido =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailValido.test(email)) {
+
+            mensagem.style.color = "red";
+            mensagem.textContent =
+                "Digite um e-mail válido.";
+            return;
+
+        }
+
+        try {
+
+            mensagem.style.color = "black";
+            mensagem.textContent = "Entrando...";
+
+            const respostaServidor = await fetch(
+                "http://localhost:3000/clientes/login",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        email: email,
+                        senha: senha
+                    })
+                }
+            );
+
+            const resposta = await respostaServidor.json();
+
+            if (!respostaServidor.ok) {
+
+                mensagem.style.color = "red";
+                mensagem.textContent =
+                    resposta.mensagem ||
+                    "E-mail ou senha incorretos.";
+
+                return;
+
+            }
+
+            if (!resposta.cliente) {
+
+                mensagem.style.color = "red";
+                mensagem.textContent =
+                    "O servidor não retornou os dados do cliente.";
+                return;
+
+            }
+
+            /*=====================================================
+                SALVAR CLIENTE LOGADO
+            =====================================================*/
+
+            localStorage.setItem(
+                "cliente",
+                JSON.stringify(resposta.cliente)
+            );
+
+            mensagem.style.color = "green";
+            mensagem.textContent =
+                resposta.mensagem ||
+                "Login realizado com sucesso.";
+
+            setTimeout(() => {
+
+                window.location.href = "../index.html";
+
+            }, 500);
+
+        } catch (erro) {
+
+            console.error("Erro no login:", erro);
+
+            mensagem.style.color = "red";
+            mensagem.textContent =
+                "Erro ao conectar com o servidor.";
+
+        }
+
+    });

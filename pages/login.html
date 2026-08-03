@@ -8,7 +8,7 @@
 
     <title id="page-title"></title>
 
-    <link rel="stylesheet" href="/style/produto.css">
+    <link rel="stylesheet" href="../style/login.css">
 
 </head>
 
@@ -106,11 +106,7 @@
 
                         <label id="label-email" for="email"></label>
 
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder=""
-                        >
+                        <input id="email" type="email" placeholder="">
 
                     </div>
 
@@ -118,27 +114,21 @@
 
                         <label id="label-password" for="password"></label>
 
-                        <input
-                            id="password"
-                            type="password"
-                            placeholder=""
-                        >
+                        <input id="password" type="password" placeholder="">
 
                     </div>
 
                     <div class="buttons-login">
 
-                        <button
-                            type="button"
-                            id="btn-forgot-password">
+                        <button type="button" id="btn-forgot-password">
                         </button>
 
-                        <button
-                            type="submit"
-                            id="btn-login">
+                        <button type="button" id="btn-login">
                         </button>
 
                     </div>
+
+                    <p id="mensagem"></p>
 
                 </form>
 
@@ -228,11 +218,7 @@
 
                             <label id="label-name" for="name"></label>
 
-                            <input
-                                id="name"
-                                type="text"
-                                placeholder=""
-                            >
+                            <input id="name" type="text" placeholder="">
 
                         </div>
 
@@ -240,11 +226,7 @@
 
                             <label id="label-register-email" for="register-email"></label>
 
-                            <input
-                                id="register-email"
-                                type="email"
-                                placeholder=""
-                            >
+                            <input id="register-email" type="email" placeholder="">
 
                         </div>
 
@@ -252,11 +234,15 @@
 
                             <label id="label-register-password" for="register-password"></label>
 
-                            <input
-                                id="register-password"
-                                type="password"
-                                placeholder=""
-                            >
+                            <div class="password-container">
+
+                                <input id="register-password" type="password" placeholder="">
+
+                                <button type="button" id="toggle-password" class="btn-password">
+                                    👁
+                                </button>
+
+                            </div>
 
                         </div>
 
@@ -264,29 +250,28 @@
 
                             <label id="label-confirm-password" for="confirm-password"></label>
 
-                            <input
-                                id="confirm-password"
-                                type="password"
-                                placeholder=""
-                            >
+                            <div class="password-container">
+
+                                <input id="confirm-password" type="password" placeholder="">
+
+                                <button type="button" id="toggle-confirm-password" class="btn-password">
+                                    👁
+                                </button>
+
+                            </div>
+
+                        </div>
+                        <div class="register-buttons">
+
+                            <button type="button" id="btn-back">
+                            </button>
+
+                            <button type="button" id="btn-register">
+                            </button>
 
                         </div>
 
-                    </div>
-
-                    <div class="register-buttons">
-
-                        <button
-                            type="button"
-                            id="btn-back">
-                        </button>
-
-                        <button
-                            type="submit"
-                            id="btn-register">
-                        </button>
-
-                    </div>
+                        <p id="mensagem"></p>
 
                 </form>
 
@@ -316,7 +301,7 @@
 
     </footer>
 
-    <script src="/js/pedidos.js"></script>
+    <script src="../js/login.js"></script>
 
 </body>
 

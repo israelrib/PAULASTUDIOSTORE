@@ -668,3 +668,29 @@ gap:12px;
 }
 
 }
+
+
+.password-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input{
+    width: 100%;
+    padding-right: 45px;
+}
+
+.btn-password{
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.btn-password:hover{
+    color: #000;
+}
