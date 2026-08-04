@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cadastro de Produto</title>
+
+    <link
+        rel="stylesheet"
+        href="../style/cadastroproduto.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- =========================================
+            SIDEBAR
+        ========================================== -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <img
+                    src="../assets/logo.png"
+                    alt="Logo Paula Studio"
+                >
+
+            </div>
+
+            <nav class="menu-lateral">
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+                <a
+                    href="produtoslojista.html"
+                    class="ativo"
+                >
+
+                    <i class="fa-solid fa-box"></i>
+
+                    <span>Produtos</span>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span>Pedidos</span>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Clientes</span>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>Relatórios</span>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Configurações</span>
+
+                </a>
+
+            </nav>
+
+            <div class="perfil-sidebar">
+
+                <img
+                    src="../assets/perfil.jpg"
+                    alt="Perfil do lojista"
+                >
+
+                <div>
+
+                    <strong>Paula Soares</strong>
+
+                    <span>Admin</span>
+
+                </div>
+
+                <i class="fa-solid fa-circle-user"></i>
+
+            </div>
+
+        </aside>
+
+        <!-- =========================================
+            CONTEÚDO PRINCIPAL
+        ========================================== -->
+
+        <main class="conteudo">
+
+            <!-- =====================================
+                TOPO
+            ====================================== -->
+
+            <header class="topo">
+
+                <div class="titulo-topo">
+
+                    <button
+                        type="button"
+                        id="btn-voltar"
+                        class="btn-voltar"
+                    >
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                    </button>
+
+                    <div>
+
+                        <h1>Cadastrar Produto</h1>
+
+                        <p>
+                            Adicione um novo produto ao catálogo da sua loja.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="acoes-topo">
+
+                    <button
+                        type="button"
+                        class="notificacao"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span></span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btn-ver-loja"
+                        class="btn-ver-loja"
+                    >
+
+                        <i class="fa-regular fa-eye"></i>
+
+                        Ver Loja
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- =====================================
+                FORMULÁRIO
+            ====================================== -->
+
+            <section class="area-formulario">
+
+                <div class="cabecalho-formulario">
+
+                    <div>
+
+                        <h2>Informações do produto</h2>
+
+                        <p>
+                            Preencha os campos abaixo para cadastrar o produto.
+                        </p>
+
+                    </div>
+
+                    <div class="status-produto">
+
+                        <label for="produto-ativo">
+                            Produto ativo
+                        </label>
+
+                        <input
+                            type="checkbox"
+                            id="produto-ativo"
+                            checked
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="formulario-produto">
+
+                    <!-- NOME -->
+
+                    <div class="campo campo-grande">
+
+                        <label for="nome-produto">
+
+                            Nome do produto
+                            <span>*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome-produto"
+                            maxlength="100"
+                            placeholder="Digite o nome do produto"
+                        >
+
+                    </div>
+
+                    <!-- CÓDIGO -->
+
+                    <div class="campo">
+
+                        <label for="codigo-produto">
+
+                            Código do produto
+                            <span>*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="codigo-produto"
+                            maxlength="45"
+                            placeholder="Ex.: PROD-001"
+                        >
+
+                    </div>
+
+                    <!-- DESCRIÇÃO -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="descricao-produto">
+                            Descrição
+                        </label>
+
+                        <textarea
+                            id="descricao-produto"
+                            maxlength="1000"
+                            rows="6"
+                            placeholder="Digite a descrição do produto"
+                        ></textarea>
+
+                        <small id="contador-descricao">
+                            0/1000 caracteres
+                        </small>
+
+                    </div>
+
+                    <!-- PREÇO ANTIGO -->
+
+                    <div class="campo">
+
+                        <label for="preco-antigo">
+
+                            Preço antigo
+                            <span>*</span>
+
+                        </label>
+
+                        <div class="campo-preco">
+
+                            <span>R$</span>
+
+                            <input
+                                type="number"
+                                id="preco-antigo"
+                                min="0"
+                                step="0.01"
+                                placeholder="0,00"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- PREÇO PROMOCIONAL -->
+
+                    <div class="campo">
+
+                        <label for="preco-promocional">
+
+                            Preço promocional
+                            <span>*</span>
+
+                        </label>
+
+                        <div class="campo-preco">
+
+                            <span>R$</span>
+
+                            <input
+                                type="number"
+                                id="preco-promocional"
+                                min="0"
+                                step="0.01"
+                                placeholder="0,00"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="campo">
+
+                        <label for="quantidade-estoque">
+
+                            Quantidade em estoque
+                            <span>*</span>
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantidade-estoque"
+                            min="0"
+                            step="1"
+                            placeholder="0"
+                        >
+
+                    </div>
+
+                    <!-- LOJA -->
+
+                    <div class="campo">
+
+                        <label for="loja-id">
+                            Loja
+                        </label>
+
+                        <input
+                            type="number"
+                            id="loja-id"
+                            value="1"
+                            min="1"
+                            readonly
+                        >
+
+                    </div>
+
+                    <!-- MARCA -->
+
+                    <div class="campo">
+
+                        <label for="marca-id">
+                            Marca
+                        </label>
+
+                        <select id="marca-id">
+
+                            <option value="">
+                                Selecione uma marca
+                            </option>
+
+                            <option value="1">
+                                Marca 1
+                            </option>
+
+                            <option value="2">
+                                Marca 2
+                            </option>
+
+                            <option value="3">
+                                Marca 3
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- CATEGORIA -->
+
+                    <div class="campo">
+
+                        <label for="categoria-id">
+                            Categoria
+                        </label>
+
+                        <select id="categoria-id">
+
+                            <option value="">
+                                Selecione uma categoria
+                            </option>
+
+                            <option value="1">
+                                Estética
+                            </option>
+
+                            <option value="2">
+                                Skincare
+                            </option>
+
+                            <option value="3">
+                                Maquiagem
+                            </option>
+
+                            <option value="4">
+                                Acessórios
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- =================================
+                    MENSAGEM
+                ================================== -->
+
+                <p
+                    id="mensagem-produto"
+                    class="mensagem-produto"
+                ></p>
+
+                <!-- =================================
+                    BOTÕES
+                ================================== -->
+
+                <div class="acoes-formulario">
+
+                    <button
+                        type="button"
+                        id="btn-cancelar"
+                        class="btn-cancelar"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btn-cadastrar-produto"
+                        class="btn-cadastrar"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Cadastrar Produto
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/cadastroproduto.js"></script>
+
+</body>
+
+</html>

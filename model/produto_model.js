@@ -76,6 +76,26 @@ function buscarPorNome(nome, callback) { // FUNÇÃO QUE EXECUTA O COMANDO SELEC
 }
 
 // =========================
+// Buscar Produto por Código
+// =========================
+
+function buscarPorCodigo(codigo, callback) {
+
+    const sql = `
+        SELECT *
+        FROM Produto
+        WHERE codigo = ?
+    `;
+
+    conexao.query(
+        sql,
+        [codigo],
+        callback
+    );
+
+}
+
+// =========================
 // Atualizar Produto
 // =========================
 
@@ -140,6 +160,7 @@ module.exports = {
     listar,
     buscarPorId,
     buscarPorNome,
+    buscarPorCodigo,
     atualizar,
     excluir
 

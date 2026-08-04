@@ -1,0 +1,971 @@
+/*=====================================================
+    RESET
+=====================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f5f6fb;
+    color: #202020;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/*=====================================================
+    DASHBOARD
+=====================================================*/
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/*=====================================================
+    SIDEBAR
+=====================================================*/
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 242px;
+    height: 100vh;
+
+    padding: 24px 18px 0;
+
+    background-color: #34262e;
+    color: #ffffff;
+}
+
+
+/*=====================================================
+    LOGO
+=====================================================*/
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 72px;
+    margin-bottom: 48px;
+}
+
+.logo img {
+    width: 132px;
+    max-height: 54px;
+    object-fit: contain;
+
+    padding: 8px;
+
+    background-color: #ffffff;
+    border-radius: 11px;
+}
+
+
+/*=====================================================
+    MENU LATERAL
+=====================================================*/
+
+.menu-lateral {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-lateral a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    border-radius: 10px;
+
+    color: #d9d3d6;
+    font-size: 15px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu-lateral a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateX(3px);
+}
+
+.menu-lateral a.ativo {
+    color: #ffffff;
+    background-color: #c96b5a;
+}
+
+.menu-lateral a i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/*=====================================================
+    PERFIL DA SIDEBAR
+=====================================================*/
+
+.perfil-sidebar {
+    display: grid;
+    grid-template-columns: 40px 1fr 24px;
+    align-items: center;
+    gap: 10px;
+
+    min-height: 76px;
+
+    margin: 0 -18px;
+    padding: 14px 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.perfil-sidebar img {
+    width: 40px;
+    height: 40px;
+
+    object-fit: cover;
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+.perfil-sidebar div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.perfil-sidebar strong {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.perfil-sidebar span {
+    color: #d8d1d5;
+    font-size: 11px;
+}
+
+.perfil-sidebar > i {
+    color: #ffffff;
+    text-align: right;
+}
+
+
+/*=====================================================
+    CONTEÚDO PRINCIPAL
+=====================================================*/
+
+.conteudo {
+    width: calc(100% - 242px);
+    min-height: 100vh;
+
+    margin-left: 242px;
+    padding: 24px 28px 45px;
+}
+
+
+/*=====================================================
+    TOPO
+=====================================================*/
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    min-height: 72px;
+    margin-bottom: 28px;
+}
+
+.titulo-topo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.titulo-topo h1 {
+    margin-bottom: 6px;
+
+    color: #252525;
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.titulo-topo p {
+    color: #777777;
+    font-size: 14px;
+}
+
+
+/*=====================================================
+    BOTÃO VOLTAR
+=====================================================*/
+
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background-color: #ffffff;
+    border: 1px solid #e2e3e8;
+    border-radius: 10px;
+
+    color: #575b66;
+    font-size: 15px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn-voltar:hover {
+    color: #ffffff;
+    background-color: #c96b5a;
+    border-color: #c96b5a;
+}
+
+
+/*=====================================================
+    AÇÕES DO TOPO
+=====================================================*/
+
+.acoes-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notificacao {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background-color: transparent;
+
+    color: #202020;
+    font-size: 18px;
+}
+
+.notificacao span {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #e34b3d;
+    border-radius: 50%;
+}
+
+.btn-ver-loja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    color: #c35f50;
+    background-color: #ffffff;
+
+    border: 1px solid #c96b5a;
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn-ver-loja:hover {
+    color: #ffffff;
+    background-color: #c96b5a;
+}
+
+
+/*=====================================================
+    ÁREA DO FORMULÁRIO
+=====================================================*/
+
+.area-formulario {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    background-color: #ffffff;
+    border: 1px solid #ececf1;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(37, 39, 51, 0.06);
+}
+
+
+/*=====================================================
+    CABEÇALHO DO FORMULÁRIO
+=====================================================*/
+
+.cabecalho-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    padding: 25px 30px;
+
+    border-bottom: 1px solid #ebebef;
+}
+
+.cabecalho-formulario h2 {
+    margin-bottom: 7px;
+
+    color: #292929;
+    font-size: 21px;
+}
+
+.cabecalho-formulario p {
+    color: #797979;
+    font-size: 14px;
+}
+
+
+/*=====================================================
+    STATUS DO PRODUTO
+=====================================================*/
+
+.status-produto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    white-space: nowrap;
+}
+
+.status-produto label {
+    color: #4a4a4a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-produto input {
+    position: relative;
+
+    width: 46px;
+    height: 24px;
+
+    appearance: none;
+
+    background-color: #ccccd1;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.status-produto input::before {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+    width: 18px;
+    height: 18px;
+
+    content: "";
+
+    background-color: #ffffff;
+    border-radius: 50%;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.2s ease;
+}
+
+.status-produto input:checked {
+    background-color: #c96b5a;
+}
+
+.status-produto input:checked::before {
+    transform: translateX(22px);
+}
+
+
+/*=====================================================
+    FORMULÁRIO
+=====================================================*/
+
+.formulario-produto {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px 24px;
+
+    padding: 30px;
+}
+
+
+/*=====================================================
+    CAMPOS
+=====================================================*/
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.campo-grande,
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    color: #3d3d3d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo label span {
+    color: #c95f52;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    width: 100%;
+
+    color: #333333;
+    background-color: #ffffff;
+
+    border: 1px solid #dfe0e5;
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.campo input,
+.campo select {
+    height: 47px;
+    padding: 0 14px;
+}
+
+.campo textarea {
+    min-height: 135px;
+
+    padding: 14px;
+
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #a2a2aa;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+    border-color: #c96b5a;
+
+    box-shadow: 0 0 0 3px rgba(201, 107, 90, 0.12);
+}
+
+.campo input:read-only {
+    color: #777777;
+    background-color: #f5f5f7;
+    cursor: not-allowed;
+}
+
+.campo select {
+    cursor: pointer;
+}
+
+
+/*=====================================================
+    CONTADOR DA DESCRIÇÃO
+=====================================================*/
+
+#contador-descricao {
+    align-self: flex-end;
+
+    color: #929292;
+    font-size: 12px;
+}
+
+
+/*=====================================================
+    CAMPO DE PREÇO
+=====================================================*/
+
+.campo-preco {
+    position: relative;
+}
+
+.campo-preco > span {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    z-index: 2;
+
+    color: #666666;
+    font-size: 14px;
+    font-weight: 600;
+
+    transform: translateY(-50%);
+}
+
+.campo-preco input {
+    padding-left: 47px;
+}
+
+
+/*=====================================================
+    REMOVER SETAS DO INPUT NUMBER
+=====================================================*/
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+
+/*=====================================================
+    MENSAGEM
+=====================================================*/
+
+.mensagem-produto {
+    min-height: 22px;
+
+    margin: 0 30px 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mensagem-produto.sucesso {
+    padding: 11px 14px;
+
+    color: #237844;
+    background-color: #eaf8ef;
+
+    border: 1px solid #c8ebd5;
+    border-radius: 8px;
+}
+
+.mensagem-produto.erro {
+    padding: 11px 14px;
+
+    color: #a63b32;
+    background-color: #fff0ee;
+
+    border: 1px solid #f1cbc7;
+    border-radius: 8px;
+}
+
+
+/*=====================================================
+    AÇÕES DO FORMULÁRIO
+=====================================================*/
+
+.acoes-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+
+    padding: 22px 30px;
+
+    background-color: #fafafd;
+    border-top: 1px solid #ececf0;
+    border-radius: 0 0 18px 18px;
+}
+
+.btn-cancelar,
+.btn-cadastrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 44px;
+
+    padding: 0 23px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-cancelar {
+    color: #55555c;
+    background-color: #ffffff;
+    border: 1px solid #d8d9de;
+}
+
+.btn-cancelar:hover {
+    color: #333333;
+    background-color: #f0f0f3;
+    border-color: #c8c8cd;
+}
+
+.btn-cadastrar {
+    color: #ffffff;
+    background-color: #c96b5a;
+    border: 1px solid #c96b5a;
+}
+
+.btn-cadastrar:hover {
+    background-color: #b95949;
+    border-color: #b95949;
+    transform: translateY(-1px);
+}
+
+.btn-cadastrar:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/*=====================================================
+    CAMPOS COM ERRO
+=====================================================*/
+
+.campo input.erro,
+.campo textarea.erro,
+.campo select.erro {
+    border-color: #d74e44;
+    background-color: #fffafa;
+
+    box-shadow: 0 0 0 3px rgba(215, 78, 68, 0.1);
+}
+
+
+/*=====================================================
+    RESPONSIVIDADE — NOTEBOOK
+=====================================================*/
+
+@media (max-width: 1200px) {
+
+    .conteudo {
+        padding: 22px;
+    }
+
+    .area-formulario {
+        max-width: none;
+    }
+
+}
+
+
+/*=====================================================
+    RESPONSIVIDADE — TABLET
+=====================================================*/
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 78px;
+        padding: 20px 10px 0;
+    }
+
+    .logo {
+        margin-bottom: 35px;
+    }
+
+    .logo img {
+        width: 48px;
+        height: 48px;
+        padding: 6px;
+        object-fit: contain;
+    }
+
+    .menu-lateral a {
+        justify-content: center;
+
+        min-height: 48px;
+        padding: 0;
+    }
+
+    .menu-lateral a span {
+        display: none;
+    }
+
+    .menu-lateral a i {
+        width: auto;
+        font-size: 18px;
+    }
+
+    .perfil-sidebar {
+        display: flex;
+        justify-content: center;
+
+        margin: 0 -10px;
+        padding: 14px 10px;
+    }
+
+    .perfil-sidebar div,
+    .perfil-sidebar > i {
+        display: none;
+    }
+
+    .conteudo {
+        width: calc(100% - 78px);
+        margin-left: 78px;
+    }
+
+    .formulario-produto {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-grande,
+    .campo-completo {
+        grid-column: auto;
+    }
+
+}
+
+
+/*=====================================================
+    RESPONSIVIDADE — CELULAR
+=====================================================*/
+
+@media (max-width: 650px) {
+
+    .dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+        min-height: auto;
+
+        padding: 12px 15px;
+    }
+
+    .logo {
+        min-height: auto;
+        margin-bottom: 12px;
+    }
+
+    .logo img {
+        width: 105px;
+        height: auto;
+    }
+
+    .menu-lateral {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+    }
+
+    .menu-lateral a {
+        flex-direction: column;
+        gap: 5px;
+
+        min-height: 59px;
+        padding: 7px 4px;
+
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .menu-lateral a span {
+        display: block;
+    }
+
+    .menu-lateral a i {
+        font-size: 15px;
+    }
+
+    .perfil-sidebar {
+        display: none;
+    }
+
+    .conteudo {
+        width: 100%;
+        margin-left: 0;
+        padding: 18px 14px 30px;
+    }
+
+    .topo {
+        align-items: flex-start;
+        flex-direction: column;
+
+        margin-bottom: 20px;
+    }
+
+    .titulo-topo {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .titulo-topo h1 {
+        font-size: 24px;
+    }
+
+    .titulo-topo p {
+        font-size: 13px;
+    }
+
+    .acoes-topo {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .cabecalho-formulario {
+        align-items: flex-start;
+        flex-direction: column;
+
+        padding: 20px;
+    }
+
+    .status-produto {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .formulario-produto {
+        gap: 19px;
+        padding: 22px 20px;
+    }
+
+    .mensagem-produto {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .acoes-formulario {
+        align-items: stretch;
+        flex-direction: column-reverse;
+
+        padding: 18px 20px;
+    }
+
+    .btn-cancelar,
+    .btn-cadastrar {
+        width: 100%;
+    }
+
+}
+
+
+/*=====================================================
+    RESPONSIVIDADE — CELULAR PEQUENO
+=====================================================*/
+
+@media (max-width: 390px) {
+
+    .menu-lateral {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .titulo-topo h1 {
+        font-size: 21px;
+    }
+
+    .btn-voltar {
+        flex-shrink: 0;
+
+        width: 38px;
+        height: 38px;
+    }
+
+    .btn-ver-loja {
+        flex: 1;
+    }
+
+    .area-formulario {
+        border-radius: 13px;
+    }
+
+    .cabecalho-formulario h2 {
+        font-size: 19px;
+    }
+
+}

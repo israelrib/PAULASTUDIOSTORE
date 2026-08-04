@@ -505,3 +505,4 @@ botaoFavoritar.addEventListener("click", () => {
     }
 
 });
+

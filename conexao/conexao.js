@@ -1,9 +1,9 @@
-const mysql = require('mysql2') // conectar com o servidor do node.js e o banco de dados MySQL
+const mysql = require('mysql2') // conectar com o servidor do node.js ao banco de dados MySQL
 const conexao = mysql.createConnection({ //váriavel que vai armazenar a conexão com o banco de dados
     host: 'localhost',
     user: 'root',
     password: '', //senha do MySQL
-    database: 'paulastudiostore'
+    database: 'PAULASTUDIOSTORE'
 });
 conexao.connect((erro) => {
     if (erro) {

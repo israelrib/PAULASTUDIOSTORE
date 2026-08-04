@@ -13,7 +13,7 @@ const conexao = require('./conexao'); // Importa a conexão com o banco de dados
 // ROTAS DE CLIENTE
 
 const ClienteRotas = require("../routes/cliente_rotas.js");
-app.use("/cliente", ClienteRotas);
+app.use("/clientes", ClienteRotas);
 
 
 // ROTAS DE AVALIAÇÃO DE PRODUTO

@@ -1,7 +1,3 @@
-/*=========================================================
-    PRODUTOS.JS
-=========================================================*/
-
 document.addEventListener("DOMContentLoaded", () => {
 
     /*=====================================================
@@ -235,16 +231,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const novoProduto =
         document.querySelector(".novo-produto");
+    
+    if (novoProduto) {
 
-    novoProduto.addEventListener("click",()=>{
+        novoProduto.addEventListener("click",()=>{
 
-        /*
-            Quando existir a página:
-            window.location = "cadastro-produto.html";
-        */
-
-        alert("Abrir Cadastro de Produto.");
-
+            window.location.href = "cadastroproduto.html";
+            
     });
 
     /*=====================================================

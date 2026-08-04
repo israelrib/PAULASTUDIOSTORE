@@ -246,374 +246,215 @@ document.getElementById("btn-open-login").addEventListener("click", () => {
     CADASTRO DO CLIENTE
 =====================================================*/
 
-document
-    .getElementById("btn-register")
-    .addEventListener("click", async (event) => {
+document.getElementById("btn-register").addEventListener("click", () => {
 
-        // Impede o formulário de recarregar a página
-        event.preventDefault();
+   
 
-        const nome = document
-            .getElementById("name")
-            .value
-            .trim();
+    const nome = document.getElementById("name").value.trim();
+    const email = document.getElementById("register-email").value.trim();
+    const senha = document.getElementById("register-password").value;
+    const confirmarSenha = document.getElementById("confirm-password").value;
+    const mensagem =
+        document.getElementById("mensagem");
 
-        const email = document
-            .getElementById("register-email")
-            .value
-            .trim()
-            .toLowerCase();
+    //verificar se todos os campos foram preenchidos
+    if (
+        nome == "" ||
+        email == "" ||
+        senha == "" ||
+        confirmarSenha == ""
+    ) {
 
-        const senha = document
-            .getElementById("register-password")
-            .value;
+        mensagem.style.color = "red";
+        mensagem.innerHTML = "Preencha todos os campos.";
+        
 
-        const confirmarSenha = document
-            .getElementById("confirm-password")
-            .value;
 
-        /*
-        O seu HTML ainda não possui um elemento com id="mensagem".
-        Por isso, ele será criado apenas uma vez pelo JavaScript.
-        */
-        let mensagem = document.getElementById("mensagem");
 
-        if (!mensagem) {
-            mensagem = document.createElement("p");
-            mensagem.id = "mensagem";
+        return;
 
-            document
-                .getElementById("form-register")
-                .appendChild(mensagem);
-        }
+    }
 
-        // Limpa a mensagem anterior
-        mensagem.innerHTML = "";
+    if (senha.length < 8 || senha.length > 13) {
 
-        // Verifica se todos os campos foram preenchidos
-        if (
-            nome === "" ||
-            email === "" ||
-            senha === "" ||
-            confirmarSenha === ""
-        ) {
-            exibirMensagem(
-                "Preencha todos os campos.",
-                "red"
-            );
+         alert("A senha deve possuir entre 8 e 13 caracteres!");
+        return;
+        
 
-            return;
-        }
+    }
+    // verificar se a senha possui letras maiusculas
+    if (!/[A-Z]/.test(senha)) {
+       alert(   
+            "A senha deve conter pelo menos uma letra maiúscula.");
+        return;
+    }
+    if (!/[a-z]/.test(senha)) {
+       alert(
+            "A senha deve conter pelo menos uma letra minúscula.");
+        return;
+    }
 
-        // Validação do nome
-        if (nome.length < 3) {
-            exibirMensagem(
-                "O nome deve possuir pelo menos 3 caracteres.",
-                "red"
-            );
+    if (!/[!@#$%^&*(),.?":{}|<>_\-+=/\[\]\\;'`~]/.test(senha)) {
+       alert(
+            "A senha deve conter pelo menos um caracter especial.");
+        return;
+    }
+    if (!/[0-9]/.test(senha)) {
+        alert("A senha deve conter pelo menos um número.");
+        return;
+    }
+    //verificar se a senha possui nome da pessoa
+    if (senha.includes(nome)) {
+        alert("A senha não pode conter o nome do usuário.");
+        return;
+    }
 
-            return;
-        }
 
-        // Validação do e-mail
-        const emailValido =
-            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-        if (!emailValido.test(email)) {
-            exibirMensagem(
-                "Digite um e-mail válido.",
-                "red"
-            );
 
-            return;
-        }
+    if (!email.includes("@gmail.com") &&
+        !email.includes("@hotmail.com") &&
+        !email.includes("@yahoo.com") &&
+        !email.includes("@outlook.com") && !email.includes("@") &&
+        !email.includes("@icloud.com")) {
 
-        // Validação do tamanho da senha
-        if (senha.length < 8 || senha.length > 13) {
-            exibirMensagem(
-                "A senha deve possuir entre 8 e 13 caracteres.",
-                "red"
-            );
+       alert( "Digite um e-mail válido.");
 
-            return;
-        }
+        return;
 
-        // Verifica se existe letra maiúscula
-        if (!/[A-Z]/.test(senha)) {
-            exibirMensagem(
-                "A senha deve conter pelo menos uma letra maiúscula.",
-                "red"
-            );
+    }
 
-            return;
-        }
+  
 
-        // Verifica se existe letra minúscula
-        if (!/[a-z]/.test(senha)) {
-            exibirMensagem(
-                "A senha deve conter pelo menos uma letra minúscula.",
-                "red"
-            );
+    // Objeto pronto para enviar ao Node.js
+    const cliente = {
+        nome: nome,
+        cpf: "",
+        telefone: "",
+        email: email,
+        senha: senha,
+        data_nascimento: "",
+        Loja_idLoja: 1
+    };
 
-            return;
-        }
+    console.log(cliente);
 
-        // Verifica se existe um número
-        if (!/[0-9]/.test(senha)) {
-            exibirMensagem(
-                "A senha deve conter pelo menos um número.",
-                "red"
-            );
 
-            return;
-        }
+    fetch("http://localhost:3000/clientes", {
 
-        // Verifica se existe caractere especial
-        if (!/[^A-Za-z0-9]/.test(senha)) {
-            exibirMensagem(
-                "A senha deve conter pelo menos um caractere especial.",
-                "red"
-            );
+        method: "POST",
 
-            return;
-        }
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-        // Verifica se a senha contém o primeiro nome
-        const primeiroNome = nome
-            .split(" ")[0]
-            .toLowerCase();
+        body: JSON.stringify(cliente)
 
-        if (
-            primeiroNome.length >= 3 &&
-            senha.toLowerCase().includes(primeiroNome)
-        ) {
-            exibirMensagem(
-                "A senha não pode conter o seu nome.",
-                "red"
-            );
+    })
+        .then(res => res.json())
 
-            return;
-        }
+        .then(resposta => {
 
-        // Verifica se as senhas são iguais
-        if (senha !== confirmarSenha) {
-            exibirMensagem(
-                "As senhas não são iguais.",
-                "red"
-            );
+            if (resposta.sucesso) {
 
-            return;
-        }
+                mensagem.style.color = "green";
+                mensagem.innerHTML = resposta.mensagem;
 
-        /*
-        Como cpf, telefone e data de nascimento não existem
-        no HTML, eles não podem ser enviados neste cadastro.
-        */
-        const cliente = {
-            nome: nome,
-            email: email,
-            senha: senha,
-            Loja_idLoja: 1
-        };
+                // Limpa os campos
+                document.getElementById("name").value = "";
+                document.getElementById("cpf").value = "";
+                document.getElementById("telefone").value = "";
+                document.getElementById("register-email").value = "";
+                document.getElementById("register-password").value = "";
+                document.getElementById("confirm-password").value = "";
 
-        console.log("Cliente enviado:", cliente);
+            } else {
 
-        try {
-            exibirMensagem(
-                "Realizando cadastro...",
-                "blue"
-            );
+                mensagem.style.color = "red";
+                mensagem.innerHTML = resposta.mensagem;
 
-            const respostaServidor = await fetch(
-                "http://localhost:3000/cliente",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify(cliente)
-                }
-            );
-
-            let resposta;
-
-            try {
-                resposta = await respostaServidor.json();
-            } catch {
-                resposta = {};
             }
 
-            if (!respostaServidor.ok) {
-                exibirMensagem(
-                    resposta.mensagem ||
-                    "Não foi possível realizar o cadastro.",
-                    "red"
-                );
+        })
 
-                return;
-            }
+        .catch(() => {
+            alert("Erro ao conectar com o servidor.");
 
-            exibirMensagem(
-                resposta.mensagem ||
-                "Cadastro realizado com sucesso!",
-                "green"
-            );
+            mensagem.style.color = "red";
+            mensagem.innerHTML = "Erro ao conectar com o servidor.";
 
-            limparCampos();
+        });
 
-        } catch (erro) {
-            console.error(
-                "Erro ao cadastrar cliente:",
-                erro
-            );
 
-            exibirMensagem(
-                "Erro ao conectar com o servidor.",
-                "red"
-            );
-        }
-
-        function exibirMensagem(texto, cor) {
-            mensagem.style.color = cor;
-            mensagem.innerHTML = texto;
-        }
-
-        function limparCampos() {
-            document.getElementById("name").value = "";
-            document.getElementById("register-email").value = "";
-            document.getElementById("register-password").value = "";
-            document.getElementById("confirm-password").value = "";
-        }
-    });
+});
 
 
 
 
-    /*=====================================================
-    LOGIN DO CLIENTE
+
+
+/*=====================================================
+LOGIN DO CLIENTE
 =====================================================*/
 
-document
-    .getElementById("btn-login")
-    .addEventListener("click", async () => {
+const btnEntrar = document.getElementById("btn-login");
 
-        const email = document
-            .getElementById("email")
-            .value
-            .trim()
-            .toLowerCase();
+btnEntrar.addEventListener("click", () => {
+    
 
-        const senha = document
-            .getElementById("password")
-            .value;
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("password").value;
 
-        const mensagem = document
-            .getElementById("mensagem");
+    
 
-        mensagem.textContent = "";
+    if (email === "" || senha === "") {
 
-        /*=====================================================
-            VALIDAR CAMPOS
-        =====================================================*/
+        alert("Preencha todos os campos.");
+        return;
 
-        if (email === "" || senha === "") {
+    }
 
-            mensagem.style.color = "red";
-            mensagem.textContent =
-                "Preencha o e-mail e a senha.";
-            return;
+    if (senha.length < 8) {
 
-        }
+        alert("A senha deve possuir no mínimo 8 caracteres.");
+        return;
 
-        /*=====================================================
-            VALIDAR E-MAIL
-        =====================================================*/
+    }
 
-        const emailValido =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    fetch("http://localhost:3000/clientes/login", {
 
-        if (!emailValido.test(email)) {
+    method: "POST",
 
-            mensagem.style.color = "red";
-            mensagem.textContent =
-                "Digite um e-mail válido.";
-            return;
+    headers: {
+        "Content-Type": "application/json"
+    },
 
-        }
+    body: JSON.stringify({
+        email,
+        senha
+    })
 
-        try {
+})
 
-            mensagem.style.color = "black";
-            mensagem.textContent = "Entrando...";
+.then(res => res.json())
 
-            const respostaServidor = await fetch(
-                "http://localhost:3000/clientes/login",
-                {
-                    method: "POST",
+.then(resposta => {
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+    if (resposta.sucesso) {
 
-                    body: JSON.stringify({
-                        email: email,
-                        senha: senha
-                    })
-                }
-            );
+        localStorage.setItem(
+            "cliente",
+            JSON.stringify(resposta.cliente)
+        );
 
-            const resposta = await respostaServidor.json();
+        alert("Login realizado com sucesso!");
+        window.location.href = "../index.html";
 
-            if (!respostaServidor.ok) {
+    } else {
 
-                mensagem.style.color = "red";
-                mensagem.textContent =
-                    resposta.mensagem ||
-                    "E-mail ou senha incorretos.";
+        alert(resposta.mensagem);
 
-                return;
+    }
 
-            }
-
-            if (!resposta.cliente) {
-
-                mensagem.style.color = "red";
-                mensagem.textContent =
-                    "O servidor não retornou os dados do cliente.";
-                return;
-
-            }
-
-            /*=====================================================
-                SALVAR CLIENTE LOGADO
-            =====================================================*/
-
-            localStorage.setItem(
-                "cliente",
-                JSON.stringify(resposta.cliente)
-            );
-
-            mensagem.style.color = "green";
-            mensagem.textContent =
-                resposta.mensagem ||
-                "Login realizado com sucesso.";
-
-            setTimeout(() => {
-
-                window.location.href = "../index.html";
-
-            }, 500);
-
-        } catch (erro) {
-
-            console.error("Erro no login:", erro);
-
-            mensagem.style.color = "red";
-            mensagem.textContent =
-                "Erro ao conectar com o servidor.";
-
-        }
-
-    });
+});
+});

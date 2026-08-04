@@ -14,6 +14,8 @@ const ClienteController = require("../controller/cliente_controller.js");
 
 router.post("/", ClienteController.cadastrar);
 
+router.post("/login", ClienteController.login);
+
 router.get("/", ClienteController.listar);
 
 router.get("/:id", ClienteController.buscarPorId);
@@ -22,6 +24,6 @@ router.put("/:id", ClienteController.atualizar);
 
 router.delete("/:id", ClienteController.excluir);
 
-router.post("/login", ClienteController.login);
+
 
 module.exports = router;
