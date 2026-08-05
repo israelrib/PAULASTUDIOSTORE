@@ -137,6 +137,7 @@
                         type="button"
                         id="btn-voltar"
                         class="btn-voltar"
+                        aria-label="Voltar para a lista de produtos"
                     >
 
                         <i class="fa-solid fa-arrow-left"></i>
@@ -160,6 +161,7 @@
                     <button
                         type="button"
                         class="notificacao"
+                        aria-label="Visualizar notificações"
                     >
 
                         <i class="fa-regular fa-bell"></i>
@@ -185,10 +187,14 @@
             </header>
 
             <!-- =====================================
-                FORMULÁRIO
+                FORMULÁRIO DE CADASTRO
             ====================================== -->
 
             <section class="area-formulario">
+
+                <!-- =================================
+                    CABEÇALHO DO FORMULÁRIO
+                ================================== -->
 
                 <div class="cabecalho-formulario">
 
@@ -217,6 +223,10 @@
                     </div>
 
                 </div>
+
+                <!-- =================================
+                    CAMPOS DO PRODUTO
+                ================================== -->
 
                 <div class="formulario-produto">
 
@@ -438,10 +448,343 @@
 
                     </div>
 
+                    <!-- =================================
+                        CORES DO PRODUTO
+                    ================================== -->
+
+                    <div class="campo campo-completo">
+
+                        <div class="titulo-secao-campo">
+
+                            <div>
+
+                                <label>
+                                    Cores disponíveis
+                                </label>
+
+                                <p>
+                                    Selecione uma ou mais cores para o produto.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="lista-cores-cadastro"
+                            id="lista-cores"
+                        >
+
+                            <label class="item-cor">
+
+                                <input
+                                    type="checkbox"
+                                    name="cores-produto"
+                                    value="1"
+                                >
+
+                                <span
+                                    class="cor-visual cor-rosa"
+                                ></span>
+
+                                <span>Rosa</span>
+
+                            </label>
+
+                            <label class="item-cor">
+
+                                <input
+                                    type="checkbox"
+                                    name="cores-produto"
+                                    value="2"
+                                >
+
+                                <span
+                                    class="cor-visual cor-verde"
+                                ></span>
+
+                                <span>Verde</span>
+
+                            </label>
+
+                            <label class="item-cor">
+
+                                <input
+                                    type="checkbox"
+                                    name="cores-produto"
+                                    value="3"
+                                >
+
+                                <span
+                                    class="cor-visual cor-preta"
+                                ></span>
+
+                                <span>Preto</span>
+
+                            </label>
+
+                            <label class="item-cor">
+
+                                <input
+                                    type="checkbox"
+                                    name="cores-produto"
+                                    value="4"
+                                >
+
+                                <span
+                                    class="cor-visual cor-branca"
+                                ></span>
+
+                                <span>Branco</span>
+
+                            </label>
+
+                            <label class="item-cor">
+
+                                <input
+                                    type="checkbox"
+                                    name="cores-produto"
+                                    value="5"
+                                >
+
+                                <span
+                                    class="cor-visual cor-azul"
+                                ></span>
+
+                                <span>Azul</span>
+
+                            </label>
+
+                            <label class="item-cor">
+
+                                <input
+                                    type="checkbox"
+                                    name="cores-produto"
+                                    value="6"
+                                >
+
+                                <span
+                                    class="cor-visual cor-vermelha"
+                                ></span>
+
+                                <span>Vermelho</span>
+
+                            </label>
+
+                        </div>
+
+                        <small
+                            id="mensagem-cores"
+                            class="mensagem-campo"
+                        ></small>
+
+                    </div>
+
+                    <!-- =================================
+                        IMAGENS DO PRODUTO
+                    ================================== -->
+
+                    <div class="campo campo-completo">
+
+                        <div class="titulo-secao-campo">
+
+                            <div>
+
+                                <label for="imagens-produto">
+                                    Imagens do produto
+                                </label>
+
+                                <p>
+                                    Selecione até quatro imagens do produto.
+                                </p>
+
+                            </div>
+
+                            <span
+                                id="contador-imagens"
+                                class="contador-imagens"
+                            >
+                                0/4 imagens
+                            </span>
+
+                        </div>
+
+                        <div class="area-upload-imagens">
+
+                            <input
+                                type="file"
+                                id="imagens-produto"
+                                accept="image/png, image/jpeg, image/webp"
+                                multiple
+                            >
+
+                            <label
+                                for="imagens-produto"
+                                class="label-upload"
+                            >
+
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                <strong>
+                                    Clique para selecionar as imagens
+                                </strong>
+
+                                <span>
+                                    Arquivos PNG, JPG, JPEG ou WEBP
+                                </span>
+
+                                <span>
+                                    Máximo de 4 imagens
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                        <!-- PRÉ-VISUALIZAÇÃO DAS IMAGENS -->
+
+                        <div
+                            class="preview-imagens"
+                            id="preview-imagens"
+                        >
+
+                            <!-- IMAGEM 1 -->
+
+                            <div
+                                class="preview-imagem oculta"
+                                id="preview-imagem-1"
+                            >
+
+                                <img
+                                    id="imagem-preview-1"
+                                    src=""
+                                    alt="Pré-visualização da imagem 1"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="remover-imagem"
+                                    id="remover-imagem-1"
+                                    data-indice="0"
+                                    aria-label="Remover imagem 1"
+                                >
+
+                                    <i class="fa-solid fa-xmark"></i>
+
+                                </button>
+
+                                <span class="numero-imagem">
+                                    Imagem 1
+                                </span>
+
+                            </div>
+
+                            <!-- IMAGEM 2 -->
+
+                            <div
+                                class="preview-imagem oculta"
+                                id="preview-imagem-2"
+                            >
+
+                                <img
+                                    id="imagem-preview-2"
+                                    src=""
+                                    alt="Pré-visualização da imagem 2"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="remover-imagem"
+                                    id="remover-imagem-2"
+                                    data-indice="1"
+                                    aria-label="Remover imagem 2"
+                                >
+
+                                    <i class="fa-solid fa-xmark"></i>
+
+                                </button>
+
+                                <span class="numero-imagem">
+                                    Imagem 2
+                                </span>
+
+                            </div>
+
+                            <!-- IMAGEM 3 -->
+
+                            <div
+                                class="preview-imagem oculta"
+                                id="preview-imagem-3"
+                            >
+
+                                <img
+                                    id="imagem-preview-3"
+                                    src=""
+                                    alt="Pré-visualização da imagem 3"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="remover-imagem"
+                                    id="remover-imagem-3"
+                                    data-indice="2"
+                                    aria-label="Remover imagem 3"
+                                >
+
+                                    <i class="fa-solid fa-xmark"></i>
+
+                                </button>
+
+                                <span class="numero-imagem">
+                                    Imagem 3
+                                </span>
+
+                            </div>
+
+                            <!-- IMAGEM 4 -->
+
+                            <div
+                                class="preview-imagem oculta"
+                                id="preview-imagem-4"
+                            >
+
+                                <img
+                                    id="imagem-preview-4"
+                                    src=""
+                                    alt="Pré-visualização da imagem 4"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="remover-imagem"
+                                    id="remover-imagem-4"
+                                    data-indice="3"
+                                    aria-label="Remover imagem 4"
+                                >
+
+                                    <i class="fa-solid fa-xmark"></i>
+
+                                </button>
+
+                                <span class="numero-imagem">
+                                    Imagem 4
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <small
+                            id="mensagem-imagens"
+                            class="mensagem-campo"
+                        ></small>
+
+                    </div>
+
                 </div>
 
                 <!-- =================================
-                    MENSAGEM
+                    MENSAGEM GERAL
                 ================================== -->
 
                 <p

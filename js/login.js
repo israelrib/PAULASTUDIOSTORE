@@ -212,8 +212,11 @@ document.getElementById("footer-contact").href =
     EVENTOS
 =====================================================*/
 
+// =======================
+// HERO
+// =======================
 
-
+// Entrar
 document.getElementById("btn-ir-login").addEventListener("click", () => {
 
     document.getElementById("login").scrollIntoView({
@@ -222,7 +225,8 @@ document.getElementById("btn-ir-login").addEventListener("click", () => {
 
 });
 
-document.getElementById("btn-open-register").addEventListener("click", () => {
+// Criar conta
+document.getElementById("btn-criar-conta").addEventListener("click", () => {
 
     document.getElementById("register").scrollIntoView({
         behavior: "smooth"
@@ -230,6 +234,37 @@ document.getElementById("btn-open-register").addEventListener("click", () => {
 
 });
 
+// =======================
+// MENU SUPERIOR
+// =======================
+
+// Menu Entrar
+document.getElementById("menu-login").addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    document.getElementById("login").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+// Menu Cadastrar
+document.getElementById("menu-cadastro").addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    document.getElementById("register").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+// =======================
+// SEÇÃO "CRIE SUA CONTA"
+// =======================
+
+// Já tenho conta
 document.getElementById("btn-open-login").addEventListener("click", () => {
 
     document.getElementById("login").scrollIntoView({
@@ -238,161 +273,570 @@ document.getElementById("btn-open-login").addEventListener("click", () => {
 
 });
 
+// Cadastrar
+document.getElementById("btn-open-register").addEventListener("click", () => {
 
-/*=====================================================
-    FORMULÁRIOS
-=====================================================*/
+    document.getElementById("register").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+
+// =======================
+// BOTÃO VOLTAR
+// =======================
+
+document.getElementById("btn-back").addEventListener("click", () => {
+
+    document.getElementById("login").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
 /*=====================================================
     CADASTRO DO CLIENTE
 =====================================================*/
 
-document.getElementById("btn-register").addEventListener("click", () => {
+document
+    .getElementById("btn-register")
+    .addEventListener("click", async () => {
 
-   
+        /*=================================================
+            ELEMENTOS DO FORMULÁRIO
+        =================================================*/
 
-    const nome = document.getElementById("name").value.trim();
-    const email = document.getElementById("register-email").value.trim();
-    const senha = document.getElementById("register-password").value;
-    const confirmarSenha = document.getElementById("confirm-password").value;
-    const mensagem =
-        document.getElementById("mensagem");
+        const campoNome =
+            document.getElementById("name");
 
-    //verificar se todos os campos foram preenchidos
-    if (
-        nome == "" ||
-        email == "" ||
-        senha == "" ||
-        confirmarSenha == ""
-    ) {
+        const campoEmail =
+            document.getElementById("register-email");
 
-        mensagem.style.color = "red";
-        mensagem.innerHTML = "Preencha todos os campos.";
-        
+        const campoSenha =
+            document.getElementById("register-password");
 
+        const campoConfirmarSenha =
+            document.getElementById("confirm-password");
 
+        const botaoCadastrar =
+            document.getElementById("btn-register");
 
-        return;
-
-    }
-
-    if (senha.length < 8 || senha.length > 13) {
-
-         alert("A senha deve possuir entre 8 e 13 caracteres!");
-        return;
-        
-
-    }
-    // verificar se a senha possui letras maiusculas
-    if (!/[A-Z]/.test(senha)) {
-       alert(   
-            "A senha deve conter pelo menos uma letra maiúscula.");
-        return;
-    }
-    if (!/[a-z]/.test(senha)) {
-       alert(
-            "A senha deve conter pelo menos uma letra minúscula.");
-        return;
-    }
-
-    if (!/[!@#$%^&*(),.?":{}|<>_\-+=/\[\]\\;'`~]/.test(senha)) {
-       alert(
-            "A senha deve conter pelo menos um caracter especial.");
-        return;
-    }
-    if (!/[0-9]/.test(senha)) {
-        alert("A senha deve conter pelo menos um número.");
-        return;
-    }
-    //verificar se a senha possui nome da pessoa
-    if (senha.includes(nome)) {
-        alert("A senha não pode conter o nome do usuário.");
-        return;
-    }
+        const mensagem =
+            document.getElementById("mensagem");
 
 
+        /*=================================================
+            VALORES DIGITADOS
+        =================================================*/
+
+        const nome =
+            campoNome.value.trim();
+
+        const email =
+            campoEmail.value.trim().toLowerCase();
+
+        const senha =
+            campoSenha.value;
+
+        const confirmarSenha =
+            campoConfirmarSenha.value;
 
 
-    if (!email.includes("@gmail.com") &&
-        !email.includes("@hotmail.com") &&
-        !email.includes("@yahoo.com") &&
-        !email.includes("@outlook.com") && !email.includes("@") &&
-        !email.includes("@icloud.com")) {
+        /*=================================================
+            LIMPAR MENSAGEM ANTERIOR
+        =================================================*/
 
-       alert( "Digite um e-mail válido.");
+        mensagem.textContent = "";
 
-        return;
-
-    }
-
-  
-
-    // Objeto pronto para enviar ao Node.js
-    const cliente = {
-        nome: nome,
-        cpf: "",
-        telefone: "",
-        email: email,
-        senha: senha,
-        data_nascimento: "",
-        Loja_idLoja: 1
-    };
-
-    console.log(cliente);
+        mensagem.style.color = "";
 
 
-    fetch("http://localhost:3000/clientes", {
+        /*=================================================
+            VALIDAR CAMPOS VAZIOS
+        =================================================*/
 
-        method: "POST",
+        if (
+            nome === "" ||
+            email === "" ||
+            senha === "" ||
+            confirmarSenha === ""
+        ) {
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            mensagem.style.color = "red";
 
-        body: JSON.stringify(cliente)
+            mensagem.textContent =
+                "Preencha todos os campos.";
 
-    })
-        .then(res => res.json())
+            return;
 
-        .then(resposta => {
+        }
 
-            if (resposta.sucesso) {
 
-                mensagem.style.color = "green";
-                mensagem.innerHTML = resposta.mensagem;
+        /*=================================================
+            VALIDAR NOME
+        =================================================*/
 
-                // Limpa os campos
-                document.getElementById("name").value = "";
-                document.getElementById("cpf").value = "";
-                document.getElementById("telefone").value = "";
-                document.getElementById("register-email").value = "";
-                document.getElementById("register-password").value = "";
-                document.getElementById("confirm-password").value = "";
+        if (nome.length < 3) {
 
-            } else {
+            mensagem.style.color = "red";
 
-                mensagem.style.color = "red";
-                mensagem.innerHTML = resposta.mensagem;
+            mensagem.textContent =
+                "O nome deve possuir pelo menos 3 caracteres.";
+
+            campoNome.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR E-MAIL
+        =================================================*/
+
+        const emailValido =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailValido.test(email)) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "Digite um e-mail válido.";
+
+            campoEmail.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR TAMANHO DA SENHA
+        =================================================*/
+
+        if (
+            senha.length < 8 ||
+            senha.length > 13
+        ) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "A senha deve possuir entre 8 e 13 caracteres.";
+
+            campoSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR LETRA MAIÚSCULA
+        =================================================*/
+
+        if (!/[A-Z]/.test(senha)) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "A senha deve conter pelo menos uma letra maiúscula.";
+
+            campoSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR LETRA MINÚSCULA
+        =================================================*/
+
+        if (!/[a-z]/.test(senha)) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "A senha deve conter pelo menos uma letra minúscula.";
+
+            campoSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR NÚMERO
+        =================================================*/
+
+        if (!/[0-9]/.test(senha)) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "A senha deve conter pelo menos um número.";
+
+            campoSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR CARACTERE ESPECIAL
+        =================================================*/
+
+        const possuiCaractereEspecial =
+            /[!@#$%^&*(),.?":{}|<>_\-+=/\[\]\\;'`~]/;
+
+        if (!possuiCaractereEspecial.test(senha)) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "A senha deve conter pelo menos um caractere especial.";
+
+            campoSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR SENHA COM O NOME
+        =================================================*/
+
+        const primeiroNome =
+            nome
+                .split(" ")[0]
+                .toLowerCase();
+
+        if (
+            primeiroNome.length >= 3 &&
+            senha.toLowerCase().includes(primeiroNome)
+        ) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "A senha não pode conter o nome do usuário.";
+
+            campoSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            COMPARAR AS SENHAS
+        =================================================*/
+
+        if (senha !== confirmarSenha) {
+
+            mensagem.style.color = "red";
+
+            mensagem.textContent =
+                "As senhas não conferem.";
+
+            campoConfirmarSenha.focus();
+
+            return;
+
+        }
+
+
+        /*=================================================
+            CRIAR OBJETO CLIENTE
+        =================================================*/
+
+        const cliente = {
+
+            nome: nome,
+
+            cpf: null,
+
+            telefone: null,
+
+            email: email,
+
+            senha: senha,
+
+            data_nascimento: null,
+
+            Loja_idLoja: 1
+
+        };
+
+
+        console.log(
+            "Cliente enviado:",
+            cliente
+        );
+
+
+        /*=================================================
+            DESABILITAR BOTÃO DURANTE O CADASTRO
+        =================================================*/
+
+        botaoCadastrar.disabled = true;
+
+        botaoCadastrar.textContent =
+            "Cadastrando...";
+
+
+        /*=================================================
+            ENVIAR PARA O BACKEND
+        =================================================*/
+
+        try {
+
+            const respostaHttp =
+                await fetch(
+                    "http://localhost:3000/clientes",
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify(cliente)
+
+                    }
+                );
+
+
+            /*=================================================
+                LER A RESPOSTA DO SERVIDOR
+            =================================================*/
+
+            let resposta;
+
+            try {
+
+                resposta =
+                    await respostaHttp.json();
+
+            } catch (erroJson) {
+
+                throw new Error(
+                    "O servidor retornou uma resposta inválida."
+                );
 
             }
 
-        })
 
-        .catch(() => {
-            alert("Erro ao conectar com o servidor.");
+            /*=================================================
+                TRATAR RESPOSTAS DE ERRO
+            =================================================*/
+
+            if (
+                !respostaHttp.ok ||
+                !resposta.sucesso
+            ) {
+
+                throw new Error(
+                    resposta.mensagem ||
+                    "Não foi possível realizar o cadastro."
+                );
+
+            }
+
+
+            /*=================================================
+                CADASTRO REALIZADO COM SUCESSO
+            =================================================*/
+
+            mensagem.style.color = "green";
+
+            mensagem.textContent =
+                resposta.mensagem ||
+                "Cliente cadastrado com sucesso!";
+
+            alert(
+                resposta.mensagem ||
+                "Cliente cadastrado com sucesso!"
+            );
+
+
+            /*=================================================
+                LIMPAR SOMENTE OS CAMPOS EXISTENTES
+            =================================================*/
+
+            campoNome.value = "";
+
+            campoEmail.value = "";
+
+            campoSenha.value = "";
+
+            campoConfirmarSenha.value = "";
+
+
+            /*=================================================
+                OCULTAR NOVAMENTE AS SENHAS
+            =================================================*/
+
+            campoSenha.type = "password";
+
+            campoConfirmarSenha.type = "password";
+
+            document
+                .getElementById("toggle-password")
+                .textContent = "👁";
+
+            document
+                .getElementById(
+                    "toggle-confirm-password"
+                )
+                .textContent = "👁";
+
+
+            /*=================================================
+                VOLTAR O FOCO PARA O NOME
+            =================================================*/
+
+            campoNome.focus();
+
+        } catch (erro) {
+
+            console.error(
+                "Erro durante o cadastro:",
+                erro
+            );
 
             mensagem.style.color = "red";
-            mensagem.innerHTML = "Erro ao conectar com o servidor.";
 
-        });
+            mensagem.textContent =
+                erro.message ||
+                "Erro ao conectar com o servidor.";
 
+        } finally {
+
+            botaoCadastrar.disabled = false;
+
+            botaoCadastrar.textContent =
+                "Cadastrar";
+
+        }
+
+    });
+
+/*=====================================================
+    MOSTRAR / OCULTAR SENHA
+=====================================================*/
+
+// Cadastro - Senha
+
+const togglePassword =
+    document.getElementById("toggle-password");
+
+const registerPassword =
+    document.getElementById("register-password");
+
+togglePassword.addEventListener("click", () => {
+
+    if (registerPassword.type === "password") {
+
+        registerPassword.type = "text";
+        togglePassword.textContent = "🙈";
+
+    } else {
+
+        registerPassword.type = "password";
+        togglePassword.textContent = "👁";
+
+    }
 
 });
 
 
+// Cadastro - Confirmar senha
+
+const toggleConfirmPassword =
+    document.getElementById("toggle-confirm-password");
+
+const confirmPassword =
+    document.getElementById("confirm-password");
+
+toggleConfirmPassword.addEventListener("click", () => {
+
+    if (confirmPassword.type === "password") {
+
+        confirmPassword.type = "text";
+        toggleConfirmPassword.textContent = "🙈";
+
+    } else {
+
+        confirmPassword.type = "password";
+        toggleConfirmPassword.textContent = "👁";
+
+    }
+
+});
 
 
+// Login
 
+const passwordLogin =
+    document.getElementById("password");
 
+if (passwordLogin) {
+
+    // Cria o botão apenas se ele ainda não existir
+
+    if (!document.getElementById("toggle-login-password")) {
+
+        const botao = document.createElement("button");
+
+        botao.type = "button";
+
+        botao.id = "toggle-login-password";
+
+        botao.className = "btn-password";
+
+        botao.textContent = "👁";
+
+        passwordLogin.parentNode.style.position = "relative";
+
+        botao.style.position = "absolute";
+        botao.style.right = "10px";
+        botao.style.top = "50%";
+        botao.style.transform = "translateY(-50%)";
+        botao.style.border = "none";
+        botao.style.background = "transparent";
+        botao.style.cursor = "pointer";
+
+        passwordLogin.parentNode.appendChild(botao);
+
+        botao.addEventListener("click", () => {
+
+            if (passwordLogin.type === "password") {
+
+                passwordLogin.type = "text";
+                botao.textContent = "🙈";
+
+            } else {
+
+                passwordLogin.type = "password";
+                botao.textContent = "👁";
+
+            }
+
+        });
+
+    }
+
+}
 /*=====================================================
 LOGIN DO CLIENTE
 =====================================================*/

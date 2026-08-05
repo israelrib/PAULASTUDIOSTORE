@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /*=====================================================
-        ELEMENTOS DA PÁGINA
+        ELEMENTOS DO PRODUTO
     =====================================================*/
 
     const nomeProduto =
         document.getElementById("nome-produto");
 
-    const descricaoProduto =
-        document.getElementById("descricao-produto");
-
     const codigoProduto =
         document.getElementById("codigo-produto");
+
+    const descricaoProduto =
+        document.getElementById("descricao-produto");
 
     const precoAntigo =
         document.getElementById("preco-antigo");
@@ -34,6 +34,67 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoriaId =
         document.getElementById("categoria-id");
 
+
+    /*=====================================================
+        ELEMENTOS DAS CORES
+    =====================================================*/
+
+    const camposCores =
+        document.querySelectorAll(
+            'input[name="cores-produto"]'
+        );
+
+    const mensagemCores =
+        document.getElementById("mensagem-cores");
+
+
+    /*=====================================================
+        ELEMENTOS DAS IMAGENS
+    =====================================================*/
+
+    const campoImagens =
+        document.getElementById("imagens-produto");
+
+    const contadorImagens =
+        document.getElementById("contador-imagens");
+
+    const mensagemImagens =
+        document.getElementById("mensagem-imagens");
+
+    const imagensPreview = [
+
+        document.getElementById("imagem-preview-1"),
+
+        document.getElementById("imagem-preview-2"),
+
+        document.getElementById("imagem-preview-3"),
+
+        document.getElementById("imagem-preview-4")
+
+    ];
+
+    const caixasPreview = [
+
+        document.getElementById("preview-imagem-1"),
+
+        document.getElementById("preview-imagem-2"),
+
+        document.getElementById("preview-imagem-3"),
+
+        document.getElementById("preview-imagem-4")
+
+    ];
+
+    const botoesRemoverImagem =
+        document.querySelectorAll(".remover-imagem");
+
+    let imagensSelecionadas = [];
+
+
+    /*=====================================================
+        OUTROS ELEMENTOS
+    =====================================================*/
+
     const contadorDescricao =
         document.getElementById("contador-descricao");
 
@@ -54,6 +115,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
+        ENDEREÇOS DO BACKEND
+    =====================================================*/
+
+    const URL_PRODUTOS =
+        "http://localhost:3000/produtos";
+
+    const URL_PRODUTO_CORES =
+        "http://localhost:3000/produto_has_cores";
+
+    const URL_IMAGENS =
+        "http://localhost:3000/imagens";
+
+
+    /*=====================================================
         CONTADOR DA DESCRIÇÃO
     =====================================================*/
 
@@ -69,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
-        FUNÇÃO PARA MOSTRAR MENSAGEM
+        MOSTRAR MENSAGEM GERAL
     =====================================================*/
 
     function mostrarMensagem(texto, tipo) {
@@ -87,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
-        FUNÇÃO PARA LIMPAR MENSAGEM
+        LIMPAR MENSAGEM GERAL
     =====================================================*/
 
     function limparMensagem() {
@@ -103,7 +178,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
-        REMOVER ERRO DOS CAMPOS
+        LIMPAR MENSAGENS DAS CORES E IMAGENS
+    =====================================================*/
+
+    function limparMensagensRelacionadas() {
+
+        mensagemCores.textContent = "";
+
+        mensagemImagens.textContent = "";
+
+    }
+
+
+    /*=====================================================
+        REMOVER ERROS DOS CAMPOS
     =====================================================*/
 
     function removerErrosDosCampos() {
@@ -135,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
-        VALIDAR VALORES NUMÉRICOS
+        VALIDAR NÚMERO
     =====================================================*/
 
     function numeroValido(valor) {
@@ -150,51 +238,241 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
-        CADASTRAR PRODUTO
+        OBTER CORES SELECIONADAS
     =====================================================*/
 
-    botaoCadastrar.addEventListener("click", () => {
+    function obterCoresSelecionadas() {
 
-        limparMensagem();
+        return Array
+            .from(camposCores)
 
-        removerErrosDosCampos();
+            .filter((campo) => {
+
+                return campo.checked;
+
+            })
+
+            .map((campo) => {
+
+                return Number(campo.value);
+
+            });
+
+    }
+
+
+    /*=====================================================
+        ATUALIZAR PRÉ-VISUALIZAÇÃO DAS IMAGENS
+    =====================================================*/
+
+    function atualizarPreviewImagens() {
+
+        imagensPreview.forEach((imagem, indice) => {
+
+            const arquivo =
+                imagensSelecionadas[indice];
+
+            if (arquivo) {
+
+                const enderecoTemporario =
+                    URL.createObjectURL(arquivo);
+
+                imagem.src =
+                    enderecoTemporario;
+
+                caixasPreview[indice]
+                    .classList
+                    .remove("oculta");
+
+                imagem.onload = () => {
+
+                    URL.revokeObjectURL(
+                        enderecoTemporario
+                    );
+
+                };
+
+            } else {
+
+                imagem.src = "";
+
+                caixasPreview[indice]
+                    .classList
+                    .add("oculta");
+
+            }
+
+        });
+
+        contadorImagens.textContent =
+            `${imagensSelecionadas.length}/4 imagens`;
+
+    }
+
+
+    /*=====================================================
+        SELECIONAR IMAGENS
+    =====================================================*/
+
+    campoImagens.addEventListener("change", () => {
+
+        mensagemImagens.textContent = "";
+
+        const arquivos =
+            Array.from(campoImagens.files);
+
+        if (arquivos.length === 0) {
+
+            return;
+
+        }
 
 
         /*=================================================
-            CAPTURAR OS VALORES
+            SOMAR AS NOVAS IMAGENS ÀS JÁ SELECIONADAS
+        =================================================*/
+
+        const novasImagens = [
+            ...imagensSelecionadas,
+            ...arquivos
+        ];
+
+
+        /*=================================================
+            VALIDAR QUANTIDADE
+        =================================================*/
+
+        if (novasImagens.length > 4) {
+
+            mensagemImagens.textContent =
+                "Você pode selecionar no máximo 4 imagens.";
+
+            campoImagens.value = "";
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR TIPO DAS IMAGENS
+        =================================================*/
+
+        const tiposPermitidos = [
+
+            "image/png",
+
+            "image/jpeg",
+
+            "image/webp"
+
+        ];
+
+        const arquivoInvalido =
+            arquivos.find((arquivo) => {
+
+                return !tiposPermitidos.includes(
+                    arquivo.type
+                );
+
+            });
+
+        if (arquivoInvalido) {
+
+            mensagemImagens.textContent =
+                "Utilize apenas imagens PNG, JPG, JPEG ou WEBP.";
+
+            campoImagens.value = "";
+
+            return;
+
+        }
+
+
+        /*=================================================
+            VALIDAR TAMANHO DAS IMAGENS
+        =================================================*/
+
+        const tamanhoMaximo =
+            5 * 1024 * 1024;
+
+        const arquivoMuitoGrande =
+            arquivos.find((arquivo) => {
+
+                return arquivo.size > tamanhoMaximo;
+
+            });
+
+        if (arquivoMuitoGrande) {
+
+            mensagemImagens.textContent =
+                "Cada imagem deve possuir no máximo 5 MB.";
+
+            campoImagens.value = "";
+
+            return;
+
+        }
+
+
+        /*=================================================
+            SALVAR AS IMAGENS
+        =================================================*/
+
+        imagensSelecionadas =
+            novasImagens;
+
+        campoImagens.value = "";
+
+        atualizarPreviewImagens();
+
+    });
+
+
+    /*=====================================================
+        REMOVER IMAGEM
+    =====================================================*/
+
+    botoesRemoverImagem.forEach((botao) => {
+
+        botao.addEventListener("click", () => {
+
+            const indice =
+                Number(botao.dataset.indice);
+
+            imagensSelecionadas.splice(
+                indice,
+                1
+            );
+
+            atualizarPreviewImagens();
+
+            mensagemImagens.textContent = "";
+
+        });
+
+    });
+
+
+    /*=====================================================
+        VALIDAR CAMPOS DO PRODUTO
+    =====================================================*/
+
+    function validarProduto() {
+
+        removerErrosDosCampos();
+
+        limparMensagem();
+
+        limparMensagensRelacionadas();
+
+
+        /*=================================================
+            NOME
         =================================================*/
 
         const nome =
             nomeProduto.value.trim();
-
-        const descricao =
-            descricaoProduto.value.trim();
-
-        const codigo =
-            codigoProduto.value.trim();
-
-        const valorPrecoAntigo =
-            precoAntigo.value.trim();
-
-        const valorPrecoPromocional =
-            precoPromocional.value.trim();
-
-        const valorQuantidadeEstoque =
-            quantidadeEstoque.value.trim();
-
-        const valorLojaId =
-            lojaId.value.trim();
-
-        const valorMarcaId =
-            marcaId.value;
-
-        const valorCategoriaId =
-            categoriaId.value;
-
-
-        /*=================================================
-            VALIDAR NOME
-        =================================================*/
 
         if (nome === "") {
 
@@ -205,27 +483,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(nomeProduto);
 
-            return;
+            return false;
 
         }
 
         if (nome.length > 100) {
 
             mostrarMensagem(
-                "O nome do produto deve possuir no máximo 100 caracteres.",
+                "O nome deve possuir no máximo 100 caracteres.",
                 "erro"
             );
 
             marcarCampoComErro(nomeProduto);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR CÓDIGO
+            CÓDIGO
         =================================================*/
+
+        const codigo =
+            codigoProduto.value.trim();
 
         if (codigo === "") {
 
@@ -236,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(codigoProduto);
 
-            return;
+            return false;
 
         }
 
@@ -249,16 +530,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(codigoProduto);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR DESCRIÇÃO
+            DESCRIÇÃO
         =================================================*/
 
-        if (descricao.length > 1000) {
+        if (
+            descricaoProduto.value.trim().length > 1000
+        ) {
 
             mostrarMensagem(
                 "A descrição deve possuir no máximo 1000 caracteres.",
@@ -267,16 +550,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(descricaoProduto);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR PREÇO ANTIGO
+            PREÇO ANTIGO
         =================================================*/
 
-        if (!numeroValido(valorPrecoAntigo)) {
+        if (!numeroValido(precoAntigo.value)) {
 
             mostrarMensagem(
                 "Digite um preço antigo válido.",
@@ -285,16 +568,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(precoAntigo);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR PREÇO PROMOCIONAL
+            PREÇO PROMOCIONAL
         =================================================*/
 
-        if (!numeroValido(valorPrecoPromocional)) {
+        if (!numeroValido(precoPromocional.value)) {
 
             mostrarMensagem(
                 "Digite um preço promocional válido.",
@@ -303,18 +586,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(precoPromocional);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR RELAÇÃO ENTRE OS PREÇOS
+            COMPARAR OS PREÇOS
         =================================================*/
 
         if (
-            Number(valorPrecoPromocional) >
-            Number(valorPrecoAntigo)
+            Number(precoPromocional.value) >
+            Number(precoAntigo.value)
         ) {
 
             mostrarMensagem(
@@ -324,16 +607,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(precoPromocional);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR QUANTIDADE
+            QUANTIDADE
         =================================================*/
 
-        if (!numeroValido(valorQuantidadeEstoque)) {
+        if (!numeroValido(quantidadeEstoque.value)) {
 
             mostrarMensagem(
                 "Digite uma quantidade válida para o estoque.",
@@ -342,13 +625,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(quantidadeEstoque);
 
-            return;
+            return false;
 
         }
 
         if (
             !Number.isInteger(
-                Number(valorQuantidadeEstoque)
+                Number(quantidadeEstoque.value)
             )
         ) {
 
@@ -359,18 +642,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(quantidadeEstoque);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            VALIDAR LOJA
+            LOJA
         =================================================*/
 
         if (
-            valorLojaId === "" ||
-            Number(valorLojaId) <= 0
+            lojaId.value === "" ||
+            Number(lojaId.value) <= 0
         ) {
 
             mostrarMensagem(
@@ -380,34 +663,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
             marcarCampoComErro(lojaId);
 
-            return;
+            return false;
 
         }
 
 
         /*=================================================
-            CRIAR OBJETO DO PRODUTO
+            CORES
         =================================================*/
 
-        const produto = {
+        const coresSelecionadas =
+            obterCoresSelecionadas();
 
-            nome: nome,
+        if (coresSelecionadas.length === 0) {
+
+            mensagemCores.textContent =
+                "Selecione pelo menos uma cor.";
+
+            return false;
+
+        }
+
+
+        /*=================================================
+            IMAGENS
+        =================================================*/
+
+        if (imagensSelecionadas.length === 0) {
+
+            mensagemImagens.textContent =
+                "Selecione pelo menos uma imagem do produto.";
+
+            return false;
+
+        }
+
+        return true;
+
+    }
+
+
+    /*=====================================================
+        CRIAR OBJETO DO PRODUTO
+    =====================================================*/
+
+    function criarObjetoProduto() {
+
+        const descricao =
+            descricaoProduto.value.trim();
+
+        const valorMarcaId =
+            marcaId.value;
+
+        const valorCategoriaId =
+            categoriaId.value;
+
+        return {
+
+            nome:
+                nomeProduto.value.trim(),
 
             descricao:
                 descricao === ""
                     ? null
                     : descricao,
 
-            codigo: codigo,
+            codigo:
+                codigoProduto.value.trim(),
 
             preco_antigo:
-                Number(valorPrecoAntigo),
+                Number(precoAntigo.value),
 
             preco_promocional:
-                Number(valorPrecoPromocional),
+                Number(precoPromocional.value),
 
             quantidade_estoque:
-                Number(valorQuantidadeEstoque),
+                Number(quantidadeEstoque.value),
 
             ativo:
                 produtoAtivo.checked
@@ -415,7 +746,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     : 0,
 
             Loja_idLoja:
-                Number(valorLojaId),
+                Number(lojaId.value),
 
             Marca_idMarca:
                 valorMarcaId === ""
@@ -429,121 +760,361 @@ document.addEventListener("DOMContentLoaded", () => {
 
         };
 
+    }
 
-        console.log(
-            "Produto enviado:",
-            produto
+
+    /*=====================================================
+        CONVERTER RESPOSTA PARA JSON
+    =====================================================*/
+
+    async function converterResposta(resposta) {
+
+        let dados;
+
+        try {
+
+            dados = await resposta.json();
+
+        } catch (erro) {
+
+            dados = {
+                sucesso: false,
+                mensagem:
+                    "O servidor retornou uma resposta inválida."
+            };
+
+        }
+
+        return dados;
+
+    }
+
+
+    /*=====================================================
+        CADASTRAR PRODUTO
+    =====================================================*/
+
+    async function cadastrarProduto(produto) {
+
+        const resposta = await fetch(
+            URL_PRODUTOS,
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body:
+                    JSON.stringify(produto)
+
+            }
         );
 
+        const dados =
+            await converterResposta(resposta);
 
-        /*=================================================
-            DESABILITAR BOTÃO
-        =================================================*/
+        if (!resposta.ok || !dados.sucesso) {
 
-        botaoCadastrar.disabled = true;
+            throw new Error(
+                dados.mensagem ||
+                "Erro ao cadastrar produto."
+            );
 
-        botaoCadastrar.innerHTML = `
-            <i class="fa-solid fa-spinner fa-spin"></i>
-            Cadastrando...
-        `;
+        }
+
+        if (!dados.idProduto) {
+
+            throw new Error(
+                "O servidor não retornou o ID do produto."
+            );
+
+        }
+
+        return dados;
+
+    }
 
 
-        /*=================================================
-            ENVIAR PARA O BACKEND
-        =================================================*/
+    /*=====================================================
+        CADASTRAR UMA COR DO PRODUTO
+    =====================================================*/
 
-        fetch("http://localhost:3000/produtos", {
+    async function cadastrarCorDoProduto(
+        idProduto,
+        idCor
+    ) {
 
-            method: "POST",
+        const resposta = await fetch(
+            URL_PRODUTO_CORES,
+            {
 
-            headers: {
+                method: "POST",
 
-                "Content-Type": "application/json"
+                headers: {
 
-            },
+                    "Content-Type":
+                        "application/json"
 
-            body: JSON.stringify(produto)
+                },
 
-        })
+                body: JSON.stringify({
 
-            .then((resposta) => {
+                    Produto_idProduto:
+                        idProduto,
 
-                return resposta.json()
-                    .then((dados) => {
+                    Cores_idCores:
+                        idCor
 
-                        return {
+                })
 
-                            status: resposta.status,
+            }
+        );
 
-                            dados: dados
+        const dados =
+            await converterResposta(resposta);
 
-                        };
+        if (!resposta.ok) {
 
-                    });
+            throw new Error(
+                dados.mensagem ||
+                "Erro ao cadastrar uma cor do produto."
+            );
 
-            })
+        }
 
-            .then((resultado) => {
+        return dados;
 
-                const resposta =
-                    resultado.dados;
+    }
 
-                if (
-                    resultado.status === 201 &&
-                    resposta.sucesso
-                ) {
 
-                    mostrarMensagem(
-                        resposta.mensagem ||
-                        "Produto cadastrado com sucesso!",
-                        "sucesso"
-                    );
+    /*=====================================================
+        CADASTRAR TODAS AS CORES
+    =====================================================*/
 
-                    console.log(
-                        "ID do produto cadastrado:",
-                        resposta.idProduto
-                    );
+    async function cadastrarCoresDoProduto(
+        idProduto,
+        cores
+    ) {
 
-                    limparCampos();
+        const requisicoes =
+            cores.map((idCor) => {
 
-                } else {
+                return cadastrarCorDoProduto(
+                    idProduto,
+                    idCor
+                );
 
-                    mostrarMensagem(
-                        resposta.mensagem ||
-                        "Não foi possível cadastrar o produto.",
-                        "erro"
-                    );
+            });
 
-                }
+        await Promise.all(requisicoes);
 
-            })
+    }
 
-            .catch((erro) => {
+
+    /*=====================================================
+        CADASTRAR UMA IMAGEM
+    =====================================================*/
+
+    async function cadastrarImagemDoProduto(
+        idProduto,
+        arquivo
+    ) {
+
+        const formulario =
+            new FormData();
+
+        formulario.append(
+            "arquivo",
+            arquivo
+        );
+
+        formulario.append(
+            "Produto_idProduto",
+            idProduto
+        );
+
+        const resposta = await fetch(
+            URL_IMAGENS,
+            {
+
+                method: "POST",
+
+                body:
+                    formulario
+
+            }
+        );
+
+        const dados =
+            await converterResposta(resposta);
+
+        if (!resposta.ok) {
+
+            throw new Error(
+                dados.mensagem ||
+                "Erro ao cadastrar uma imagem."
+            );
+
+        }
+
+        return dados;
+
+    }
+
+
+    /*=====================================================
+        CADASTRAR TODAS AS IMAGENS
+    =====================================================*/
+
+    async function cadastrarImagensDoProduto(
+        idProduto,
+        imagens
+    ) {
+
+        const requisicoes =
+            imagens.map((arquivo) => {
+
+                return cadastrarImagemDoProduto(
+                    idProduto,
+                    arquivo
+                );
+
+            });
+
+        await Promise.all(requisicoes);
+
+    }
+
+
+    /*=====================================================
+        ALTERAR ESTADO DO BOTÃO
+    =====================================================*/
+
+    function alterarBotaoCadastrar(carregando) {
+
+        botaoCadastrar.disabled =
+            carregando;
+
+        if (carregando) {
+
+            botaoCadastrar.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Cadastrando...
+            `;
+
+        } else {
+
+            botaoCadastrar.innerHTML = `
+                <i class="fa-solid fa-floppy-disk"></i>
+                Cadastrar Produto
+            `;
+
+        }
+
+    }
+
+
+    /*=====================================================
+        EVENTO DE CADASTRO
+    =====================================================*/
+
+    botaoCadastrar.addEventListener(
+        "click",
+        async () => {
+
+            if (!validarProduto()) {
+
+                return;
+
+            }
+
+            const produto =
+                criarObjetoProduto();
+
+            const coresSelecionadas =
+                obterCoresSelecionadas();
+
+            /*
+                Criamos uma cópia para evitar que as imagens
+                sejam apagadas antes do envio terminar.
+            */
+
+            const imagensParaEnviar = [
+                ...imagensSelecionadas
+            ];
+
+            alterarBotaoCadastrar(true);
+
+            try {
+
+                /*=========================================
+                    1. CADASTRAR PRODUTO
+                =========================================*/
+
+                const respostaProduto =
+                    await cadastrarProduto(produto);
+
+                const idProduto =
+                    respostaProduto.idProduto;
+
+
+                /*=========================================
+                    2. CADASTRAR CORES
+                =========================================*/
+
+                await cadastrarCoresDoProduto(
+                    idProduto,
+                    coresSelecionadas
+                );
+
+
+                /*=========================================
+                    3. CADASTRAR IMAGENS
+                =========================================*/
+
+                await cadastrarImagensDoProduto(
+                    idProduto,
+                    imagensParaEnviar
+                );
+
+
+                /*=========================================
+                    SUCESSO
+                =========================================*/
+
+                mostrarMensagem(
+                    "Produto, cores e imagens cadastrados com sucesso!",
+                    "sucesso"
+                );
+
+                limparCampos();
+
+            } catch (erro) {
 
                 console.error(
-                    "Erro ao cadastrar produto:",
+                    "Erro no cadastro:",
                     erro
                 );
 
                 mostrarMensagem(
-                    "Erro ao conectar com o servidor.",
+                    erro.message ||
+                    "Ocorreu um erro durante o cadastro.",
                     "erro"
                 );
 
-            })
+            } finally {
 
-            .finally(() => {
+                alterarBotaoCadastrar(false);
 
-                botaoCadastrar.disabled = false;
+            }
 
-                botaoCadastrar.innerHTML = `
-                    <i class="fa-solid fa-floppy-disk"></i>
-                    Cadastrar Produto
-                `;
-
-            });
-
-    });
+        }
+    );
 
 
     /*=====================================================
@@ -554,9 +1125,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         nomeProduto.value = "";
 
-        descricaoProduto.value = "";
-
         codigoProduto.value = "";
+
+        descricaoProduto.value = "";
 
         precoAntigo.value = "";
 
@@ -575,7 +1146,36 @@ document.addEventListener("DOMContentLoaded", () => {
         contadorDescricao.textContent =
             "0/1000 caracteres";
 
+
+        /*=================================================
+            LIMPAR CORES
+        =================================================*/
+
+        camposCores.forEach((campo) => {
+
+            campo.checked = false;
+
+        });
+
+
+        /*=================================================
+            LIMPAR IMAGENS
+        =================================================*/
+
+        imagensSelecionadas = [];
+
+        campoImagens.value = "";
+
+        atualizarPreviewImagens();
+
+
+        /*=================================================
+            LIMPAR ERROS
+        =================================================*/
+
         removerErrosDosCampos();
+
+        limparMensagensRelacionadas();
 
         nomeProduto.focus();
 
@@ -588,9 +1188,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     botaoCancelar.addEventListener("click", () => {
 
-        const confirmarCancelamento = confirm(
-            "Deseja cancelar o cadastro do produto?"
-        );
+        const confirmarCancelamento =
+            confirm(
+                "Deseja cancelar o cadastro do produto?"
+            );
 
         if (confirmarCancelamento) {
 
@@ -603,7 +1204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*=====================================================
-        BOTÃO VOLTAR
+        VOLTAR
     =====================================================*/
 
     botaoVoltar.addEventListener("click", () => {
@@ -624,5 +1225,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "../index.html";
 
     });
+
+
+    /*=====================================================
+        INICIALIZAÇÃO DA PÁGINA
+    =====================================================*/
+
+    atualizarPreviewImagens();
 
 });

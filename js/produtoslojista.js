@@ -303,4 +303,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+}
+})
+
+doument.addEventListener.getElementById("novoproduto").addEventListener("click", () => {
+
+    window.location.href = "cadastroproduto.html";
+
 });
