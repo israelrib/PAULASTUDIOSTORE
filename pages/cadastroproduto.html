@@ -19,812 +19,1206 @@
 
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     >
 
 </head>
 
 <body>
 
-    <div class="dashboard">
+    <!--=====================================-->
+    <!-- SIDEBAR -->
+    <!--=====================================-->
 
-        <!-- =========================================
-            SIDEBAR
-        ========================================== -->
+    <aside class="sidebar">
 
-        <aside class="sidebar">
+        <div class="logo">
 
-            <div class="logo">
+            <img
+                src="../assets/logo.png"
+                alt="Logo"
+            >
 
-                <img
-                    src="../assets/logo.png"
-                    alt="Logo Paula Studio"
-                >
+            <h2>Paula Studio</h2>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a href="./home_lojista.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Home</span>
+
+                    </a>
+
+                </li>
+
+                <li class="active">
+
+                    <a href="./cadastroproduto.html">
+
+                        <i class="fa-solid fa-box"></i>
+
+                        <span>Produtos</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="./cadastropromocao.html">
+
+                        <i class="fa-solid fa-tags"></i>
+
+                        <span>Promoções</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="./cadastrobanner.html">
+
+                        <i class="fa-solid fa-image"></i>
+
+                        <span>Banners</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="./pedidoslojista.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span>Pedidos</span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+
+    <!--=====================================-->
+    <!-- CONTEÚDO -->
+    <!--=====================================-->
+
+    <main class="content">
+
+        <!-- Topo -->
+
+        <header class="topbar">
+
+            <div>
+
+                <small>
+
+                    Produtos /
+                    Cadastro de Produto
+
+                </small>
+
+                <h1>
+
+                    Cadastro de Produto
+
+                </h1>
 
             </div>
 
-            <nav class="menu-lateral">
+            <div class="topbar-buttons">
 
-                <a href="dashboard.html">
-
-                    <i class="fa-solid fa-chart-line"></i>
-
-                    <span>Dashboard</span>
-
-                </a>
-
-                <a
-                    href="produtoslojista.html"
-                    class="ativo"
+                <button
+                    id="btn-voltar"
+                    class="btn-secondary"
                 >
 
-                    <i class="fa-solid fa-box"></i>
+                    <i class="fa-solid fa-arrow-left"></i>
 
-                    <span>Produtos</span>
+                    Voltar
 
-                </a>
+                </button>
 
-                <a href="#">
-
-                    <i class="fa-solid fa-cart-shopping"></i>
-
-                    <span>Pedidos</span>
-
-                </a>
-
-                <a href="#">
-
-                    <i class="fa-solid fa-users"></i>
-
-                    <span>Clientes</span>
-
-                </a>
-
-                <a href="#">
-
-                    <i class="fa-solid fa-chart-column"></i>
-
-                    <span>Relatórios</span>
-
-                </a>
-
-                <a href="#">
-
-                    <i class="fa-solid fa-gear"></i>
-
-                    <span>Configurações</span>
-
-                </a>
-
-            </nav>
-
-            <div class="perfil-sidebar">
-
-                <img
-                    src="../assets/perfil.jpg"
-                    alt="Perfil do lojista"
+                <button
+                    id="btn-salvar-produto"
+                    class="btn-primary"
                 >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Salvar Produto
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!--=====================================-->
+        <!-- DADOS DO PRODUTO -->
+        <!--=====================================-->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-box-open"></i>
+
+                    Dados do Produto
+
+                </h2>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Nome do Produto *
+
+                        </label>
+
+                        <input
+                            id="produto-nome"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Código *
+
+                        </label>
+
+                        <input
+                            id="produto-codigo"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Categoria *
+
+                        </label>
+
+                        <div class="input-button">
+
+                            <select id="produto-categoria">
+
+                            </select>
+
+                            <button
+                                class="btn-add"
+                                id="abrir-categoria"
+                            >
+
+                                +
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Marca *
+
+                        </label>
+
+                        <div class="input-button">
+
+                            <select id="produto-marca">
+
+                            </select>
+
+                            <button
+                                class="btn-add"
+                                id="abrir-marca"
+                            >
+
+                                +
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Preço Antigo
+
+                        </label>
+
+                        <input
+                            id="produto-preco-antigo"
+                            type="number"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Preço Promocional
+
+                        </label>
+
+                        <input
+                            id="produto-preco-promocional"
+                            type="number"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Estoque
+
+                        </label>
+
+                        <input
+                            id="produto-estoque"
+                            type="number"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Status
+
+                        </label>
+
+                        <select id="produto-status">
+
+                            <option value="1">
+
+                                Ativo
+
+                            </option>
+
+                            <option value="0">
+
+                                Inativo
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Descrição
+
+                    </label>
+
+                    <textarea
+                        id="produto-descricao"
+                        rows="5"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--=====================================-->
+        <!-- CATEGORIAS -->
+        <!--=====================================-->
+
+        <section
+            class="accordion"
+            id="accordion-categoria"
+        >
+
+            <div
+                class="accordion-header"
+                id="abrir-categoria-card"
+            >
 
                 <div>
 
-                    <strong>Paula Soares</strong>
+                    <h2>
 
-                    <span>Admin</span>
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        Categorias
+
+                    </h2>
+
+                    <small>
+                        Cadastre e gerencie as categorias dos produtos.
+                    </small>
 
                 </div>
 
-                <i class="fa-solid fa-circle-user"></i>
+                <button
+                    class="accordion-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
 
             </div>
 
-        </aside>
+            <div class="accordion-body">
 
-        <!-- =========================================
-            CONTEÚDO PRINCIPAL
-        ========================================== -->
+                <div class="grid-2">
 
-        <main class="conteudo">
+                    <div class="form-group">
 
-            <!-- =====================================
-                TOPO
-            ====================================== -->
+                        <label>
 
-            <header class="topo">
-
-                <div class="titulo-topo">
-
-                    <button
-                        type="button"
-                        id="btn-voltar"
-                        class="btn-voltar"
-                        aria-label="Voltar para a lista de produtos"
-                    >
-
-                        <i class="fa-solid fa-arrow-left"></i>
-
-                    </button>
-
-                    <div>
-
-                        <h1>Cadastrar Produto</h1>
-
-                        <p>
-                            Adicione um novo produto ao catálogo da sua loja.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="acoes-topo">
-
-                    <button
-                        type="button"
-                        class="notificacao"
-                        aria-label="Visualizar notificações"
-                    >
-
-                        <i class="fa-regular fa-bell"></i>
-
-                        <span></span>
-
-                    </button>
-
-                    <button
-                        type="button"
-                        id="btn-ver-loja"
-                        class="btn-ver-loja"
-                    >
-
-                        <i class="fa-regular fa-eye"></i>
-
-                        Ver Loja
-
-                    </button>
-
-                </div>
-
-            </header>
-
-            <!-- =====================================
-                FORMULÁRIO DE CADASTRO
-            ====================================== -->
-
-            <section class="area-formulario">
-
-                <!-- =================================
-                    CABEÇALHO DO FORMULÁRIO
-                ================================== -->
-
-                <div class="cabecalho-formulario">
-
-                    <div>
-
-                        <h2>Informações do produto</h2>
-
-                        <p>
-                            Preencha os campos abaixo para cadastrar o produto.
-                        </p>
-
-                    </div>
-
-                    <div class="status-produto">
-
-                        <label for="produto-ativo">
-                            Produto ativo
-                        </label>
-
-                        <input
-                            type="checkbox"
-                            id="produto-ativo"
-                            checked
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- =================================
-                    CAMPOS DO PRODUTO
-                ================================== -->
-
-                <div class="formulario-produto">
-
-                    <!-- NOME -->
-
-                    <div class="campo campo-grande">
-
-                        <label for="nome-produto">
-
-                            Nome do produto
-                            <span>*</span>
+                            Nome da Categoria *
 
                         </label>
 
                         <input
+                            id="categoria-nome"
                             type="text"
-                            id="nome-produto"
-                            maxlength="100"
-                            placeholder="Digite o nome do produto"
+                            placeholder="Digite o nome da categoria"
                         >
 
                     </div>
 
-                    <!-- CÓDIGO -->
-
-                    <div class="campo">
-
-                        <label for="codigo-produto">
-
-                            Código do produto
-                            <span>*</span>
-
-                        </label>
-
-                        <input
-                            type="text"
-                            id="codigo-produto"
-                            maxlength="45"
-                            placeholder="Ex.: PROD-001"
-                        >
-
-                    </div>
-
-                    <!-- DESCRIÇÃO -->
-
-                    <div class="campo campo-completo">
-
-                        <label for="descricao-produto">
-                            Descrição
-                        </label>
-
-                        <textarea
-                            id="descricao-produto"
-                            maxlength="1000"
-                            rows="6"
-                            placeholder="Digite a descrição do produto"
-                        ></textarea>
-
-                        <small id="contador-descricao">
-                            0/1000 caracteres
-                        </small>
-
-                    </div>
-
-                    <!-- PREÇO ANTIGO -->
-
-                    <div class="campo">
-
-                        <label for="preco-antigo">
-
-                            Preço antigo
-                            <span>*</span>
-
-                        </label>
-
-                        <div class="campo-preco">
-
-                            <span>R$</span>
-
-                            <input
-                                type="number"
-                                id="preco-antigo"
-                                min="0"
-                                step="0.01"
-                                placeholder="0,00"
-                            >
-
-                        </div>
-
-                    </div>
-
-                    <!-- PREÇO PROMOCIONAL -->
-
-                    <div class="campo">
-
-                        <label for="preco-promocional">
-
-                            Preço promocional
-                            <span>*</span>
-
-                        </label>
-
-                        <div class="campo-preco">
-
-                            <span>R$</span>
-
-                            <input
-                                type="number"
-                                id="preco-promocional"
-                                min="0"
-                                step="0.01"
-                                placeholder="0,00"
-                            >
-
-                        </div>
-
-                    </div>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="campo">
-
-                        <label for="quantidade-estoque">
-
-                            Quantidade em estoque
-                            <span>*</span>
-
-                        </label>
-
-                        <input
-                            type="number"
-                            id="quantidade-estoque"
-                            min="0"
-                            step="1"
-                            placeholder="0"
-                        >
-
-                    </div>
-
-                    <!-- LOJA -->
-
-                    <div class="campo">
-
-                        <label for="loja-id">
-                            Loja
-                        </label>
-
-                        <input
-                            type="number"
-                            id="loja-id"
-                            value="1"
-                            min="1"
-                            readonly
-                        >
-
-                    </div>
-
-                    <!-- MARCA -->
-
-                    <div class="campo">
-
-                        <label for="marca-id">
-                            Marca
-                        </label>
-
-                        <select id="marca-id">
-
-                            <option value="">
-                                Selecione uma marca
-                            </option>
-
-                            <option value="1">
-                                Marca 1
-                            </option>
-
-                            <option value="2">
-                                Marca 2
-                            </option>
-
-                            <option value="3">
-                                Marca 3
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                    <!-- CATEGORIA -->
-
-                    <div class="campo">
-
-                        <label for="categoria-id">
-                            Categoria
-                        </label>
-
-                        <select id="categoria-id">
-
-                            <option value="">
-                                Selecione uma categoria
-                            </option>
-
-                            <option value="1">
-                                Estética
-                            </option>
-
-                            <option value="2">
-                                Skincare
-                            </option>
-
-                            <option value="3">
-                                Maquiagem
-                            </option>
-
-                            <option value="4">
-                                Acessórios
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                    <!-- =================================
-                        CORES DO PRODUTO
-                    ================================== -->
-
-                    <div class="campo campo-completo">
-
-                        <div class="titulo-secao-campo">
-
-                            <div>
-
-                                <label>
-                                    Cores disponíveis
-                                </label>
-
-                                <p>
-                                    Selecione uma ou mais cores para o produto.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div
-                            class="lista-cores-cadastro"
-                            id="lista-cores"
-                        >
-
-                            <label class="item-cor">
-
-                                <input
-                                    type="checkbox"
-                                    name="cores-produto"
-                                    value="1"
-                                >
-
-                                <span
-                                    class="cor-visual cor-rosa"
-                                ></span>
-
-                                <span>Rosa</span>
-
-                            </label>
-
-                            <label class="item-cor">
-
-                                <input
-                                    type="checkbox"
-                                    name="cores-produto"
-                                    value="2"
-                                >
-
-                                <span
-                                    class="cor-visual cor-verde"
-                                ></span>
-
-                                <span>Verde</span>
-
-                            </label>
-
-                            <label class="item-cor">
-
-                                <input
-                                    type="checkbox"
-                                    name="cores-produto"
-                                    value="3"
-                                >
-
-                                <span
-                                    class="cor-visual cor-preta"
-                                ></span>
-
-                                <span>Preto</span>
-
-                            </label>
-
-                            <label class="item-cor">
-
-                                <input
-                                    type="checkbox"
-                                    name="cores-produto"
-                                    value="4"
-                                >
-
-                                <span
-                                    class="cor-visual cor-branca"
-                                ></span>
-
-                                <span>Branco</span>
-
-                            </label>
-
-                            <label class="item-cor">
-
-                                <input
-                                    type="checkbox"
-                                    name="cores-produto"
-                                    value="5"
-                                >
-
-                                <span
-                                    class="cor-visual cor-azul"
-                                ></span>
-
-                                <span>Azul</span>
-
-                            </label>
-
-                            <label class="item-cor">
-
-                                <input
-                                    type="checkbox"
-                                    name="cores-produto"
-                                    value="6"
-                                >
-
-                                <span
-                                    class="cor-visual cor-vermelha"
-                                ></span>
-
-                                <span>Vermelho</span>
-
-                            </label>
-
-                        </div>
-
-                        <small
-                            id="mensagem-cores"
-                            class="mensagem-campo"
-                        ></small>
-
-                    </div>
-
-                    <!-- =================================
-                        IMAGENS DO PRODUTO
-                    ================================== -->
-
-                    <div class="campo campo-completo">
-
-                        <div class="titulo-secao-campo">
-
-                            <div>
-
-                                <label for="imagens-produto">
-                                    Imagens do produto
-                                </label>
-
-                                <p>
-                                    Selecione até quatro imagens do produto.
-                                </p>
-
-                            </div>
-
-                            <span
-                                id="contador-imagens"
-                                class="contador-imagens"
-                            >
-                                0/4 imagens
-                            </span>
-
-                        </div>
-
-                        <div class="area-upload-imagens">
-
-                            <input
-                                type="file"
-                                id="imagens-produto"
-                                accept="image/png, image/jpeg, image/webp"
-                                multiple
-                            >
-
-                            <label
-                                for="imagens-produto"
-                                class="label-upload"
-                            >
-
-                                <i class="fa-solid fa-cloud-arrow-up"></i>
-
-                                <strong>
-                                    Clique para selecionar as imagens
-                                </strong>
-
-                                <span>
-                                    Arquivos PNG, JPG, JPEG ou WEBP
-                                </span>
-
-                                <span>
-                                    Máximo de 4 imagens
-                                </span>
-
-                            </label>
-
-                        </div>
-
-                        <!-- PRÉ-VISUALIZAÇÃO DAS IMAGENS -->
-
-                        <div
-                            class="preview-imagens"
-                            id="preview-imagens"
-                        >
-
-                            <!-- IMAGEM 1 -->
-
-                            <div
-                                class="preview-imagem oculta"
-                                id="preview-imagem-1"
-                            >
-
-                                <img
-                                    id="imagem-preview-1"
-                                    src=""
-                                    alt="Pré-visualização da imagem 1"
-                                >
-
-                                <button
-                                    type="button"
-                                    class="remover-imagem"
-                                    id="remover-imagem-1"
-                                    data-indice="0"
-                                    aria-label="Remover imagem 1"
-                                >
-
-                                    <i class="fa-solid fa-xmark"></i>
-
-                                </button>
-
-                                <span class="numero-imagem">
-                                    Imagem 1
-                                </span>
-
-                            </div>
-
-                            <!-- IMAGEM 2 -->
-
-                            <div
-                                class="preview-imagem oculta"
-                                id="preview-imagem-2"
-                            >
-
-                                <img
-                                    id="imagem-preview-2"
-                                    src=""
-                                    alt="Pré-visualização da imagem 2"
-                                >
-
-                                <button
-                                    type="button"
-                                    class="remover-imagem"
-                                    id="remover-imagem-2"
-                                    data-indice="1"
-                                    aria-label="Remover imagem 2"
-                                >
-
-                                    <i class="fa-solid fa-xmark"></i>
-
-                                </button>
-
-                                <span class="numero-imagem">
-                                    Imagem 2
-                                </span>
-
-                            </div>
-
-                            <!-- IMAGEM 3 -->
-
-                            <div
-                                class="preview-imagem oculta"
-                                id="preview-imagem-3"
-                            >
-
-                                <img
-                                    id="imagem-preview-3"
-                                    src=""
-                                    alt="Pré-visualização da imagem 3"
-                                >
-
-                                <button
-                                    type="button"
-                                    class="remover-imagem"
-                                    id="remover-imagem-3"
-                                    data-indice="2"
-                                    aria-label="Remover imagem 3"
-                                >
-
-                                    <i class="fa-solid fa-xmark"></i>
-
-                                </button>
-
-                                <span class="numero-imagem">
-                                    Imagem 3
-                                </span>
-
-                            </div>
-
-                            <!-- IMAGEM 4 -->
-
-                            <div
-                                class="preview-imagem oculta"
-                                id="preview-imagem-4"
-                            >
-
-                                <img
-                                    id="imagem-preview-4"
-                                    src=""
-                                    alt="Pré-visualização da imagem 4"
-                                >
-
-                                <button
-                                    type="button"
-                                    class="remover-imagem"
-                                    id="remover-imagem-4"
-                                    data-indice="3"
-                                    aria-label="Remover imagem 4"
-                                >
-
-                                    <i class="fa-solid fa-xmark"></i>
-
-                                </button>
-
-                                <span class="numero-imagem">
-                                    Imagem 4
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                        <small
-                            id="mensagem-imagens"
-                            class="mensagem-campo"
-                        ></small>
-
-                    </div>
+                    
 
                 </div>
 
-                <!-- =================================
-                    MENSAGEM GERAL
-                ================================== -->
-
-                <p
-                    id="mensagem-produto"
-                    class="mensagem-produto"
-                ></p>
-
-                <!-- =================================
-                    BOTÕES
-                ================================== -->
-
-                <div class="acoes-formulario">
+                <div class="actions">
 
                     <button
+                        id="btn-limpar-categoria"
+                        class="btn-secondary"
                         type="button"
-                        id="btn-cancelar"
-                        class="btn-cancelar"
                     >
-                        Cancelar
+
+                        <i class="fa-solid fa-eraser"></i>
+
+                        Limpar
+
                     </button>
 
                     <button
+                        id="btn-salvar-categoria"
+                        class="btn-primary"
                         type="button"
-                        id="btn-cadastrar-produto"
-                        class="btn-cadastrar"
                     >
 
                         <i class="fa-solid fa-floppy-disk"></i>
 
-                        Cadastrar Produto
+                        Salvar Categoria
 
                     </button>
 
                 </div>
 
-            </section>
+                <div class="table-area">
 
-        </main>
+                    <div class="table-top">
 
-    </div>
+                        <h3>
+
+                            Categorias Cadastradas
+
+                        </h3>
+
+                        <input
+                            id="pesquisar-categoria"
+                            type="text"
+                            placeholder="Pesquisar categoria..."
+                        >
+
+                    </div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Categoria</th>
+
+                                <th>Status</th>
+
+                                <th>Ações</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tbody-categorias">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--=====================================-->
+        <!-- MARCAS -->
+        <!--=====================================-->
+
+        <section
+            class="accordion"
+            id="accordion-marca"
+        >
+
+            <div
+                class="accordion-header"
+                id="abrir-marca-card"
+            >
+
+                <div>
+
+                    <h2>
+
+                        <i class="fa-solid fa-copyright"></i>
+
+                        Marcas
+
+                    </h2>
+
+                    <small>
+
+                        Cadastre as marcas dos produtos.
+
+                    </small>
+
+                </div>
+
+                <button
+                    class="accordion-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+            </div>
+
+            <div class="accordion-body">
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Nome da Marca *
+
+                        </label>
+
+                        <input
+                            id="marca-nome"
+                            type="text"
+                            placeholder="Digite o nome da marca"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Logo da Marca
+
+                        </label>
+
+                        <input
+                            id="marca-logo"
+                            type="file"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="preview-image">
+
+                    <img
+                        id="imagem-preview-marca"
+                        src="../assets/sem-imagem.png"
+                        alt="Pré-visualização"
+                    >
+
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        id="btn-limpar-marca"
+                        class="btn-secondary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-eraser"></i>
+
+                        Limpar
+
+                    </button>
+
+                    <button
+                        id="btn-salvar-marca"
+                        class="btn-primary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Salvar Marca
+
+                    </button>
+
+                </div>
+
+                <div class="table-area">
+
+                    <div class="table-top">
+
+                        <h3>
+
+                            Marcas Cadastradas
+
+                        </h3>
+
+                        <input
+                            id="pesquisar-marca"
+                            type="text"
+                            placeholder="Pesquisar..."
+
+                        >
+
+                    </div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Logo</th>
+
+                                <th>Marca</th>
+
+                                <th>Ações</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tbody-marcas">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--=====================================-->
+        <!-- CORES -->
+        <!--=====================================-->
+
+        <section
+            class="accordion"
+            id="accordion-cor"
+        >
+
+            <div
+                class="accordion-header"
+                id="abrir-cor-card"
+            >
+
+                <div>
+
+                    <h2>
+
+                        <i class="fa-solid fa-palette"></i>
+
+                        Cores
+
+                    </h2>
+
+                    <small>
+
+                        Cadastre as cores disponíveis para os produtos.
+
+                    </small>
+
+                </div>
+
+                <button
+                    class="accordion-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+            </div>
+
+            <div class="accordion-body">
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Nome da Cor *
+
+                        </label>
+
+                        <input
+                            id="cor-nome"
+                            type="text"
+                            placeholder="Ex.: Preto"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Código da Cor
+
+                        </label>
+
+                        <div class="color-picker">
+
+                            <input
+                                id="cor-picker"
+                                type="color"
+                                value="#000000"
+                            >
+
+                            <input
+                                id="cor-codigo"
+                                type="text"
+                                placeholder="#000000"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Pré-visualização -->
+
+                <div class="preview-color">
+
+                    <span
+                        id="preview-cor"
+                        class="preview-circle"
+                    ></span>
+
+                    <strong id="preview-cor-texto">
+
+                        #000000
+
+                    </strong>
+
+                </div>
+
+                <!-- Botões -->
+
+                <div class="actions">
+
+                    <button
+                        id="btn-limpar-cor"
+                        class="btn-secondary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-eraser"></i>
+
+                        Limpar
+
+                    </button>
+
+                    <button
+                        id="btn-salvar-cor"
+                        class="btn-primary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Salvar Cor
+
+                    </button>
+
+                </div>
+
+                <!-- Tabela -->
+
+                <div class="table-area">
+
+                    <div class="table-top">
+
+                        <h3>
+
+                            Cores Cadastradas
+
+                        </h3>
+
+                        <input
+                            id="pesquisar-cor"
+                            type="text"
+                            placeholder="Pesquisar cor..."
+                        >
+
+                    </div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Cor</th>
+
+                                <th>Nome</th>
+
+                                <th>Código</th>
+
+                                <th>Ações</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tbody-cores">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--=====================================-->
+        <!-- TAMANHOS -->
+        <!--=====================================-->
+
+        <section
+            class="accordion"
+            id="accordion-tamanho"
+        >
+
+            <div
+                class="accordion-header"
+                id="abrir-tamanho-card"
+            >
+
+                <div>
+
+                    <h2>
+
+                        <i class="fa-solid fa-ruler"></i>
+
+                        Tamanhos
+
+                    </h2>
+
+                    <small>
+
+                        Cadastre os tamanhos disponíveis para os produtos.
+
+                    </small>
+
+                </div>
+
+                <button
+                    class="accordion-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+            </div>
+
+            <div class="accordion-body">
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Tamanho *
+
+                        </label>
+
+                        <input
+                            id="tamanho-nome"
+                            type="text"
+                            placeholder="Ex.: P, M, G, GG ou 36, 38..."
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Imagem (Opcional)
+
+                        </label>
+
+                        <input
+                            id="tamanho-imagem"
+                            type="file"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- Pré-visualização -->
+
+                <div class="preview-image">
+
+                    <img
+                        id="preview-imagem-tamanho"
+                        src="../assets/sem-imagem.png"
+                        alt="Pré-visualização"
+                    >
+
+                </div>
+
+                <!-- Botões -->
+
+                <div class="actions">
+
+                    <button
+                        id="btn-limpar-tamanho"
+                        class="btn-secondary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-eraser"></i>
+
+                        Limpar
+
+                    </button>
+
+                    <button
+                        id="btn-salvar-tamanho"
+                        class="btn-primary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Salvar Tamanho
+
+                    </button>
+
+                </div>
+
+                <!-- Tabela -->
+
+                <div class="table-area">
+
+                    <div class="table-top">
+
+                        <h3>
+
+                            Tamanhos Cadastrados
+
+                        </h3>
+
+                        <input
+                            id="pesquisar-tamanho"
+                            type="text"
+                            placeholder="Pesquisar tamanho..."
+                        >
+
+                    </div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Imagem</th>
+
+                                <th>Tamanho</th>
+
+                                <th>Ações</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tbody-tamanhos">
+
+                            <!-- JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!--=====================================-->
+        <!-- IMAGENS -->
+        <!--=====================================-->
+
+        <section
+            class="accordion"
+            id="accordion-imagem"
+        >
+
+            <div
+                class="accordion-header"
+                id="abrir-imagem-card"
+            >
+
+                <div>
+
+                    <h2>
+
+                        <i class="fa-solid fa-images"></i>
+
+                        Imagens
+
+                    </h2>
+
+                    <small>
+
+                        Cadastre as imagens do produto.
+
+                    </small>
+
+                </div>
+
+                <button
+                    class="accordion-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+            </div>
+
+            <div class="accordion-body">
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Produto
+
+                        </label>
+
+                        <select id="imagem-produto">
+
+                            <option value="">
+                                Selecione um produto
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Selecionar Imagens
+
+                        </label>
+
+                        <input
+                            id="produto-imagens"
+                            type="file"
+                            accept="image/*"
+                            multiple
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- Pré-visualização -->
+
+                <div class="preview-gallery">
+
+                    <h3>
+
+                        Pré-visualização
+
+                    </h3>
+
+                    <div id="preview-imagens">
+
+                        <!-- JavaScript -->
+
+                    </div>
+
+                </div>
+
+                <!-- Botões -->
+
+                <div class="actions">
+
+                    <button
+                        id="btn-limpar-imagens"
+                        class="btn-secondary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-eraser"></i>
+
+                        Limpar
+
+                    </button>
+
+                    <button
+                        id="btn-salvar-imagens"
+                        class="btn-primary"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Salvar Imagens
+
+                    </button>
+
+                </div>
+
+                <!-- Galeria -->
+
+                <div class="table-area">
+
+                    <div class="table-top">
+
+                        <h3>
+
+                            Galeria do Produto
+
+                        </h3>
+
+                    </div>
+
+                    <div
+                        id="galeria-imagens"
+                        class="gallery-grid"
+                    >
+
+                        <!-- JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!--=====================================-->
+    <!-- FOOTER -->
+    <!--=====================================-->
+
+    <footer>
+
+        <span>
+
+            © 2026 Paula Studio Store - Todos os direitos reservados.
+
+        </span>
+
+    </footer>
 
     <script src="../js/cadastroproduto.js"></script>
 
