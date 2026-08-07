@@ -6,7 +6,7 @@ const API_URL = "http://localhost:3000";
 
 const ROTAS = {
     produto: `${API_URL}/produto`,
-    categoria: `${API_URL}/categoria`,
+    categoria: `${API_URL}/categorias`,
     marca: `${API_URL}/marca`,
     cor: `${API_URL}/cores`,
     tamanho: `${API_URL}/tamanho`,
@@ -78,33 +78,107 @@ async function carregarDadosIniciais() {
 
 async function requisicao(url, opcoes = {}) {
 
-    const resposta = await fetch(url, opcoes);
-
-    let dados = null;
+    let resposta;
 
     try {
 
+        resposta = await fetch(
+            url,
+            opcoes
+        );
+
+    } catch (erro) {
+
+        console.error(
+            "Erro de conexão com o servidor:",
+            erro
+        );
+
+        throw new Error(
+            "Não foi possível conectar ao servidor."
+        );
+    }
+
+
+    const tipoConteudo =
+        resposta.headers.get(
+            "content-type"
+        );
+
+    let dados;
+
+
+    // Se o servidor retornou JSON
+    if (
+        tipoConteudo &&
+        tipoConteudo.includes(
+            "application/json"
+        )
+    ) {
+
         dados = await resposta.json();
 
-    } catch {
+    } else {
 
-        dados = null;
+        // Se retornou HTML, texto ou erro do Express
+        dados = await resposta.text();
 
     }
+
 
     if (!resposta.ok) {
 
-        const mensagem =
-            dados?.mensagem ||
-            dados?.message ||
-            "Não foi possível realizar a operação.";
+        console.error(
+            "ERRO DA API:"
+        );
 
-        throw new Error(mensagem);
+        console.error(
+            "URL:",
+            url
+        );
 
+        console.error(
+            "STATUS:",
+            resposta.status
+        );
+
+        console.error(
+            "RESPOSTA:",
+            dados
+        );
+
+
+        let mensagem =
+            "Erro ao realizar a operação.";
+
+
+        if (
+            typeof dados === "object" &&
+            dados !== null
+        ) {
+
+            mensagem =
+                dados.mensagem ||
+                dados.message ||
+                mensagem;
+
+        } else if (
+            typeof dados === "string" &&
+            dados.trim() !== ""
+        ) {
+
+            mensagem =
+                `Erro ${resposta.status}. Consulte o console do navegador.`;
+        }
+
+
+        throw new Error(
+            mensagem
+        );
     }
 
-    return dados;
 
+    return dados;
 }
 
 
@@ -158,7 +232,11 @@ function configurarEventos() {
         salvarProduto
     );
 
-   
+   adicionarEvento(
+        "btn-salvar-categoria",
+        "click",
+        salvarCategoria
+    );
 
     adicionarEvento(
         "btn-limpar-categoria",
@@ -804,7 +882,69 @@ function montarTabelaCategorias(categorias) {
 
 }
 
+async function salvarCategoria() {
 
+    const nome = obterValor("categoria-nome");
+
+    if (nome === "") {
+
+        alert("Informe o nome da categoria.");
+
+        focarCampo("categoria-nome");
+
+        return;
+    }
+
+    const categoria = {
+        nome: nome
+    };
+
+    const botao =
+        document.getElementById("btn-salvar-categoria");
+
+    try {
+
+        definirCarregamento(botao, true);
+
+        if (categoriaEditando === null) {
+
+            await requisicao(
+                ROTAS.categoria,
+                opcoesJson("POST", categoria)
+            );
+
+        } else {
+
+            await requisicao(
+                `${ROTAS.categoria}/${categoriaEditando}`,
+                opcoesJson("PUT", categoria)
+            );
+        }
+
+        alert(
+            categoriaEditando === null
+                ? "Categoria cadastrada com sucesso."
+                : "Categoria atualizada com sucesso."
+        );
+
+        limparCategoria();
+
+        await carregarCategorias();
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao salvar categoria:",
+            erro
+        );
+
+        alert(erro.message);
+
+    } finally {
+
+        definirCarregamento(botao, false);
+    }
+}
 
 function editarCategoria(id) {
 
@@ -1077,69 +1217,87 @@ async function salvarMarca() {
     const nome =
         obterValor("marca-nome");
 
-    const inputLogo =
-        document.getElementById(
-            "marca-logo"
-        );
-
-    const logo =
-        inputLogo?.files[0];
 
     if (nome === "") {
 
-        alert("Informe o nome da marca.");
+        alert(
+            "Informe o nome da marca."
+        );
 
-        focarCampo("marca-nome");
+        focarCampo(
+            "marca-nome"
+        );
 
         return;
-
     }
 
-    const dados =
-        new FormData();
 
-    dados.append("nome", nome);
+    const marca = {
 
-    if (logo) {
-        dados.append("logo", logo);
-    }
+        nome: nome
+
+    };
+
 
     const botao =
         document.getElementById(
             "btn-salvar-marca"
         );
 
+
     try {
 
-        definirCarregamento(botao, true);
-
-        const url =
-            marcaEditando === null
-                ? ROTAS.marca
-                : `${ROTAS.marca}/${marcaEditando}`;
-
-        const metodo =
-            marcaEditando === null
-                ? "POST"
-                : "PUT";
-
-        await requisicao(
-            url,
-            {
-                method: metodo,
-                body: dados
-            }
+        definirCarregamento(
+            botao,
+            true
         );
 
-        alert(
+
+        if (
             marcaEditando === null
+        ) {
+
+            await requisicao(
+
+                ROTAS.marca,
+
+                opcoesJson(
+                    "POST",
+                    marca
+                )
+            );
+
+        } else {
+
+            await requisicao(
+
+                `${ROTAS.marca}/${marcaEditando}`,
+
+                opcoesJson(
+                    "PUT",
+                    marca
+                )
+            );
+        }
+
+
+        alert(
+
+            marcaEditando === null
+
                 ? "Marca cadastrada com sucesso."
+
                 : "Marca atualizada com sucesso."
         );
 
+
         limparMarca();
 
+
+        // Recarrega a tabela
+        // e também o select do produto
         await carregarMarcas();
+
 
     } catch (erro) {
 
@@ -1148,14 +1306,17 @@ async function salvarMarca() {
             erro
         );
 
-        alert(erro.message);
+        alert(
+            erro.message
+        );
 
     } finally {
 
-        definirCarregamento(botao, false);
-
+        definirCarregamento(
+            botao,
+            false
+        );
     }
-
 }
 
 
@@ -1299,6 +1460,8 @@ async function carregarCores() {
             listaCores
         );
 
+        preencherCoresDoProduto();
+
     } catch (erro) {
 
         console.error(
@@ -1314,6 +1477,94 @@ async function carregarCores() {
 
 }
 
+function preencherCoresDoProduto() {
+
+    const container =
+        document.getElementById(
+            "produto-lista-cores"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = "";
+
+    if (listaCores.length === 0) {
+
+        const mensagem =
+            document.createElement("span");
+
+        mensagem.textContent =
+            "Nenhuma cor cadastrada.";
+
+        container.appendChild(mensagem);
+
+        return;
+    }
+
+    listaCores.forEach((cor) => {
+
+        const idCor =
+            cor.idCores ??
+            cor.idCor ??
+            cor.id;
+
+        const label =
+            document.createElement("label");
+
+        label.className =
+            "produto-opcao-cor";
+
+
+        const checkbox =
+            document.createElement("input");
+
+        checkbox.type =
+            "checkbox";
+
+        checkbox.name =
+            "produto-cores";
+
+        checkbox.value =
+            idCor;
+
+
+        const circulo =
+            document.createElement("span");
+
+        circulo.className =
+            "produto-cor-circulo";
+
+        circulo.style.backgroundColor =
+            cor.codigo_cor ||
+            "#000000";
+
+
+        const nome =
+            document.createElement("span");
+
+        nome.textContent =
+            cor.nome;
+
+
+        label.appendChild(
+            checkbox
+        );
+
+        label.appendChild(
+            circulo
+        );
+
+        label.appendChild(
+            nome
+        );
+
+        container.appendChild(
+            label
+        );
+    });
+}
 
 function montarTabelaCores(cores) {
 
@@ -1663,6 +1914,8 @@ async function carregarTamanhos() {
             listaTamanhos
         );
 
+        preencherTamanhosDoProduto();
+
     } catch (erro) {
 
         console.error(
@@ -1678,6 +1931,86 @@ async function carregarTamanhos() {
 
 }
 
+function preencherTamanhosDoProduto() {
+
+    const container =
+        document.getElementById(
+            "produto-lista-tamanhos"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = "";
+
+    if (listaTamanhos.length === 0) {
+
+        const mensagem =
+            document.createElement("span");
+
+        mensagem.textContent =
+            "Nenhum tamanho cadastrado.";
+
+        container.appendChild(mensagem);
+
+        return;
+    }
+
+    listaTamanhos.forEach(
+        (tamanho) => {
+
+            const idTamanho =
+                tamanho.idTamanho ??
+                tamanho.id;
+
+            const label =
+                document.createElement(
+                    "label"
+                );
+
+            label.className =
+                "produto-opcao-tamanho";
+
+
+            const checkbox =
+                document.createElement(
+                    "input"
+                );
+
+            checkbox.type =
+                "checkbox";
+
+            checkbox.name =
+                "produto-tamanhos";
+
+            checkbox.value =
+                idTamanho;
+
+
+            const texto =
+                document.createElement(
+                    "span"
+                );
+
+            texto.textContent =
+                tamanho.tamanho;
+
+
+            label.appendChild(
+                checkbox
+            );
+
+            label.appendChild(
+                texto
+            );
+
+            container.appendChild(
+                label
+            );
+        }
+    );
+}
 
 function montarTabelaTamanhos(tamanhos) {
 
@@ -1754,14 +2087,6 @@ async function salvarTamanho() {
     const tamanho =
         obterValor("tamanho-nome");
 
-    const inputImagem =
-        document.getElementById(
-            "tamanho-imagem"
-        );
-
-    const imagem =
-        inputImagem?.files[0];
-
     if (tamanho === "") {
 
         alert("Informe o tamanho.");
@@ -1769,23 +2094,11 @@ async function salvarTamanho() {
         focarCampo("tamanho-nome");
 
         return;
-
     }
 
-    const dados =
-        new FormData();
-
-    dados.append(
-        "tamanho",
-        tamanho
-    );
-
-    if (imagem) {
-        dados.append(
-            "imagem",
-            imagem
-        );
-    }
+    const dadosTamanho = {
+        tamanho: tamanho
+    };
 
     const botao =
         document.getElementById(
@@ -1794,25 +2107,31 @@ async function salvarTamanho() {
 
     try {
 
-        definirCarregamento(botao, true);
-
-        const url =
-            tamanhoEditando === null
-                ? ROTAS.tamanho
-                : `${ROTAS.tamanho}/${tamanhoEditando}`;
-
-        const metodo =
-            tamanhoEditando === null
-                ? "POST"
-                : "PUT";
-
-        await requisicao(
-            url,
-            {
-                method: metodo,
-                body: dados
-            }
+        definirCarregamento(
+            botao,
+            true
         );
+
+        if (tamanhoEditando === null) {
+
+            await requisicao(
+                ROTAS.tamanho,
+                opcoesJson(
+                    "POST",
+                    dadosTamanho
+                )
+            );
+
+        } else {
+
+            await requisicao(
+                `${ROTAS.tamanho}/${tamanhoEditando}`,
+                opcoesJson(
+                    "PUT",
+                    dadosTamanho
+                )
+            );
+        }
 
         alert(
             tamanhoEditando === null
@@ -1835,10 +2154,11 @@ async function salvarTamanho() {
 
     } finally {
 
-        definirCarregamento(botao, false);
-
+        definirCarregamento(
+            botao,
+            false
+        );
     }
-
 }
 
 
@@ -1925,18 +2245,11 @@ function limparTamanho() {
     tamanhoEditando = null;
 
     limparCampo("tamanho-nome");
-    limparCampo("tamanho-imagem");
-
-    definirImagem(
-        "preview-imagem-tamanho",
-        "../assets/sem-imagem.png"
-    );
 
     alterarTextoBotao(
         "btn-salvar-tamanho",
         "Salvar Tamanho"
     );
-
 }
 
 
@@ -2936,45 +3249,3 @@ function voltarParaProdutos() {
         "./produtolojista.html";
 
 }
-
-
-//======================================================
-// CADASTRO CATEGORIA
-//======================================================
-
-document.getElementById("btn-salvar-categoria").
-    addEventListener("click", function () {
-        //capturar os dados do input
-        const categoriaNome
-            = document.getElementById("categoria-nome").value;
-
-        // criar um if para validar se o campo está vazio    
-        if (categoriaNome === "") {
-            alert("Por favor, preencha o nome da categoria.");
-            return;
-        }
-
-        // criar um objeto com os dados da categoria
-        const categoria = {
-            nome: categoriaNome
-
-        };
-
-        // enviar os dados para o servidor
-        fetch("http://localhost:3000/categorias", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(categoria)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Categoria cadastrada:", data);
-                alert("Categoria cadastrada com sucesso!");
-            })
-            .catch(error => {
-                console.error("Erro ao cadastrar categoria:", error);
-                alert("Erro ao cadastrar categoria.");
-            });
-    });

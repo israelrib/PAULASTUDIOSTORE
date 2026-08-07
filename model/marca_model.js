@@ -4,21 +4,24 @@ const conexao = require("../conexao/conexao.js"); // CONEXÃO COM O BANCO DE DAD
 // Cadastrar Marca
 // =========================
 
-function cadastrar(marca, callback) { // FUNÇÃO QUE EXECUTA O COMANDO INSERT PARA CADASTRAR UMA NOVA MARCA
+function cadastrar(marca, callback) {
 
-    const sql = `INSERT INTO Marca
-        ( nome,logo )
-        VALUES (?, ?)`;
+    const sql = `
+        INSERT INTO Marca (
+            nome,
+            logo
+        )
+        VALUES (?, ?)
+    `;
 
-    conexao.query( // EXECUTA O COMANDO INSERT NO BANCO DE DADOS
+    conexao.query(
         sql,
         [
             marca.nome,
-            marca.logo
+            marca.logo || null
         ],
         callback
     );
-
 }
 
 // =========================
@@ -71,28 +74,49 @@ function buscarPorNome(nome, callback) { // FUNÇÃO QUE EXECUTA O COMANDO SELEC
 // Atualizar Marca
 // =========================
 
-function atualizar(id, marca, callback) { // FUNÇÃO QUE EXECUTA O COMANDO UPDATE PARA ATUALIZAR UMA MARCA EXISTENTE
+function atualizar(id, marca, callback) {
 
-    const sql = `
-        UPDATE Marca
-        SET
+    // Se uma nova logo foi enviada
+    if (marca.logo) {
 
-            nome = ?,
-            logo = ?
+        const sql = `
+            UPDATE Marca
+            SET
+                nome = ?,
+                logo = ?
+            WHERE idMarca = ?
+        `;
 
-        WHERE idMarca = ?
-    `;
+        conexao.query(
+            sql,
+            [
+                marca.nome,
+                marca.logo,
+                id
+            ],
+            callback
+        );
 
-    conexao.query( // EXECUTA O COMANDO UPDATE NO BANCO DE DADOS
-        sql,
-        [
-            marca.nome,
-            marca.logo,
-            id
-        ],
-        callback
-    );
+    } else {
 
+        // Se nenhuma nova logo foi enviada,
+        // mantém a logo antiga
+        const sql = `
+            UPDATE Marca
+            SET
+                nome = ?
+            WHERE idMarca = ?
+        `;
+
+        conexao.query(
+            sql,
+            [
+                marca.nome,
+                id
+            ],
+            callback
+        );
+    }
 }
 
 // =========================

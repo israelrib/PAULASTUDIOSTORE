@@ -1261,3 +1261,125 @@ RESPONSIVIDADE
     }
 
 }
+
+/*======================================================
+CORES DISPONÍVEIS NO PRODUTO
+======================================================*/
+
+.produto-opcoes {
+
+    min-height: 48px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex: 1;
+
+}
+
+
+.produto-opcao-cor {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.produto-opcao-cor:hover {
+
+    border-color: #c66b5d;
+
+    background: #fff8f6;
+
+}
+
+
+.produto-opcao-cor input {
+
+    width: 16px;
+
+    height: 16px;
+
+    accent-color: #c66b5d;
+
+}
+
+
+.produto-cor-circulo {
+
+    width: 22px;
+
+    height: 22px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    border: 1px solid #cccccc;
+
+}
+
+.produto-opcao-tamanho {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 55px;
+
+    padding: 9px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.produto-opcao-tamanho:hover {
+
+    border-color: #c66b5d;
+
+    background: #fff8f6;
+
+}
+
+
+.produto-opcao-tamanho input {
+
+    width: 16px;
+
+    height: 16px;
+
+    accent-color: #c66b5d;
+
+}
