@@ -2,6 +2,69 @@
     DASHBOARD.JS
 =========================================================*/
 
+// ==========================================
+// PROTEÇÃO DA ÁREA DO LOJISTA
+// ==========================================
+
+const lojistaLogado =
+    JSON.parse(
+        localStorage.getItem("lojista")
+    );
+
+if (!lojistaLogado) {
+
+    window.location.href =
+        "./loginlojista.html";
+}
+//==========================================
+// MOSTRA O NOME DO LOJISTA
+//==========================================
+
+const nomeLojista =
+    document.getElementById(
+        "nome-lojista"
+    );
+
+
+if (
+    nomeLojista &&
+    lojistaLogado
+) {
+
+    nomeLojista.textContent =
+        lojistaLogado.nome;
+}
+
+//==========================================
+// LOGOUT DO LOJISTA
+//==========================================
+
+const btnSairLojista =
+    document.getElementById(
+        "btn-sair-lojista"
+    );
+
+
+if (btnSairLojista) {
+
+    btnSairLojista.addEventListener(
+        "click",
+        () => {
+
+            localStorage.removeItem(
+                "lojista"
+            );
+
+            localStorage.removeItem(
+                "tokenLojista"
+            );
+
+            window.location.href =
+                "./loginlojista.html";
+        }
+    );
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     /*=====================================================
@@ -261,3 +324,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 });
+

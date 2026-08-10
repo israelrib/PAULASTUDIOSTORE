@@ -1,0 +1,635 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f6f8;
+    color: #241c20;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+    width: 100%;
+    background-color: #35272e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-container {
+    max-width: 1400px;
+    min-height: 76px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+#logo-text {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   MENU
+========================================== */
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-button {
+    border: none;
+    background: transparent;
+    color: #ffffff;
+
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-button.active {
+    background-color: #c96f5d;
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.main {
+    min-height: calc(100vh - 136px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 55px 40px;
+}
+
+
+/* ==========================================
+   CONTAINER PRINCIPAL
+========================================== */
+
+.access-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* ==========================================
+   ÁREA INFORMATIVA
+========================================== */
+
+.access-info {
+    padding: 30px 10px;
+}
+
+.access-badge {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background-color: #f5dfda;
+    color: #b95848;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.access-info h1 {
+    max-width: 500px;
+
+    margin-bottom: 20px;
+
+    color: #2f2429;
+
+    font-size: 46px;
+    line-height: 1.12;
+}
+
+.access-info > p {
+    max-width: 540px;
+
+    color: #746b70;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   ITENS INFORMATIVOS
+========================================== */
+
+.info-items {
+    margin-top: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    color: #4f464b;
+
+    font-size: 15px;
+}
+
+.info-icon {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #f5dfda;
+    color: #b95848;
+
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   CARD DE LOGIN / CADASTRO
+========================================== */
+
+.access-card {
+    width: 100%;
+
+    padding: 42px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(53, 39, 46, 0.08);
+}
+
+
+/* ==========================================
+   SEÇÕES
+========================================== */
+
+.access-section {
+    display: none;
+}
+
+.access-section.active {
+    display: block;
+}
+
+
+/* ==========================================
+   CABEÇALHO DO FORMULÁRIO
+========================================== */
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c96f5d;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+}
+
+.section-header h2 {
+    margin-bottom: 10px;
+
+    color: #2f2429;
+
+    font-size: 30px;
+}
+
+.section-header p {
+    color: #7a7075;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   FORMULÁRIOS
+========================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.form-group {
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+
+.form-grid .form-group {
+    margin-bottom: 0;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #35272e;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: 1px solid #d9d9d9;
+    border-radius: 9px;
+
+    background-color: #ffffff;
+
+    color: #2f2429;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #aaa3a7;
+}
+
+.form-group input:focus {
+    border-color: #c96f5d;
+
+    box-shadow:
+        0 0 0 3px rgba(201, 111, 93, 0.12);
+}
+
+
+/* ==========================================
+   SENHA
+========================================== */
+
+.password-area {
+    position: relative;
+
+    width: 100%;
+}
+
+.password-area input {
+    padding-right: 85px;
+}
+
+.password-button {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    padding: 6px 8px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #b95848;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.password-button:hover {
+    color: #8f4135;
+}
+
+
+/* ==========================================
+   MENSAGENS
+========================================== */
+
+.mensagem {
+    min-height: 20px;
+
+    margin-top: 18px;
+    margin-bottom: 12px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.mensagem.erro {
+    color: #d14343;
+}
+
+.mensagem.sucesso {
+    color: #239557;
+}
+
+
+/* ==========================================
+   BOTÃO PRINCIPAL
+========================================== */
+
+.btn-primary {
+    width: 100%;
+    min-height: 50px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 9px;
+
+    background-color: #c96f5d;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b85e4d;
+}
+
+.btn-primary:active {
+    transform: scale(0.99);
+}
+
+.btn-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+
+/* ==========================================
+   TROCAR LOGIN / CADASTRO
+========================================== */
+
+.access-switch {
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    color: #777075;
+
+    font-size: 13px;
+}
+
+.access-switch button {
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #c96f5d;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.access-switch button:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+    min-height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 30px;
+
+    background-color: #35272e;
+
+    color: #d8d1d4;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .access-container {
+        grid-template-columns: 1fr;
+
+        max-width: 720px;
+
+        gap: 30px;
+    }
+
+    .access-info {
+        text-align: center;
+    }
+
+    .access-info h1,
+    .access-info > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .info-items {
+        max-width: 480px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        text-align: left;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .header-container {
+        padding: 15px 20px;
+
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .main {
+        padding: 35px 20px;
+    }
+
+    .access-info h1 {
+        font-size: 36px;
+    }
+
+    .access-card {
+        padding: 30px 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .logo-area {
+        justify-content: center;
+    }
+
+    #logo-text {
+        font-size: 17px;
+    }
+
+    .menu-button {
+        padding: 9px 10px;
+
+        font-size: 12px;
+    }
+
+    .access-info h1 {
+        font-size: 31px;
+    }
+
+    .access-card {
+        padding: 25px 18px;
+    }
+
+    .section-header h2 {
+        font-size: 25px;
+    }
+
+    .access-switch {
+        flex-direction: column;
+    }
+}

@@ -175,3 +175,13 @@ app.use("/tamanho", TamanhoRotas);
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
+
+// ROTAS DE LOJISTA
+
+const LojistaRotas =
+    require("../routes/lojista_rotas.js");
+
+app.use(
+    "/lojista",
+    LojistaRotas
+);
