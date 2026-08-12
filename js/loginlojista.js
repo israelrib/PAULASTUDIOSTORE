@@ -353,21 +353,14 @@ btnLogin.addEventListener(
 async function fazerLogin() {
 
     const email =
-        loginEmail.value
-            .trim();
+        loginEmail.value.trim();
 
     const senha =
         loginSenha.value;
 
-
     limparMensagem(
         mensagemLogin
     );
-
-
-    // ==================================================
-    // VALIDAÇÕES
-    // ==================================================
 
     if (
         email === "" ||
@@ -381,33 +374,7 @@ async function fazerLogin() {
         );
 
         return;
-
     }
-
-
-    if (
-        !validarEmail(email)
-    ) {
-
-        mostrarMensagem(
-            mensagemLogin,
-            "Informe um e-mail válido.",
-            "erro"
-        );
-
-        return;
-
-    }
-
-
-    const dadosLogin = {
-
-        email: email,
-
-        senha: senha
-
-    };
-
 
     try {
 
@@ -417,33 +384,27 @@ async function fazerLogin() {
             "Entrando..."
         );
 
-
         const resposta =
             await fetch(
-                ROTAS.login,
+                "http://localhost:3000/lojista/login",
                 {
-
                     method: "POST",
 
                     headers: {
-
                         "Content-Type":
                             "application/json"
-
                     },
 
                     body:
-                        JSON.stringify(
-                            dadosLogin
-                        )
-
+                        JSON.stringify({
+                            email: email,
+                            senha: senha
+                        })
                 }
             );
 
-
         const dados =
             await resposta.json();
-
 
         if (!resposta.ok) {
 
@@ -455,40 +416,15 @@ async function fazerLogin() {
             );
 
             return;
-
         }
 
-
-        // ==================================================
-        // SALVA O LOJISTA LOGADO
-        // ==================================================
-
-        const lojistaLogado =
-            dados.lojista ||
-            dados.dados ||
-            dados;
-
-
+        // Salva os dados do lojista logado
         localStorage.setItem(
             "lojista",
             JSON.stringify(
-                lojistaLogado
+                dados.lojista
             )
         );
-
-
-        // Caso seu backend futuramente
-        // retorne um token
-
-        if (dados.token) {
-
-            localStorage.setItem(
-                "tokenLojista",
-                dados.token
-            );
-
-        }
-
 
         mostrarMensagem(
             mensagemLogin,
@@ -496,36 +432,26 @@ async function fazerLogin() {
             "sucesso"
         );
 
+        // Redireciona para a home do lojista
+        setTimeout(() => {
 
-        // ==================================================
-        // DIRECIONA PARA HOME LOJISTA
-        // ==================================================
+            window.location.href =
+                "./homelojista.html";
 
-        setTimeout(
-            () => {
-
-                window.location.href =
-                    "./home_lojista.html";
-
-            },
-            500
-        );
-
+        }, 500);
 
     } catch (erro) {
 
         console.error(
-            "Erro ao realizar login:",
+            "Erro no login do lojista:",
             erro
         );
-
 
         mostrarMensagem(
             mensagemLogin,
             "Não foi possível conectar ao servidor.",
             "erro"
         );
-
 
     } finally {
 
@@ -534,9 +460,7 @@ async function fazerLogin() {
             false,
             "Entrar no painel"
         );
-
     }
-
 }
 
 

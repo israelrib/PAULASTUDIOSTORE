@@ -15,25 +15,6 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <button
-        id="btn-sair-lojista"
-        type="button"
-        class="btn-sair-lojista"
-    >
-        Sair
-    </button>
-    <div class="lojista-logado">
-
-        <span>
-            Olá,
-        </span>
-
-        <strong id="nome-lojista">
-            Lojista
-        </strong>
-
-</div>
-
 </head>
 
 <body>
@@ -48,7 +29,7 @@
 
         <div class="logo">
 
-            <img src="img/logo.png"
+            <img src="../assets/marca.png"
                  alt="Paula Studio">
 
         </div>
@@ -108,18 +89,33 @@
 
         <div class="perfil-sidebar">
 
-            <img src="img/perfil.jpg"
-                 alt="Perfil">
+            <img
+                src="img/perfil.jpg"
+                alt="Perfil"
+            >
 
-            <div>
+            <div class="dados-lojista-sidebar">
 
-                <h4>Paula Soares</h4>
+                <h4 id="nome-lojista">
+                    Lojista
+                </h4>
 
-                <span>Admin</span>
+                <span>
+                    Administrador
+                </span>
 
             </div>
 
-            <i class="fa-solid fa-circle-user"></i>
+            <button
+                id="btn-sair-lojista"
+                class="btn-sair-lojista"
+                type="button"
+                title="Sair"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+            </button>
 
         </div>
 

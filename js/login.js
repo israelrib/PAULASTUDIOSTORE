@@ -17,6 +17,7 @@ document.getElementById("logo-text").textContent = "Acesso";
 
 document.getElementById("menu-login").textContent = "Entrar";
 document.getElementById("menu-cadastro").textContent = "Cadastrar";
+document.getElementById("menu-lojista").textContent = "Sou Lojista";
 document.getElementById("menu-ajuda").textContent = "Ajuda";
 
 document.getElementById("menu-login").href = "#login";
@@ -902,3 +903,29 @@ btnEntrar.addEventListener("click", () => {
 
 });
 });
+
+//==========================================
+// ACESSO DO LOJISTA
+//==========================================
+
+const menuLojista =
+    document.getElementById(
+        "menu-lojista"
+    );
+
+
+if (menuLojista) {
+
+    menuLojista.addEventListener(
+        "click",
+        (event) => {
+
+            event.preventDefault();
+
+            window.location.href =
+                "./loginlojista.html";
+
+        }
+    );
+
+}

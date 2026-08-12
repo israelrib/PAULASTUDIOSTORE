@@ -2,6 +2,81 @@
     DASHBOARD.JS
 =========================================================*/
 
+
+// ==========================================
+// LOJISTA LOGADO
+// ==========================================
+
+const lojistaLogado =
+    JSON.parse(
+        localStorage.getItem("lojista")
+    );
+
+
+// ==========================================
+// PROTEÇÃO DA PÁGINA
+// ==========================================
+
+if (!lojistaLogado) {
+
+    window.location.href =
+        "./loginlojista.html";
+
+}
+
+
+// ==========================================
+// MOSTRA NOME DO LOJISTA
+// ==========================================
+
+const nomeLojista =
+    document.getElementById(
+        "nome-lojista"
+    );
+
+if (
+    nomeLojista &&
+    lojistaLogado
+) {
+
+    nomeLojista.textContent =
+        lojistaLogado.nome;
+
+}
+
+
+// ==========================================
+// BOTÃO SAIR
+// ==========================================
+
+const btnSairLojista =
+    document.getElementById(
+        "btn-sair-lojista"
+    );
+
+if (btnSairLojista) {
+
+    btnSairLojista.addEventListener(
+        "click",
+        () => {
+
+            localStorage.removeItem(
+                "lojista"
+            );
+
+            localStorage.removeItem(
+                "tokenLojista"
+            );
+
+            window.location.href =
+                "./loginlojista.html";
+
+        }
+    );
+
+}
+
+
 // ==========================================
 // PROTEÇÃO DA ÁREA DO LOJISTA
 // ==========================================
