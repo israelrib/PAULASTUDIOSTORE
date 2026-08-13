@@ -435,8 +435,9 @@ async function fazerLogin() {
         // Redireciona para a home do lojista
         setTimeout(() => {
 
-            window.location.href =
-                "./homelojista.html";
+            window.location.replace(
+                "./homelojista.html"
+            );
 
         }, 500);
 

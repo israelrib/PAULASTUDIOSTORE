@@ -3,9 +3,9 @@
 =========================================================*/
 
 
-// ==========================================
-// LOJISTA LOGADO
-// ==========================================
+//==========================================
+// RECUPERA LOJISTA LOGADO
+//==========================================
 
 const lojistaLogado =
     JSON.parse(
@@ -13,9 +13,9 @@ const lojistaLogado =
     );
 
 
-// ==========================================
-// PROTEÇÃO DA PÁGINA
-// ==========================================
+//==========================================
+// PROTEGE A PÁGINA
+//==========================================
 
 if (!lojistaLogado) {
 
@@ -25,72 +25,6 @@ if (!lojistaLogado) {
 }
 
 
-// ==========================================
-// MOSTRA NOME DO LOJISTA
-// ==========================================
-
-const nomeLojista =
-    document.getElementById(
-        "nome-lojista"
-    );
-
-if (
-    nomeLojista &&
-    lojistaLogado
-) {
-
-    nomeLojista.textContent =
-        lojistaLogado.nome;
-
-}
-
-
-// ==========================================
-// BOTÃO SAIR
-// ==========================================
-
-const btnSairLojista =
-    document.getElementById(
-        "btn-sair-lojista"
-    );
-
-if (btnSairLojista) {
-
-    btnSairLojista.addEventListener(
-        "click",
-        () => {
-
-            localStorage.removeItem(
-                "lojista"
-            );
-
-            localStorage.removeItem(
-                "tokenLojista"
-            );
-
-            window.location.href =
-                "./loginlojista.html";
-
-        }
-    );
-
-}
-
-
-// ==========================================
-// PROTEÇÃO DA ÁREA DO LOJISTA
-// ==========================================
-
-const lojistaLogado =
-    JSON.parse(
-        localStorage.getItem("lojista")
-    );
-
-if (!lojistaLogado) {
-
-    window.location.href =
-        "./loginlojista.html";
-}
 //==========================================
 // MOSTRA O NOME DO LOJISTA
 //==========================================
@@ -100,7 +34,6 @@ const nomeLojista =
         "nome-lojista"
     );
 
-
 if (
     nomeLojista &&
     lojistaLogado
@@ -108,17 +41,18 @@ if (
 
     nomeLojista.textContent =
         lojistaLogado.nome;
+
 }
 
+
 //==========================================
-// LOGOUT DO LOJISTA
+// BOTÃO SAIR
 //==========================================
 
 const btnSairLojista =
     document.getElementById(
         "btn-sair-lojista"
     );
-
 
 if (btnSairLojista) {
 
@@ -134,11 +68,14 @@ if (btnSairLojista) {
                 "tokenLojista"
             );
 
-            window.location.href =
-                "./loginlojista.html";
+            window.location.replace(
+                "./loginlojista.html"
+            );
+
         }
     );
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -289,17 +226,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /*=====================================================
-        NOVO PRODUTO
-    =====================================================*/
+/*=====================================================
+    MEUS PRODUTOS
+=====================================================*/
 
-    const novoProduto = document.querySelector(".novo-produto");
+    const meusProdutos =
+        document.querySelector(".novo-produto");
 
-    novoProduto.addEventListener("click", () => {
 
-        alert("Abrir cadastro de novo produto.");
+    if (meusProdutos) {
 
-    });
+        meusProdutos.addEventListener(
+            "click",
+            () => {
+
+                window.location.href =
+                    "./produtoslojista.html";
+
+            }
+        );
+
+    }
 
     /*=====================================================
         VER LOJA

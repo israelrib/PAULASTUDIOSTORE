@@ -39,7 +39,9 @@ body{
 
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+
+    /* Logo e menu ficam juntos no topo */
+    justify-content:flex-start;
 
 }
 
@@ -54,7 +56,7 @@ body{
 
 .logo img{
 
-    width:200px;
+    width:210px;
     border-radius:10px;
     background:#FFF;
     padding:8px;
@@ -70,7 +72,7 @@ body{
     display:flex;
     flex-direction:column;
 
-    padding:10px 20px;
+    padding:0 20px 10px;
 
     gap:8px;
 
@@ -131,6 +133,9 @@ body{
     align-items:center;
 
     gap:12px;
+
+    /* Mantém o perfil no rodapé */
+    margin-top:auto;
 
 }
 
