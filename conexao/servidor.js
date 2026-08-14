@@ -1,13 +1,104 @@
-const express = require('express'); //express é um framework para criar servidores web em Node.js
-const cors = require('cors'); //cors é um middleware que permite que o servidor aceite requisições de diferentes origens (domínios)
-
+//==========================================
+// IMPORTAÇÕES
+//==========================================
+ 
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+ 
 const app = express();
-
+ 
+console.log(">>> ESTE SERVIDOR.JS ESTÁ RODANDO <<<");
+ 
+ 
+//==========================================
+// CONFIGURAÇÕES
+//==========================================
+ 
 app.use(cors());
+ 
 app.use(express.json());
-
-const conexao = require('./conexao'); // Importa a conexão com o banco de dados
-
+ 
+app.use(
+    express.urlencoded({
+        extended: true
+    })
+);
+ 
+ 
+//==========================================
+// ARQUIVOS PÚBLICOS / ASSETS
+//==========================================
+ 
+app.use(
+    "/assets",
+    express.static(
+        path.join(__dirname, "..", "assets")
+    )
+);
+ 
+ 
+//==========================================
+// CONEXÃO COM O BANCO
+//==========================================
+ 
+const conexao = require("./conexao");
+ 
+ 
+//==========================================
+// ARQUIVOS ESTÁTICOS
+//==========================================
+ 
+// Arquivos da raiz do projeto
+app.use(
+    express.static(
+        path.join(__dirname, "..")
+    )
+);
+ 
+ 
+// Arquivos da pasta PAGES
+app.use(
+    "/pages",
+    express.static(
+        path.join(__dirname, "..", "PAGES")
+    )
+);
+ 
+ 
+// Arquivos da pasta STYLE
+app.use(
+    "/style",
+    express.static(
+        path.join(__dirname, "..", "STYLE")
+    )
+);
+ 
+ 
+// Arquivos da pasta JS
+app.use(
+    "/js",
+    express.static(
+        path.join(__dirname, "..", "JS")
+    )
+);
+ 
+ 
+//==========================================
+// PÁGINA INICIAL
+//==========================================
+ 
+app.get("/", (req, res) => {
+ 
+    res.sendFile(
+        path.join(
+            __dirname,
+            "..",
+            "index.html"
+        )
+    );
+ 
+});
 // REGISTRO DAS ROTAS DA APLICAÇÃO (criar uma rota para testar a conexão com o banco de dado)
 
 // ROTAS DE CLIENTE
