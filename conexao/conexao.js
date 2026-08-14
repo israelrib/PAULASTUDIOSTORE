@@ -1,9 +1,10 @@
 const mysql = require('mysql2') // conectar com o servidor do node.js ao banco de dados MySQL
 const conexao = mysql.createConnection({ //váriavel que vai armazenar a conexão com o banco de dados
-    host: 'localhost',
+    host: 'altaria.proxy.rlwy.net',
     user: 'root',
-    password: '', //senha do MySQL
-    database: 'paulastudiostore'
+    port: 19930, // porta padrão do MySQL
+    password: 'AEJAoyeRWHrmopiLkOiHUyUuofSetovW', //senha do MySQL
+    database: 'railway'
 });
 conexao.connect((erro) => {
     if (erro) {

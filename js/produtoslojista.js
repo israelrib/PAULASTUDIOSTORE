@@ -1,5 +1,78 @@
 document.addEventListener("DOMContentLoaded", () => {
+//==========================================
+// RECUPERA LOJISTA LOGADO
+//==========================================
 
+const lojistaLogado =
+    JSON.parse(
+        localStorage.getItem("lojista")
+    );
+
+
+//==========================================
+// PROTEÇÃO DA PÁGINA
+//==========================================
+
+if (!lojistaLogado) {
+
+    window.location.replace(
+        "./loginlojista.html"
+    );
+
+}
+
+
+//==========================================
+// MOSTRA O NOME DO LOJISTA
+//==========================================
+
+const nomeLojista =
+    document.getElementById(
+        "nome-lojista"
+    );
+
+if (
+    nomeLojista &&
+    lojistaLogado
+) {
+
+    nomeLojista.textContent =
+        lojistaLogado.nome;
+
+}
+
+
+//==========================================
+// BOTÃO SAIR
+//==========================================
+
+const btnSairLojista =
+    document.getElementById(
+        "btn-sair-lojista"
+    );
+
+if (btnSairLojista) {
+
+    btnSairLojista.addEventListener(
+        "click",
+        () => {
+
+            localStorage.removeItem(
+                "lojista"
+            );
+
+            localStorage.removeItem(
+                "tokenLojista"
+            );
+
+            window.location.replace(
+                "./loginlojista.html"
+            );
+
+        }
+    );
+
+}
     /*=====================================================
         ELEMENTOS
     =====================================================*/
