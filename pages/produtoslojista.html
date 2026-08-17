@@ -19,22 +19,27 @@
 
 <div class="dashboard">
 
-    <!--=========================================
-        SIDEBAR
-    ==========================================-->
+<!--=========================================
+    SIDEBAR
+==========================================-->
 
     <aside class="sidebar">
 
+        <!-- LOGO -->
         <div class="logo">
 
-            <img src="../assets/marca.png"
-                 alt="Paula Studio">
+            <img
+                src="../assets/marca.png"
+                alt="Paula Studio"
+            >
 
         </div>
 
+
+        <!-- MENU -->
         <nav class="menu">
 
-            <a href="dashboard.html">
+            <a href="./homelojista.html">
 
                 <i class="fa-solid fa-chart-line"></i>
 
@@ -42,13 +47,15 @@
 
             </a>
 
-            <a href="produtos.html" class="ativo">
+
+            <a href="./produtoslojista.html">
 
                 <i class="fa-solid fa-box"></i>
 
                 Produtos
 
             </a>
+
 
             <a href="#">
 
@@ -58,6 +65,7 @@
 
             </a>
 
+
             <a href="#">
 
                 <i class="fa-solid fa-users"></i>
@@ -66,6 +74,7 @@
 
             </a>
 
+
             <a href="#">
 
                 <i class="fa-solid fa-chart-column"></i>
@@ -73,6 +82,7 @@
                 Relatórios
 
             </a>
+
 
             <a href="#">
 
@@ -84,20 +94,40 @@
 
         </nav>
 
+
+        <!-- PERFIL DO LOJISTA -->
         <div class="perfil-sidebar">
 
-            <img src="img/perfil.jpg"
-                 alt="Perfil">
+            <img
+                src="img/perfil.jpg"
+                alt="Perfil"
+            >
 
-            <div>
 
-                <h4>Paula Soares</h4>
+            <div class="dados-lojista-sidebar">
 
-                <span>Admin</span>
+                <h4 id="nome-lojista">
+                    Lojista
+                </h4>
+
+                <span>
+                    Administrador
+                </span>
 
             </div>
 
-            <i class="fa-solid fa-circle-user"></i>
+
+            <!-- BOTÃO SAIR -->
+            <button
+                id="btn-sair-lojista"
+                class="btn-sair-lojista"
+                type="button"
+                title="Sair"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+            </button>
 
         </div>
 
@@ -338,7 +368,7 @@
 
                                 </button>
 
-                                <button class="menu">
+                                <button class="menu-acoes">
 
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
 
@@ -420,7 +450,7 @@
 
                                 </button>
 
-                                <button class="menu">
+                                <button class="menu-acoes">
 
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
 
@@ -502,7 +532,7 @@
 
                                 </button>
 
-                                <button class="menu">
+                                <button class="menu-acoes">
 
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
 
@@ -584,7 +614,7 @@
 
                                 </button>
 
-                                <button class="menu">
+                                <button class="menu-acoes">
 
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
 

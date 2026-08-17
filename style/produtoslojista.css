@@ -63,7 +63,7 @@ body{
 
 .logo img {
 
-    width: 140px;
+    width: 210px;
 
     border-radius: 10px;
 
@@ -247,6 +247,389 @@ body{
     font-size: 16px;
 
 }
+
+/*=========================================================
+    CONTEÚDO
+=========================================================*/
+
+.conteudo{
+
+    flex:1;
+
+    padding:20px 30px;
+
+    min-width:0;
+
+}
+
+
+/*=========================================================
+    HEADER
+=========================================================*/
+
+.topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+
+/*=========================================================
+    PESQUISA SUPERIOR
+=========================================================*/
+
+.pesquisa{
+
+    width:420px;
+
+    height:46px;
+
+    background:#FFF;
+
+    border:1px solid #E5E7EE;
+
+    border-radius:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+}
+
+
+.pesquisa i{
+
+    color:#BBB;
+
+    margin-right:12px;
+
+}
+
+
+.pesquisa input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+}
+
+
+/*=========================================================
+    AÇÕES DO TOPO
+=========================================================*/
+
+.acoes-topo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.notificacao{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    position:relative;
+
+    font-size:18px;
+
+}
+
+
+.notificacao span{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    background:#FF5A5A;
+
+    border-radius:50%;
+
+}
+
+
+/*=========================================================
+    NOVO PRODUTO
+=========================================================*/
+
+.novo-produto{
+
+    height:42px;
+
+    padding:0 22px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#C96556;
+
+    color:#FFF;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.novo-produto:hover{
+
+    background:#B35346;
+
+}
+
+
+/*=========================================================
+    VER LOJA
+=========================================================*/
+
+.ver-loja{
+
+    height:42px;
+
+    padding:0 22px;
+
+    border:1px solid #C96556;
+
+    border-radius:8px;
+
+    background:#FFF;
+
+    color:#C96556;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.ver-loja:hover{
+
+    background:#C96556;
+
+    color:#FFF;
+
+}
+
+
+/*=========================================================
+    TÍTULO
+=========================================================*/
+
+.titulo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+
+.titulo h1{
+
+    font-size:36px;
+
+    margin-bottom:6px;
+
+}
+
+
+.titulo p{
+
+    color:#7D7D7D;
+
+}
+
+
+/*=========================================================
+    ABAS
+=========================================================*/
+
+.abas{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+.abas button{
+
+    padding:10px 18px;
+
+    border:1px solid #ECECEC;
+
+    border-radius:10px;
+
+    background:#FFF;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.abas button:hover{
+
+    border-color:#C96556;
+
+    color:#C96556;
+
+}
+
+
+.abas button.ativo{
+
+    background:#FDEEEB;
+
+    color:#C96556;
+
+    border-color:#F2D4CC;
+
+}
+
+
+/*=========================================================
+    FILTROS
+=========================================================*/
+
+.filtros{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr auto;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+
+.campo-busca{
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 15px;
+
+    background:#FFF;
+
+    border:1px solid #E3E5EA;
+
+    border-radius:10px;
+
+}
+
+
+.campo-busca i{
+
+    color:#AAA;
+
+}
+
+
+.campo-busca input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+}
+
+
+.filtros select{
+
+    height:48px;
+
+    padding:0 15px;
+
+    border:1px solid #E3E5EA;
+
+    border-radius:10px;
+
+    background:#FFF;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+
+.mais-filtros{
+
+    height:48px;
+
+    padding:0 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#F3F4F6;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
 /*=========================================================
     TABELA DE PRODUTOS
 =========================================================*/
@@ -519,7 +902,7 @@ tbody tr:hover{
 
 }
 
-.menu:hover{
+.menu-acoes:hover{
 
     background:#EFEFEF;
 
