@@ -7,10 +7,7 @@ const API_URL = "http://localhost:3000";
 const ROTAS = {
 
     cadastro:
-        `${API_URL}/lojista`,
-
-    login:
-        `${API_URL}/lojista/login`
+        `${API_URL}/lojista`
 
 };
 
@@ -164,39 +161,59 @@ const btnVerConfirmarSenha =
 // EVENTOS DE NAVEGAÇÃO
 // ======================================================
 
-btnIrLogin.addEventListener(
-    "click",
-    abrirLogin
-);
+if (btnIrLogin) {
+
+    btnIrLogin.addEventListener(
+        "click",
+        abrirLogin
+    );
+
+}
 
 
-btnIrCadastro.addEventListener(
-    "click",
-    abrirCadastro
-);
+if (btnIrCadastro) {
+
+    btnIrCadastro.addEventListener(
+        "click",
+        abrirCadastro
+    );
+
+}
 
 
-btnAbrirCadastro.addEventListener(
-    "click",
-    abrirCadastro
-);
+if (btnAbrirCadastro) {
+
+    btnAbrirCadastro.addEventListener(
+        "click",
+        abrirCadastro
+    );
+
+}
 
 
-btnAbrirLogin.addEventListener(
-    "click",
-    abrirLogin
-);
+if (btnAbrirLogin) {
+
+    btnAbrirLogin.addEventListener(
+        "click",
+        abrirLogin
+    );
+
+}
 
 
-btnVoltarLoja.addEventListener(
-    "click",
-    () => {
+if (btnVoltarLoja) {
 
-        window.location.href =
-            "./login.html";
+    btnVoltarLoja.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            window.location.href =
+                "./login.html";
+
+        }
+    );
+
+}
 
 
 // ======================================================
@@ -205,22 +222,40 @@ btnVoltarLoja.addEventListener(
 
 function abrirLogin() {
 
-    sectionLogin.classList.add(
-        "active"
-    );
+    if (sectionLogin) {
 
-    sectionCadastro.classList.remove(
-        "active"
-    );
+        sectionLogin.classList.add(
+            "active"
+        );
+
+    }
 
 
-    btnIrLogin.classList.add(
-        "active"
-    );
+    if (sectionCadastro) {
 
-    btnIrCadastro.classList.remove(
-        "active"
-    );
+        sectionCadastro.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    if (btnIrLogin) {
+
+        btnIrLogin.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if (btnIrCadastro) {
+
+        btnIrCadastro.classList.remove(
+            "active"
+        );
+
+    }
 
 
     limparMensagem(
@@ -228,7 +263,11 @@ function abrirLogin() {
     );
 
 
-    loginEmail.focus();
+    if (loginEmail) {
+
+        loginEmail.focus();
+
+    }
 
 }
 
@@ -239,22 +278,40 @@ function abrirLogin() {
 
 function abrirCadastro() {
 
-    sectionCadastro.classList.add(
-        "active"
-    );
+    if (sectionCadastro) {
 
-    sectionLogin.classList.remove(
-        "active"
-    );
+        sectionCadastro.classList.add(
+            "active"
+        );
+
+    }
 
 
-    btnIrCadastro.classList.add(
-        "active"
-    );
+    if (sectionLogin) {
 
-    btnIrLogin.classList.remove(
-        "active"
-    );
+        sectionLogin.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    if (btnIrCadastro) {
+
+        btnIrCadastro.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if (btnIrLogin) {
+
+        btnIrLogin.classList.remove(
+            "active"
+        );
+
+    }
 
 
     limparMensagem(
@@ -262,7 +319,11 @@ function abrirCadastro() {
     );
 
 
-    lojistaNome.focus();
+    if (lojistaNome) {
+
+        lojistaNome.focus();
+
+    }
 
 }
 
@@ -271,43 +332,64 @@ function abrirCadastro() {
 // MOSTRAR / ESCONDER SENHA
 // ======================================================
 
-btnVerSenhaLogin.addEventListener(
-    "click",
-    () => {
+if (
+    btnVerSenhaLogin &&
+    loginSenha
+) {
 
-        alternarSenha(
-            loginSenha,
-            btnVerSenhaLogin
-        );
+    btnVerSenhaLogin.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            alternarSenha(
+                loginSenha,
+                btnVerSenhaLogin
+            );
 
+        }
+    );
 
-btnVerSenhaCadastro.addEventListener(
-    "click",
-    () => {
-
-        alternarSenha(
-            lojistaSenha,
-            btnVerSenhaCadastro
-        );
-
-    }
-);
+}
 
 
-btnVerConfirmarSenha.addEventListener(
-    "click",
-    () => {
+if (
+    btnVerSenhaCadastro &&
+    lojistaSenha
+) {
 
-        alternarSenha(
-            lojistaConfirmarSenha,
-            btnVerConfirmarSenha
-        );
+    btnVerSenhaCadastro.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            alternarSenha(
+                lojistaSenha,
+                btnVerSenhaCadastro
+            );
+
+        }
+    );
+
+}
+
+
+if (
+    btnVerConfirmarSenha &&
+    lojistaConfirmarSenha
+) {
+
+    btnVerConfirmarSenha.addEventListener(
+        "click",
+        () => {
+
+            alternarSenha(
+                lojistaConfirmarSenha,
+                btnVerConfirmarSenha
+            );
+
+        }
+    );
+
+}
 
 
 // ======================================================
@@ -319,18 +401,27 @@ function alternarSenha(
     botao
 ) {
 
+    if (!input || !botao) {
+
+        return;
+
+    }
+
+
     if (
         input.type === "password"
     ) {
 
-        input.type = "text";
+        input.type =
+            "text";
 
         botao.textContent =
             "Ocultar";
 
     } else {
 
-        input.type = "password";
+        input.type =
+            "password";
 
         botao.textContent =
             "Mostrar";
@@ -341,26 +432,54 @@ function alternarSenha(
 
 
 // ======================================================
-// LOGIN DO LOJISTA
+// LOGIN TEMPORÁRIO DO LOJISTA
 // ======================================================
 
-btnLogin.addEventListener(
-    "click",
-    fazerLogin
-);
+if (btnLogin) {
+
+    btnLogin.addEventListener(
+        "click",
+        fazerLogin
+    );
+
+}
 
 
-async function fazerLogin() {
+function fazerLogin(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+    }
+
+
+    // ==================================================
+    // PEGAR DADOS DIGITADOS
+    // ==================================================
 
     const email =
-        loginEmail.value.trim();
+        loginEmail
+            ? loginEmail.value
+                .trim()
+                .toLowerCase()
+            : "";
+
 
     const senha =
-        loginSenha.value;
+        loginSenha
+            ? loginSenha.value
+            : "";
+
 
     limparMensagem(
         mensagemLogin
     );
+
+
+    // ==================================================
+    // VALIDAR CAMPOS VAZIOS
+    // ==================================================
 
     if (
         email === "" ||
@@ -374,94 +493,146 @@ async function fazerLogin() {
         );
 
         return;
+
     }
 
-    try {
 
-        definirCarregamento(
-            btnLogin,
-            true,
-            "Entrando..."
-        );
+    // ==================================================
+    // DADOS DO LOJISTA
+    // LOGIN TEMPORÁRIO PARA APRESENTAÇÃO
+    // ==================================================
 
-        const resposta =
-            await fetch(
-                "http://localhost:3000/lojista/login",
-                {
-                    method: "POST",
+    const lojistaCadastrado = {
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+        idLojista: 1,
 
-                    body:
-                        JSON.stringify({
-                            email: email,
-                            senha: senha
-                        })
-                }
-            );
+        nome:
+            "Israel",
 
-        const dados =
-            await resposta.json();
+        cpf:
+            "6288778117",
 
-        if (!resposta.ok) {
+        cnpj:
+            "45472546000183",
 
-            mostrarMensagem(
-                mensagemLogin,
-                dados.mensagem ||
-                "E-mail ou senha inválidos.",
-                "erro"
-            );
+        email:
+            "israel.contato02@gmail.com",
 
-            return;
-        }
+        senha:
+            "123456789rs",
 
-        // Salva os dados do lojista logado
-        localStorage.setItem(
-            "lojista",
-            JSON.stringify(
-                dados.lojista
-            )
-        );
+        telefone:
+            "63992938076"
+
+    };
+
+
+    // ==================================================
+    // VERIFICAR E-MAIL E SENHA
+    // ==================================================
+
+    if (
+        email !==
+        lojistaCadastrado.email ||
+        senha !==
+        lojistaCadastrado.senha
+    ) {
 
         mostrarMensagem(
             mensagemLogin,
-            "Login realizado com sucesso!",
-            "sucesso"
-        );
-
-        // Redireciona para a home do lojista
-        setTimeout(() => {
-
-            window.location.replace(
-                "./homelojista.html"
-            );
-
-        }, 500);
-
-    } catch (erro) {
-
-        console.error(
-            "Erro no login do lojista:",
-            erro
-        );
-
-        mostrarMensagem(
-            mensagemLogin,
-            "Não foi possível conectar ao servidor.",
+            "E-mail ou senha incorretos.",
             "erro"
         );
 
-    } finally {
+        return;
 
-        definirCarregamento(
-            btnLogin,
-            false,
-            "Entrar no painel"
-        );
     }
+
+
+    // ==================================================
+    // CRIAR OBJETO DO LOJISTA LOGADO
+    // NÃO SALVAMOS A SENHA
+    // ==================================================
+
+    const lojistaLogado = {
+
+        idLojista:
+            lojistaCadastrado.idLojista,
+
+        nome:
+            lojistaCadastrado.nome,
+
+        cpf:
+            lojistaCadastrado.cpf,
+
+        cnpj:
+            lojistaCadastrado.cnpj,
+
+        email:
+            lojistaCadastrado.email,
+
+        telefone:
+            lojistaCadastrado.telefone
+
+    };
+
+
+    // ==================================================
+    // SALVAR LOJISTA NO LOCALSTORAGE
+    // ==================================================
+
+    localStorage.setItem(
+        "lojista",
+        JSON.stringify(
+            lojistaLogado
+        )
+    );
+
+
+    // ==================================================
+    // REMOVER POSSÍVEL CLIENTE LOGADO
+    // ==================================================
+
+    localStorage.removeItem(
+        "cliente"
+    );
+
+
+    // ==================================================
+    // MOSTRAR NO CONSOLE
+    // ==================================================
+
+    console.log(
+        "Lojista logado:",
+        lojistaLogado
+    );
+
+
+    // ==================================================
+    // MENSAGEM DE SUCESSO
+    // ==================================================
+
+    mostrarMensagem(
+        mensagemLogin,
+        "Login realizado com sucesso!",
+        "sucesso"
+    );
+
+
+    // ==================================================
+    // ABRIR HOME DO LOJISTA
+    // ==================================================
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "./homelojista.html";
+
+        },
+        500
+    );
+
 }
 
 
@@ -469,39 +640,71 @@ async function fazerLogin() {
 // CADASTRAR LOJISTA
 // ======================================================
 
-btnCadastrar.addEventListener(
-    "click",
-    cadastrarLojista
-);
+if (btnCadastrar) {
+
+    btnCadastrar.addEventListener(
+        "click",
+        cadastrarLojista
+    );
+
+}
 
 
-async function cadastrarLojista() {
+async function cadastrarLojista(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+    }
+
+
+    // ==================================================
+    // PEGAR VALORES
+    // ==================================================
 
     const nome =
-        lojistaNome.value
-            .trim();
+        lojistaNome
+            ? lojistaNome.value.trim()
+            : "";
+
 
     const cpf =
-        lojistaCpf.value
-            .trim();
+        lojistaCpf
+            ? lojistaCpf.value.trim()
+            : "";
+
 
     const cnpj =
-        lojistaCnpj.value
-            .trim();
+        lojistaCnpj
+            ? lojistaCnpj.value.trim()
+            : "";
+
 
     const telefone =
-        lojistaTelefone.value
-            .trim();
+        lojistaTelefone
+            ? lojistaTelefone.value.trim()
+            : "";
+
 
     const email =
-        lojistaEmail.value
-            .trim();
+        lojistaEmail
+            ? lojistaEmail.value
+                .trim()
+                .toLowerCase()
+            : "";
+
 
     const senha =
-        lojistaSenha.value;
+        lojistaSenha
+            ? lojistaSenha.value
+            : "";
+
 
     const confirmarSenha =
-        lojistaConfirmarSenha.value;
+        lojistaConfirmarSenha
+            ? lojistaConfirmarSenha.value
+            : "";
 
 
     limparMensagem(
@@ -534,7 +737,7 @@ async function cadastrarLojista() {
 
 
     // ==================================================
-    // VALIDAÇÃO DO E-MAIL
+    // VALIDAR E-MAIL
     // ==================================================
 
     if (
@@ -553,7 +756,7 @@ async function cadastrarLojista() {
 
 
     // ==================================================
-    // VALIDAÇÃO DA SENHA
+    // VALIDAR SENHA
     // ==================================================
 
     if (
@@ -586,8 +789,13 @@ async function cadastrarLojista() {
     }
 
 
+    // ==================================================
+    // CONFIRMAR SENHA
+    // ==================================================
+
     if (
-        senha !== confirmarSenha
+        senha !==
+        confirmarSenha
     ) {
 
         mostrarMensagem(
@@ -602,28 +810,68 @@ async function cadastrarLojista() {
 
 
     // ==================================================
+    // REMOVER MÁSCARAS
+    // ==================================================
+
+    const cpfSemMascara =
+        cpf.replace(
+            /\D/g,
+            ""
+        );
+
+
+    const cnpjSemMascara =
+        cnpj.replace(
+            /\D/g,
+            ""
+        );
+
+
+    const telefoneSemMascara =
+        telefone
+            ? telefone.replace(
+                /\D/g,
+                ""
+            )
+            : null;
+
+
+    // ==================================================
     // OBJETO LOJISTA
     // ==================================================
 
     const lojista = {
 
-        nome: nome,
+        nome:
+            nome,
 
         cpf:
-            cpf, 
+            cpfSemMascara,
 
         cnpj:
-            cnpj, 
+            cnpjSemMascara,
 
         telefone:
-            telefone || null,
+            telefoneSemMascara,
 
-        email: email,
+        email:
+            email,
 
-        senha: senha
+        senha:
+            senha
 
     };
 
+
+    console.log(
+        "Lojista enviado:",
+        lojista
+    );
+
+
+    // ==================================================
+    // CADASTRAR NO BACKEND
+    // ==================================================
 
     try {
 
@@ -639,7 +887,8 @@ async function cadastrarLojista() {
                 ROTAS.cadastro,
                 {
 
-                    method: "POST",
+                    method:
+                        "POST",
 
                     headers: {
 
@@ -657,11 +906,31 @@ async function cadastrarLojista() {
             );
 
 
-        const dados =
-            await resposta.json();
+        let dados;
 
 
-        if (!resposta.ok) {
+        try {
+
+            dados =
+                await resposta.json();
+
+        } catch {
+
+            throw new Error(
+                "O servidor retornou uma resposta inválida."
+            );
+
+        }
+
+
+        // ==================================================
+        // ERRO
+        // ==================================================
+
+        if (
+            !resposta.ok ||
+            !dados.sucesso
+        ) {
 
             mostrarMensagem(
                 mensagemCadastro,
@@ -675,30 +944,39 @@ async function cadastrarLojista() {
         }
 
 
+        // ==================================================
+        // SUCESSO
+        // ==================================================
+
         mostrarMensagem(
             mensagemCadastro,
+            dados.mensagem ||
             "Cadastro realizado com sucesso!",
             "sucesso"
         );
 
 
         // ==================================================
-        // PREENCHE O LOGIN COM O E-MAIL CADASTRADO
+        // PREENCHE LOGIN COM E-MAIL CADASTRADO
         // ==================================================
 
-        loginEmail.value =
-            email;
+        if (loginEmail) {
+
+            loginEmail.value =
+                email;
+
+        }
 
 
         // ==================================================
-        // LIMPA O CADASTRO
+        // LIMPAR CADASTRO
         // ==================================================
 
         limparCadastro();
 
 
         // ==================================================
-        // VOLTA PARA LOGIN
+        // VOLTAR PARA LOGIN
         // ==================================================
 
         setTimeout(
@@ -706,10 +984,20 @@ async function cadastrarLojista() {
 
                 abrirLogin();
 
-                loginEmail.value =
-                    email;
 
-                loginSenha.focus();
+                if (loginEmail) {
+
+                    loginEmail.value =
+                        email;
+
+                }
+
+
+                if (loginSenha) {
+
+                    loginSenha.focus();
+
+                }
 
             },
             800
@@ -753,7 +1041,9 @@ function validarEmail(email) {
     const regex =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    return regex.test(email);
+    return regex.test(
+        email
+    );
 
 }
 
@@ -768,6 +1058,19 @@ function mostrarMensagem(
     tipo
 ) {
 
+    if (!elemento) {
+
+        if (tipo === "erro") {
+
+            alert(texto);
+
+        }
+
+        return;
+
+    }
+
+
     elemento.textContent =
         texto;
 
@@ -780,6 +1083,13 @@ function mostrarMensagem(
 function limparMensagem(
     elemento
 ) {
+
+    if (!elemento) {
+
+        return;
+
+    }
+
 
     elemento.textContent =
         "";
@@ -799,6 +1109,13 @@ function definirCarregamento(
     carregando,
     texto
 ) {
+
+    if (!botao) {
+
+        return;
+
+    }
+
 
     if (carregando) {
 
@@ -827,42 +1144,82 @@ function definirCarregamento(
 
 function limparCadastro() {
 
-    lojistaNome.value =
-        "";
+    if (lojistaNome) {
 
-    lojistaCpf.value =
-        "";
+        lojistaNome.value =
+            "";
 
-    lojistaCnpj.value =
-        "";
-
-    lojistaTelefone.value =
-        "";
-
-    lojistaEmail.value =
-        "";
-
-    lojistaSenha.value =
-        "";
-
-    lojistaConfirmarSenha.value =
-        "";
+    }
 
 
-    // Volta os campos para password
+    if (lojistaCpf) {
 
-    lojistaSenha.type =
-        "password";
+        lojistaCpf.value =
+            "";
 
-    lojistaConfirmarSenha.type =
-        "password";
+    }
 
 
-    btnVerSenhaCadastro.textContent =
-        "Mostrar";
+    if (lojistaCnpj) {
 
-    btnVerConfirmarSenha.textContent =
-        "Mostrar";
+        lojistaCnpj.value =
+            "";
+
+    }
+
+
+    if (lojistaTelefone) {
+
+        lojistaTelefone.value =
+            "";
+
+    }
+
+
+    if (lojistaEmail) {
+
+        lojistaEmail.value =
+            "";
+
+    }
+
+
+    if (lojistaSenha) {
+
+        lojistaSenha.value =
+            "";
+
+        lojistaSenha.type =
+            "password";
+
+    }
+
+
+    if (lojistaConfirmarSenha) {
+
+        lojistaConfirmarSenha.value =
+            "";
+
+        lojistaConfirmarSenha.type =
+            "password";
+
+    }
+
+
+    if (btnVerSenhaCadastro) {
+
+        btnVerSenhaCadastro.textContent =
+            "Mostrar";
+
+    }
+
+
+    if (btnVerConfirmarSenha) {
+
+        btnVerConfirmarSenha.textContent =
+            "Mostrar";
+
+    }
 
 }
 
@@ -871,166 +1228,193 @@ function limparCadastro() {
 // MÁSCARA CPF
 // ======================================================
 
-lojistaCpf.addEventListener(
-    "input",
-    () => {
+if (lojistaCpf) {
 
-        let valor =
-            lojistaCpf.value
-                .replace(/\D/g, "");
+    lojistaCpf.addEventListener(
+        "input",
+        () => {
 
-        valor =
-            valor.substring(
-                0,
-                11
-            );
+            let valor =
+                lojistaCpf.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    );
 
-
-        if (
-            valor.length > 9
-        ) {
 
             valor =
-                valor.replace(
-                    /(\d{3})(\d{3})(\d{3})(\d{1,2})/,
-                    "$1.$2.$3-$4"
+                valor.substring(
+                    0,
+                    11
                 );
 
-        } else if (
-            valor.length > 6
-        ) {
 
-            valor =
-                valor.replace(
-                    /(\d{3})(\d{3})(\d+)/,
-                    "$1.$2.$3"
-                );
+            if (
+                valor.length > 9
+            ) {
 
-        } else if (
-            valor.length > 3
-        ) {
+                valor =
+                    valor.replace(
+                        /(\d{3})(\d{3})(\d{3})(\d{1,2})/,
+                        "$1.$2.$3-$4"
+                    );
 
-            valor =
-                valor.replace(
-                    /(\d{3})(\d+)/,
-                    "$1.$2"
-                );
+            } else if (
+                valor.length > 6
+            ) {
+
+                valor =
+                    valor.replace(
+                        /(\d{3})(\d{3})(\d+)/,
+                        "$1.$2.$3"
+                    );
+
+            } else if (
+                valor.length > 3
+            ) {
+
+                valor =
+                    valor.replace(
+                        /(\d{3})(\d+)/,
+                        "$1.$2"
+                    );
+
+            }
+
+
+            lojistaCpf.value =
+                valor;
 
         }
+    );
 
-
-        lojistaCpf.value =
-            valor;
-
-    }
-);
+}
 
 
 // ======================================================
 // MÁSCARA CNPJ
 // ======================================================
 
-lojistaCnpj.addEventListener(
-    "input",
-    () => {
+if (lojistaCnpj) {
 
-        let valor =
-            lojistaCnpj.value
-                .replace(/\D/g, "");
+    lojistaCnpj.addEventListener(
+        "input",
+        () => {
 
-        valor =
-            valor.substring(
-                0,
-                14
-            );
-
-
-        valor =
-            valor.replace(
-                /^(\d{2})(\d)/,
-                "$1.$2"
-            );
-
-        valor =
-            valor.replace(
-                /^(\d{2})\.(\d{3})(\d)/,
-                "$1.$2.$3"
-            );
-
-        valor =
-            valor.replace(
-                /\.(\d{3})(\d)/,
-                ".$1/$2"
-            );
-
-        valor =
-            valor.replace(
-                /(\d{4})(\d)/,
-                "$1-$2"
-            );
+            let valor =
+                lojistaCnpj.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    );
 
 
-        lojistaCnpj.value =
-            valor;
+            valor =
+                valor.substring(
+                    0,
+                    14
+                );
 
-    }
-);
+
+            valor =
+                valor.replace(
+                    /^(\d{2})(\d)/,
+                    "$1.$2"
+                );
+
+
+            valor =
+                valor.replace(
+                    /^(\d{2})\.(\d{3})(\d)/,
+                    "$1.$2.$3"
+                );
+
+
+            valor =
+                valor.replace(
+                    /\.(\d{3})(\d)/,
+                    ".$1/$2"
+                );
+
+
+            valor =
+                valor.replace(
+                    /(\d{4})(\d)/,
+                    "$1-$2"
+                );
+
+
+            lojistaCnpj.value =
+                valor;
+
+        }
+    );
+
+}
 
 
 // ======================================================
 // MÁSCARA TELEFONE
 // ======================================================
 
-lojistaTelefone.addEventListener(
-    "input",
-    () => {
+if (lojistaTelefone) {
 
-        let valor =
-            lojistaTelefone.value
-                .replace(/\D/g, "");
+    lojistaTelefone.addEventListener(
+        "input",
+        () => {
 
-        valor =
-            valor.substring(
-                0,
-                11
-            );
+            let valor =
+                lojistaTelefone.value
+                    .replace(
+                        /\D/g,
+                        ""
+                    );
 
-
-        if (
-            valor.length > 10
-        ) {
 
             valor =
-                valor.replace(
-                    /(\d{2})(\d{5})(\d{4})/,
-                    "($1) $2-$3"
+                valor.substring(
+                    0,
+                    11
                 );
 
-        } else if (
-            valor.length > 6
-        ) {
 
-            valor =
-                valor.replace(
-                    /(\d{2})(\d{4})(\d{0,4})/,
-                    "($1) $2-$3"
-                );
+            if (
+                valor.length > 10
+            ) {
 
-        } else if (
-            valor.length > 2
-        ) {
+                valor =
+                    valor.replace(
+                        /(\d{2})(\d{5})(\d{4})/,
+                        "($1) $2-$3"
+                    );
 
-            valor =
-                valor.replace(
-                    /(\d{2})(\d+)/,
-                    "($1) $2"
-                );
+            } else if (
+                valor.length > 6
+            ) {
+
+                valor =
+                    valor.replace(
+                        /(\d{2})(\d{4})(\d{0,4})/,
+                        "($1) $2-$3"
+                    );
+
+            } else if (
+                valor.length > 2
+            ) {
+
+                valor =
+                    valor.replace(
+                        /(\d{2})(\d+)/,
+                        "($1) $2"
+                    );
+
+            }
+
+
+            lojistaTelefone.value =
+                valor;
 
         }
+    );
 
-
-        lojistaTelefone.value =
-            valor;
-
-    }
-);
+}
